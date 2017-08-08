@@ -14,5 +14,8 @@ namespace GuerillaTrader.Entities.Dtos
     public class ScreenshotDto : EntityDtoBase
     {
         public byte[] Data { get; set; }
+        public Decimal EntryPrice { get; set; }
+        public Decimal StopLossPrice { get; set; }
+        public Decimal ProfitTakerPrice { get; set; }
     }
 }

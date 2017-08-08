@@ -271,3 +271,4 @@ __pycache__/
 /MachineLearningBP.CollectiveIntelligence/DomainServices/Algorithms/Scripts/Python/guerillaknn.py
 
 /MachineLearningBP.Core/CodeGen/**/*.cs
+TesseractLanguageFiles/

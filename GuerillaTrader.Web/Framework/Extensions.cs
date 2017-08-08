@@ -43,6 +43,6 @@ namespace GuerillaTrader.Web.Framework
         public static List<SelectListItem> GetTradingSetups()
         {
             return Extensions.EnumToSelectListItems<TradingSetups>();
-        }
+        }        
     }
 }

@@ -18,7 +18,7 @@ using System.Collections.Generic;
 
 namespace GuerillaTrader
 {
-    [DependsOn(typeof(AbpAutoMapperModule), typeof(GuerillaTraderSharedModule))]
+    [DependsOn(typeof(AbpZeroCoreModule), typeof(AbpAutoMapperModule), typeof(GuerillaTraderSharedModule))]
     public class GuerillaTraderCoreModule : AbpModule
     {
         public override void PreInitialize()

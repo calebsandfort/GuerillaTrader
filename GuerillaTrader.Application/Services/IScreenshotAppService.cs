@@ -15,5 +15,7 @@ namespace GuerillaTrader.Services
         void Save(ScreenshotDto dto);
         ScreenshotDto SaveBase64(String base64);
         void ConvertAll();
+        void RecognizeText(int id);
+        void RecognizeTextEnqueue(int id);
     }
 }

@@ -24,4 +24,19 @@ namespace GuerillaTrader.BackgroundJobs
             this._monteCarloSimulationAppService.RunSimulation(args);
         }
     }
+
+    public class RunRecognizeTextBackgroundJob : BackgroundJob<int>, ITransientDependency
+    {
+        private readonly IScreenshotAppService _screenshotAppService;
+
+        public RunRecognizeTextBackgroundJob(IScreenshotAppService screenshotAppService)
+        {
+            _screenshotAppService = screenshotAppService;
+        }
+
+        public override void Execute(int args)
+        {
+            this._screenshotAppService.RecognizeText(args);
+        }
+    }
 }

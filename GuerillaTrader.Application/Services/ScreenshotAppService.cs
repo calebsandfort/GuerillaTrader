@@ -13,6 +13,10 @@ using GuerillaTrader.Entities.Dtos;
 using GuerillaTrader.Shared.SqlExecuter;
 using Abp.BackgroundJobs;
 using GuerillaTrader.Shared;
+using Tesseract;
+using System.IO;
+using GuerillaTrader.Shared.Dtos;
+using GuerillaTrader.BackgroundJobs;
 
 namespace GuerillaTrader.Services
 {
@@ -50,7 +54,7 @@ namespace GuerillaTrader.Services
             }
         }
 
-        [UnitOfWork(IsDisabled = true)]
+        //[UnitOfWork(IsDisabled = true)]
         public ScreenshotDto SaveBase64(String base64)
         {
             Screenshot screenshot = new Screenshot { Data = Convert.FromBase64String(base64.Replace("data:image/png;base64,", "")) };
@@ -64,6 +68,73 @@ namespace GuerillaTrader.Services
             screenshot.MapTo(dto);
             dto.Id = id;
             return dto;
+        }
+
+
+        public void RecognizeTextEnqueue(int id)
+        {
+            _backgroundJobManager.Enqueue<RunRecognizeTextBackgroundJob, int>(id);
+        }
+
+        public void RecognizeText(int id)
+        {
+            Screenshot screenshot = this._repository.Get(id);
+
+            //var i = new System.Drawing.Bitmap(new MemoryStream(screenshot.Data));
+            //i.Save("image.bmp");
+
+            using (var engine = new TesseractEngine(@"./tessdata", "eng", EngineMode.Default))
+            {
+                using (var image = new System.Drawing.Bitmap(new MemoryStream(screenshot.Data)))
+                {
+                    using (var pix = PixConverter.ToPix(image))
+                    {
+                        using (var page = engine.Process(pix))
+                        {
+                            var text = page.GetText();
+                            Console.WriteLine("Mean confidence: {0}", page.GetMeanConfidence());
+
+                            Console.WriteLine("Text (GetText): \r\n{0}", text);
+                            Console.WriteLine("Text (iterator):");
+                            using (var iter = page.GetIterator())
+                            {
+                                iter.Begin();
+
+                                do
+                                {
+                                    do
+                                    {
+                                        do
+                                        {
+                                            do
+                                            {
+                                                if (iter.IsAtBeginningOf(PageIteratorLevel.Block))
+                                                {
+                                                    Console.WriteLine("<BLOCK>");
+                                                }
+
+                                                var t = iter.GetText(PageIteratorLevel.Word);
+                                                this._consoleHubProxy.WriteLine(ConsoleWriteLineInput.Create(t));
+                                                Console.Write(" ");
+
+                                                if (iter.IsAtFinalOf(PageIteratorLevel.TextLine, PageIteratorLevel.Word))
+                                                {
+                                                    Console.WriteLine();
+                                                }
+                                            } while (iter.Next(PageIteratorLevel.TextLine, PageIteratorLevel.Word));
+
+                                            if (iter.IsAtFinalOf(PageIteratorLevel.Para, PageIteratorLevel.TextLine))
+                                            {
+                                                Console.WriteLine();
+                                            }
+                                        } while (iter.Next(PageIteratorLevel.Para, PageIteratorLevel.TextLine));
+                                    } while (iter.Next(PageIteratorLevel.Block, PageIteratorLevel.Para));
+                                } while (iter.Next(PageIteratorLevel.Block));
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         public void ConvertAll()
