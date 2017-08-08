@@ -1,0 +1,151 @@
+﻿@(Html.Kendo().Grid<MonteCarloSimulationDto>()
+    .Name("monteCarloSimulationsGrid")
+    .Columns(columns =>
+    {
+        columns.Bound(x => x.TimeStamp).Width(150).Format("{0:M/d/yyyy h:mm tt}").ClientTemplate("<a href='javascript:void(0);' onclick='GuerillaTrader.MonteCarloSimulation.showMonteCarloSimulationModal(#:Id#)'>#:kendo.toString(TimeStamp, 'M/d/yyyy h:mm tt')#</a>");
+        columns.Bound(x => x.TradingAccount).Width(75);
+        columns.Bound(x => x.CumulativeProfit).Width(75);
+        columns.Bound(x => x.ConsecutiveLosses).Width(75);
+        columns.Bound(x => x.MaxDrawdown).Width(75);
+        columns.Bound(x => x.MaxContracts).Width(75);
+        columns.Command(command => { command.Destroy(); }).Width(200);
+
+    })
+    .HtmlAttributes(new { style ="height: 730px;" })
+    .ClientDetailTemplateId("monteCarloSimulationsGridDetailTemplate")
+    .ToolBar(toolbar =>
+    {
+        //toolbar.Create().Text("Add");
+        toolbar.Template("<a class='k-button' href='javascript:void(0);' onclick='GuerillaTrader.MonteCarloSimulation.showMonteCarloSimulationModal(0)'>Add</a><a class='k-button' href='javascript:void(0);' onclick='GuerillaTrader.MonteCarloSimulation.purge()'>Purge</a>");
+    })
+    //.Editable(editable => editable.Mode(GridEditMode.PopUp))
+    .Sortable(sortable => sortable
+        .AllowUnsort(false))
+    .Scrollable()
+    .Filterable(filterable => filterable
+        .Extra(false)
+    //.Operators(operators => operators
+    //.ForString(str => str.Clear()
+    //    .IsEqualTo("Is")
+    //))
+    )
+    .DataSource(dataSource => dataSource
+        .Ajax()
+        .Sort(sort => sort.Add(x => x.TimeStamp).Descending())
+        .Read(read =>
+        {
+            read.Action("MonteCarloSimulations_Read", "MonteCarloSimulations");
+        }
+        )
+        .Model(model =>
+        {
+            model.Id(ce => ce.Id);
+            model.Field(f => f.IsNew).Editable(false);
+            model.Field(f => f.Id).Editable(false);
+        })
+        .Create(create =>
+        {
+            create.Action("MonteCarloSimulation_Create", "MonteCarloSimulations");
+        })
+        .Update(update =>
+        {
+            update.Action("MonteCarloSimulation_Update", "MonteCarloSimulations");
+        })
+        .Destroy(destroy =>
+        {
+            destroy.Action("MonteCarloSimulation_Destroy", "MonteCarloSimulations");
+        })
+    )
+)
+
+<script id="monteCarloSimulationsGridDetailTemplate" type="text/kendo-tmpl">
+    <div class="row">
+        <div class="col-md-10">
+            <div role="form" class="form-horizontal monteCarloSimulationsGridDetailForm">
+                <div class="form-group">
+                    <label class="col-sm-5 control-label" style="font-size: 1.25em; text-decoration: underline;">Parameters</label>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-5 control-label">No. of Trades in Sample</label>
+                    <div class="col-sm-5">
+                        <p class="form-control-static">#:NumberOfTradesInSample#</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-5 control-label">No. of Trades Per Iteration</label>
+                    <div class="col-sm-5">
+                        <p class="form-control-static">#:NumberOfTradesPerIteration#</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-5 control-label">No. of Trades in Sample</label>
+                    <div class="col-sm-5">
+                        <p class="form-control-static">#:NumberOfIterations#</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-5 control-label" style="font-size: 1.25em; text-decoration: underline;">Results</label>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-5 control-label">The cumulative profit is at least</label>
+                    <div class="col-sm-5">
+                        <p class="form-control-static"><b>#:kendo.toString(CumulativeProfit, 'c')#</b> for #:kendo.toString(CumulativeProfitK, 'p0')# of the iterations</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-5 control-label">The largest number of consecutive losses is</label>
+                    <div class="col-sm-5">
+                        <p class="form-control-static"><b>#:ConsecutiveLosses#</b> for #:kendo.toString(ConsecutiveLossesK, 'p0')# of the iterations</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-5 control-label">The maximum drawdown per contract is at most</label>
+                    <div class="col-sm-5">
+                        <p class="form-control-static"><b>#:kendo.toString(MaxDrawdown, 'c')#</b> for #:kendo.toString(MaxDrawdownK, 'p0')# of the iterations</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-5 control-label" style="font-size: 1.25em; text-decoration: underline;">Position Sizing</label>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-5 control-label">Account Size</label>
+                    <div class="col-sm-5">
+                        <p class="form-control-static">#:kendo.toString(AccountSize, 'c')#</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-5 control-label">Ruin Point</label>
+                    <div class="col-sm-5">
+                        <p class="form-control-static">#:kendo.toString(RuinPoint, 'c')#</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-5 control-label">Maximum Drawdown Multiple</label>
+                    <div class="col-sm-5">
+                        <p class="form-control-static">#:MaxDrawdownMultiple#</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-5 control-label">One Contract Amount</label>
+                    <div class="col-sm-5">
+                        <p class="form-control-static">#:kendo.toString(OneContractFunds, 'c')#</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-5 control-label">Trade at most</label>
+                    <div class="col-sm-5">
+                        <p class="form-control-static"><b>#:MaxContracts# contracts</b></p>
+                    </div>
+                </div>
+                # for (var i = 0; i < MarketMaxContractsList.length; i++) { #
+                <div class="form-group">
+                    <label class="col-sm-5 control-label">Trade at most</label>
+                    <div class="col-sm-5">
+                        <p class="form-control-static"><b>#:MarketMaxContractsList[i].Size# #:MarketMaxContractsList[i].Symbol# contracts</b></p>
+                    </div>
+                </div>
+                # } #
+            </div>
+        </div>
+    </div>
+</script>

@@ -1,0 +1,33 @@
+@model Decimal
+
+@{
+    bool required = ViewData["required"] == null ? false : (bool)ViewData["required"];
+    String onChange = ViewData["onChange"] == null ? String.Empty : (String)ViewData["onChange"];
+
+    Dictionary<String, object> attributes = new Dictionary<string, object>();
+    attributes.Add("style", "width:100%;");
+    attributes.Add("class", "includeHidden");
+
+    if (required)
+    {
+        attributes.Add("required", "");
+    }
+}
+
+<div class="form-group">
+    @Html.LabelFor(m => m, new { @class = "col-sm-3 control-label" })
+    <div class="col-sm-9">
+        @(Html.Kendo().NumericTextBoxFor(m => m)
+            .Format("N2")
+            .Min(0m)
+            .Step(0.5m)
+            .Events(events =>
+            {
+                if (!String.IsNullOrEmpty(onChange))
+                {
+                    events.Change(onChange);
+                }
+            })
+            .HtmlAttributes(attributes))
+    </div>
+</div>

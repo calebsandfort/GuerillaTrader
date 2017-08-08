@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.ActiveMenu = "Dashboard";
+    ViewBag.FluidContainer = true;
+}
+
+<div class="row">
+    <div class="col-md-8">
+        @Html.Partial("_TradingAccountDetails")
+        @Html.Partial("../Trades/_TradesGrid")
+    </div>
+    <div class="col-md-4">
+        @Html.Partial("../MarketLog/_MarketLog")
+    </div>
+</div>

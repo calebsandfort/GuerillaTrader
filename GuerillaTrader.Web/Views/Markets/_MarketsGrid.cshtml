@@ -1,0 +1,57 @@
+﻿@(Html.Kendo().Grid<MarketDto>()
+    .Name("marketsGrid")
+    .Columns(columns =>
+    {
+        columns.Bound(x => x.Name).Width(100);
+        columns.Bound(x => x.Symbol).Width(75);
+        columns.Bound(x => x.TickSize).Width(75);
+        columns.Bound(x => x.TickValue).Width(75);
+        columns.Bound(x => x.InitialMargin).Width(100);
+        columns.Bound(x => x.PointValue).Width(100);
+        columns.Bound(x => x.MTT).Width(75);
+        columns.Bound(x => x.Active).Width(75).ClientTemplate("#= Active ? 'Yes' : 'No' #");
+        columns.Command(command => { command.Edit(); command.Destroy(); }).Width(200);
+
+    })
+    .HtmlAttributes(new { style ="height: 600px;" })
+    .ToolBar(toolbar => toolbar.Create().Text("Add Market"))
+    .Editable(editable => editable.Mode(GridEditMode.InLine))
+    .Sortable(sortable => sortable
+        .AllowUnsort(false))
+    .Scrollable()
+    .Filterable(filterable => filterable
+        .Extra(false)
+    //.Operators(operators => operators
+    //.ForString(str => str.Clear()
+    //    .IsEqualTo("Is")
+    //))
+    )
+    .DataSource(dataSource => dataSource
+        .Ajax()
+        .Sort(sort => sort.Add(x => x.Name).Descending())
+        .Read(read =>
+        {
+            read.Action("Markets_Read", "Markets");
+        }
+        )
+        .Model(model =>
+        {
+            model.Id(ce => ce.Id);
+            model.Field(f => f.IsNew).Editable(false);
+            model.Field(f => f.Id).Editable(false);
+            model.Field(f => f.PointValue).Editable(false);
+        })
+        .Create(create =>
+        {
+            create.Action("Market_Create", "Markets");
+        })
+        .Update(update =>
+        {
+            update.Action("Market_Update", "Markets");
+        })
+        .Destroy(destroy =>
+        {
+            destroy.Action("Market_Destroy", "Markets");
+        })
+    )
+)

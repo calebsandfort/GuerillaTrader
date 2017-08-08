@@ -1,0 +1,34 @@
+@model int
+
+@{
+    bool required = ViewData["required"] == null ? false : (bool)ViewData["required"];
+    String fieldName = ViewData["fieldName"] == null ? String.Empty : (String)ViewData["fieldName"];
+
+    Dictionary<String, object> attributes = new Dictionary<string, object>();
+    attributes.Add("style", "width:100%;");
+    attributes.Add("class", "includeHidden");
+
+    if (required)
+    {
+        attributes.Add("required", "");
+    }
+}
+
+<div class="form-group">
+    @Html.LabelFor(m => m, new { @class = "col-sm-3 control-label" })
+    <div class="col-sm-9">
+        @if (Model == 0)
+        {
+        <div style="width: 100%; height: 150px; border-color: #007fff; border-width: 2px; border-style: dashed;" id='@String.Format("pasteTarget{0}", fieldName)'>
+            Click and paste here.
+        </div>
+        <img id='@String.Format("img{0}", fieldName)' class="img-responsive" style="display: none;" />
+        }
+        else
+        {
+            <img id='@String.Format("img{0}", fieldName)' class="img-responsive" src='@Url.Content(String.Format("~/Screenshots/Screenshot/", Model))' />
+        }
+
+        @(Html.HiddenFor(m => m, attributes))
+    </div>
+</div>

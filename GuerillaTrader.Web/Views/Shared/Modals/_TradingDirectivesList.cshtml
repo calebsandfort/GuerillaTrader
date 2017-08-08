@@ -1,0 +1,14 @@
+﻿@model TradingDirectiveTypes
+
+<table class="table table-striped table-bordered">
+    @(Html.Kendo().ListView<TradingDirective>()
+    .Name(String.Format("tradingDirectiveList_{0}", (int)Model))
+    .TagName("tbody")
+    .HtmlAttributes(new { style = "border: none; box-shadow: none;" })
+    .ClientTemplateId("tradingDirectiveTemplate")
+    .DataSource(dataSource =>
+    {
+        dataSource.Read(read => read.Action("TradingDirectives_Read", "ViewRenderer").Data(String.Format("function (){{ return {{ tradingDirectiveType: {0} }} }}", (int)Model)));
+    })
+    )
+</table>

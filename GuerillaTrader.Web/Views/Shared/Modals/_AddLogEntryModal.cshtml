@@ -1,0 +1,93 @@
+﻿@model AddLogEntryModel
+
+<div class="modal fade" id="addLogEntryModal" tabindex="-1" role="dialog" aria-labelledby="addLogEntryModal-label" data-backdrop="static">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form id="addLogEntryForm" class="form-horizontal">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="addLogEntryModal-label">Add Log Entry</h4>
+                </div>
+                <div class="modal-body" style="padding-bottom: 0;">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="MarketLogEntryType">Type</label>
+                        <div class="col-sm-9">
+                            @(Html.Kendo().ComboBox()
+                              .Name("MarketLogEntryType")
+                              .DataTextField("Display")
+                              .DataValueField("Value")
+                              .Value(((int)MarketLogEntryTypes.MarketAnalysis).ToString())
+                              .SelectedIndex(0)
+                              .Filter("contains")
+                              .DataSource(source =>
+                              {
+                                  source.Read(read =>
+                                  {
+                                      read.Action("GetMarketLogEntryTypes", "ViewRenderer");
+                                  })
+                                  .ServerFiltering(false);
+                              })
+                              .HtmlAttributes(new { style = "width:100%;", id = "MarketLogEntryType", required = "", @class = "includeHidden" })
+                            )
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="MarketId">Market</label>
+                        <div class="col-sm-9">
+                            @(Html.Kendo().ComboBox()
+                              .Name("MarketId")
+                              .DataTextField("Symbol")
+                              .DataValueField("Id")
+                              .Value(Model.MarketId.ToString())
+                              .SelectedIndex(0)
+                              .Filter("contains")
+                              .DataSource(source =>
+                              {
+                                  source.Read(read =>
+                                  {
+                                      read.Action("GetMarkets", "Markets");
+                                  })
+                                  .ServerFiltering(false);
+                              })
+                              .HtmlAttributes(new { style = "width:100%;", id = "MarketId", required = "", @class = "includeHidden" })
+                            )
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="Trials">Text</label>
+                        <div class="col-sm-9">
+                            @(Html.TextArea("Text", new { style = "width: 100%; resize: none;", id = "Text", required = "", @class = "includeHidden", rows = 4 })
+                            )
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="Trials">TimeStamp</label>
+                        <div class="col-sm-9">
+                            @(Html.Kendo().DateTimePicker()
+                                .Name("TimeStamp")
+                                .Value(Model.Date)
+                                .Interval(5)
+                                .HtmlAttributes(new { style = "width: 100%", title = "TimeStamp", id = "TimeStamp", required = "", @class = "includeHidden" })
+                                .DateInput()
+                            )
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="Trials">Screenshot</label>
+                        <div class="col-sm-9">
+                            <div style="width: 100%; height: 150px; border-color: #007fff; border-width: 2px; border-style: dashed;" id="pasteTargetScreenshotDbId">
+                                Click and paste here.
+                            </div>
+                            <img id="imgScreenshotDbId" class="img-responsive" style="display: none;" />
+                            @(Html.Hidden("ScreenshotDbId", new { id = "ScreenshotDbId", @class = "includeHidden" }))
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

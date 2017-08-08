@@ -1,0 +1,35 @@
+﻿<script type="text/x-kendo-tmpl" id="logEntryTemplate">
+    <li class="left clearfix">
+        <div class="chat-body clearfix">
+            <div class="header">
+                <strong class="primary-font">#:Market# - #:MarketLogEntryTypeDisplay#</strong> <small class="pull-right text-muted">
+                    <span class="glyphicon glyphicon-time" style="padding-right: 5px;"></span>#:kendo.toString(TimeStamp, "MMM d yyyy h:mm tt")#
+                </small>
+            </div>
+            <p>
+                #=Text#
+                #if(ShowScreenshot){#
+                <br />
+                <img class="expandScreenshot img-responsive" style="padding-top: 5px; max-height: 250px; cursor: pointer;" src='@Url.Content("~/Screenshots/Screenshot/")#:ScreenshotDbId#' />
+                #}#
+            </p>
+        </div>
+    </li>
+</script>
+
+<a class="btn btn-primary" style="margin-bottom: 10px;" href="javascript:void(0);" role="button" onclick="GuerillaTrader.Log.showAddLogEntryModal()">Add</a>
+<a class="btn btn-danger" style="margin-bottom: 10px;" href="javascript:void(0);" role="button" onclick="GuerillaTrader.Log.purge()">Purge</a>
+<div id="logPanel" class="panel panel-default">
+    <div class="panel-body" style="overflow: auto; height: 750px;">
+        @(Html.Kendo().ListView<MarketLogEntryDto>()
+                    .Name("logListView")
+                    .TagName("ul")
+                    .HtmlAttributes(new { @class = "chat", style = "border: none; box-shadow: none;" })
+                    .ClientTemplateId("logEntryTemplate")
+                    .DataSource(dataSource =>
+                    {
+                        dataSource.Read(read => read.Action("MarketLog_Read", "MarketLog"));
+                    })
+        )
+    </div>
+</div>

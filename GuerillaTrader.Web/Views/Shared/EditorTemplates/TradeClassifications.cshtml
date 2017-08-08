@@ -1,0 +1,38 @@
+﻿@model TradeClassifications
+
+@{
+    bool required = ViewData["required"] == null ? false : (bool)ViewData["required"];
+
+    Dictionary<String, object> attributes = new Dictionary<string, object>();
+    attributes.Add("style", "width:100%;");
+    attributes.Add("class", "includeHidden");
+
+    if (required)
+    {
+        attributes.Add("required", "");
+    }
+}
+
+<div class="form-group">
+    @Html.LabelFor(m => m, new { @class = "col-sm-3 control-label" })
+    <div class="col-sm-9">
+        @(Html.Kendo().ComboBoxFor(m => m)
+            .DataTextField("Display")
+            .DataValueField("Value")
+            .Value(((int)Model).ToString())
+            .SelectedIndex(0)
+            .Filter("contains")
+            .DataSource(source =>
+            {
+                source.Read(read =>
+                {
+                    read.Action("GetTradeClassifications", "ViewRenderer");
+                })
+                .ServerFiltering(false);
+            })
+            .HtmlAttributes(attributes)
+        )
+    </div>
+</div>
+
+

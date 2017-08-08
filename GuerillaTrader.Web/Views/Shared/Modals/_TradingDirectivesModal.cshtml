@@ -1,0 +1,33 @@
+﻿<script type="text/x-kendo-tmpl" id="tradingDirectiveTemplate">
+    <tr>
+        <td>#:Text#</td>
+    </tr>
+</script>
+
+<div class="modal fade" id="tradingDirectivesModal" tabindex="-1" role="dialog" aria-labelledby="tradingDirectivesModal-label">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="tradingDirectivesModal-label">Trading Directives</h4>
+            </div>
+            <div class="modal-body" style="max-height: 650px; overflow: auto; padding-bottom: 0; padding-top: 10px;">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4>Rules</h4>
+                        <hr />
+                        @Html.Partial("Modals/_TradingDirectivesList", TradingDirectiveTypes.Rule)
+                    </div>
+                    <div class="col-md-6">
+                        <h4>Guidelines</h4>
+                        <hr />
+                        @Html.Partial("Modals/_TradingDirectivesList", TradingDirectiveTypes.Guideline)
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" style="margin-top: 0;">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

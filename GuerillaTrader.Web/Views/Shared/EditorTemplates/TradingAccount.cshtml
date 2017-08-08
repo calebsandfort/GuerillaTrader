@@ -1,0 +1,49 @@
+﻿@model int
+
+@{
+    bool required = ViewData["required"] == null ? false : (bool)ViewData["required"];
+    String onDataBound = ViewData["onDataBound"] == null ? String.Empty : (String)ViewData["onDataBound"];
+    String onChange = ViewData["onChange"] == null ? String.Empty : (String)ViewData["onChange"];
+
+    Dictionary<String, object> attributes = new Dictionary<string, object>();
+    attributes.Add("style", "width:100%;");
+    attributes.Add("class", "includeHidden");
+
+    if (required)
+    {
+        attributes.Add("required", "");
+    }
+}
+
+<div class="form-group">
+    @Html.LabelFor(m => m, new { @class = "col-sm-3 control-label" })
+    <div class="col-sm-9">
+        @(Html.Kendo().ComboBoxFor(m => m)
+            .DataTextField("Name")
+            .DataValueField("Id")
+            .SelectedIndex(0)
+            .Filter("contains")
+            .Events(events =>
+            {
+                if (!String.IsNullOrEmpty(onDataBound))
+                {
+                    events.DataBound(onDataBound);
+                }
+
+                if (!String.IsNullOrEmpty(onChange))
+                {
+                    events.Change(onChange);
+                }
+            })
+            .DataSource(source =>
+            {
+                source.Read(read =>
+                {
+                    read.Action("GetTradingAccounts", "TradingAccounts");
+                })
+                .ServerFiltering(false);
+            })
+            .HtmlAttributes(attributes)
+        )
+    </div>
+</div>

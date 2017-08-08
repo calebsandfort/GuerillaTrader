@@ -1,0 +1,59 @@
+﻿@(Html.Kendo().Grid<TradingAccountDto>()
+    .Name("tradingAccountsGrid")
+    .Columns(columns =>
+    {
+        columns.Bound(x => x.Name).Width(100);
+        columns.Bound(x => x.InitialCapital).Width(100);
+        columns.Bound(x => x.CurrentCapital).Width(100);
+        columns.Bound(x => x.Commissions).Width(100);
+        columns.Bound(x => x.ProfitLoss).Width(100);
+        columns.Bound(x => x.Active).Width(100).ClientTemplate("#= Active ? 'Yes' : 'No' #");
+        //columns.Bound(x => x.PPT).Width(75).Format("{0:N2}");
+        columns.Command(command => { command.Edit(); command.Destroy(); }).Width(200);
+
+    })
+    .HtmlAttributes(new { style ="height: 600px;" })
+    .ToolBar(toolbar => toolbar.Create().Text("Add Account"))
+    .Editable(editable => editable.Mode(GridEditMode.PopUp))
+    .Sortable(sortable => sortable
+        .AllowUnsort(false))
+    .Scrollable()
+    .Filterable(filterable => filterable
+        .Extra(false)
+    //.Operators(operators => operators
+    //.ForString(str => str.Clear()
+    //    .IsEqualTo("Is")
+    //))
+    )
+    .Events(events =>
+    {
+        events.Edit("GuerillaTrader.TradingAccount.grid_edit");
+    })
+    .DataSource(dataSource => dataSource
+        .Ajax()
+        .Sort(sort => sort.Add(x => x.Name).Descending())
+        .Read(read =>
+        {
+            read.Action("TradingAccounts_Read", "TradingAccounts");
+        }
+        )
+        .Model(model =>
+        {
+            model.Id(ce => ce.Id);
+            model.Field(f => f.IsNew).Editable(false);
+            model.Field(f => f.Id).Editable(false);
+        })
+        .Create(create =>
+        {
+            create.Action("TradingAccount_Create", "TradingAccounts");
+        })
+        .Update(update =>
+        {
+            update.Action("TradingAccount_Update", "TradingAccounts");
+        })
+        .Destroy(destroy =>
+        {
+            destroy.Action("TradingAccount_Destroy", "TradingAccounts");
+        })
+    )
+)
