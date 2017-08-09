@@ -42,7 +42,7 @@ namespace GuerillaTrader.Web.Controllers
             return Json(dto);
         }
 
-        [OutputCache(VaryByParam = "id", Duration = 3600)]
+        [OutputCache(VaryByParam = "id", Duration = 360000000)]
         public ActionResult Screenshot(int id)
         {
             ScreenshotDto dto = this._screenshotAppService.Get(id);

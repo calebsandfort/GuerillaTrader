@@ -33,7 +33,8 @@ namespace GuerillaTrader.Web.Controllers
             return View();
         }
 
-        public ActionResult GetMarkets()
+        [OutputCache(VaryByParam = "cacheCounter", Duration = 360000000)]
+        public ActionResult GetMarkets(int cacheCounter)
         {
             return new GuerillaLogisticsApiJsonResult(_marketAppService.GetAllActive());
         }
@@ -54,6 +55,8 @@ namespace GuerillaTrader.Web.Controllers
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Market_Create([DataSourceRequest] DataSourceRequest request, MarketDto model)
         {
+            this.SettingManager.IncrementCacheCounter("Markets");
+
             if (model != null && ModelState.IsValid)
             {
                 this._marketAppService.Save(model);
@@ -67,6 +70,8 @@ namespace GuerillaTrader.Web.Controllers
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Market_Update([DataSourceRequest] DataSourceRequest request, MarketDto model)
         {
+            this.SettingManager.IncrementCacheCounter("Markets");
+
             if (model != null && ModelState.IsValid)
             {
                 this._marketAppService.Save(model);
@@ -80,6 +85,8 @@ namespace GuerillaTrader.Web.Controllers
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Market_Destroy([DataSourceRequest] DataSourceRequest request, MarketDto model)
         {
+            this.SettingManager.IncrementCacheCounter("Markets");
+
             if (model != null)
             {
                 this._marketRepository.Delete(model.Id);

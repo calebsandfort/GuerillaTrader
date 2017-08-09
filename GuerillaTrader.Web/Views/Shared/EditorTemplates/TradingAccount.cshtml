@@ -39,7 +39,8 @@
             {
                 source.Read(read =>
                 {
-                    read.Action("GetTradingAccounts", "TradingAccounts");
+                    read.Action("GetTradingAccounts", "TradingAccounts")
+                    .Data("function(){ return { cacheCounter: abp.setting.get('TradingAccountsCacheCounter')} }"); ;
                 })
                 .ServerFiltering(false);
             })

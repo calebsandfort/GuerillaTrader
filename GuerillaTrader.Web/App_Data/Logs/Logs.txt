@@ -23,3 +23,774 @@ DEBUG 2017-08-08 16:31:45,405 [15   ] Abp.Web.SignalR.Hubs.AbpCommonHub        -
 DEBUG 2017-08-08 16:39:21,197 [8    ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 3bb9818b-f646-4aa5-a43a-2e8c978d9495
 DEBUG 2017-08-08 16:39:23,124 [55   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"37ee7e94-f551-4d95-8425-6a11eb6b755d","IpAddress":"10.16.1.140","TenantId":1,"UserId":null,"ConnectTime":"2017-08-08T16:39:23.1240277-07:00","Properties":{}}
 DEBUG 2017-08-08 16:39:23,128 [33   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: 37ee7e94-f551-4d95-8425-6a11eb6b755d
+WARN  2017-08-08 17:56:24,068 [32   ] Abp.BackgroundJobs.BackgroundJobManager  - Exception has been thrown by the target of an invocation.
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> Tesseract.TesseractException: Failed to initialise tesseract engine.. See https://github.com/charlesw/tesseract/wiki/Error-1 for details.
+   at Tesseract.TesseractEngine.Initialise(String datapath, String language, EngineMode engineMode, IEnumerable`1 configFiles, IDictionary`2 initialValues, Boolean setOnlyNonDebugVariables)
+   at Tesseract.TesseractEngine..ctor(String datapath, String language, EngineMode engineMode, IEnumerable`1 configFiles, IDictionary`2 initialOptions, Boolean setOnlyNonDebugVariables)
+   at Tesseract.TesseractEngine..ctor(String datapath, String language, EngineMode engineMode)
+   at GuerillaTrader.Services.ScreenshotAppService.RecognizeText(Int32 id) in C:\Users\csandfort\Documents\Visual Studio 2017\Projects\GuerillaTrader\GuerillaTrader.Application\Services\ScreenshotAppService.cs:line 86
+   at Castle.Proxies.ScreenshotAppServiceProxy.RecognizeText_callback(Int32 id)
+   at Castle.Proxies.Invocations.IScreenshotAppService_RecognizeText.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Auditing.AuditingInterceptor.PerformSyncAuditing(IInvocation invocation, AuditInfo auditInfo)
+   at Abp.Auditing.AuditingInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Runtime.Validation.Interception.ValidationInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.ScreenshotAppServiceProxy.RecognizeText(Int32 id)
+   at GuerillaTrader.BackgroundJobs.RunRecognizeTextBackgroundJob.Execute(Int32 args) in C:\Users\csandfort\Documents\Visual Studio 2017\Projects\GuerillaTrader\GuerillaTrader.Application\BackgroundJobs\BackgoundJobs.cs:line 39
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
+   at System.Reflection.RuntimeMethodInfo.UnsafeInvokeInternal(Object obj, Object[] parameters, Object[] arguments)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Abp.BackgroundJobs.BackgroundJobManager.TryProcessJob(BackgroundJobInfo jobInfo)
+WARN  2017-08-08 22:12:29,591 [73   ] Abp.BackgroundJobs.BackgroundJobManager  - Exception has been thrown by the target of an invocation.
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> Tesseract.TesseractException: Failed to initialise tesseract engine.. See https://github.com/charlesw/tesseract/wiki/Error-1 for details.
+   at Tesseract.TesseractEngine.Initialise(String datapath, String language, EngineMode engineMode, IEnumerable`1 configFiles, IDictionary`2 initialValues, Boolean setOnlyNonDebugVariables)
+   at Tesseract.TesseractEngine..ctor(String datapath, String language, EngineMode engineMode, IEnumerable`1 configFiles, IDictionary`2 initialOptions, Boolean setOnlyNonDebugVariables)
+   at Tesseract.TesseractEngine..ctor(String datapath, String language, EngineMode engineMode)
+   at GuerillaTrader.Services.ScreenshotAppService.RecognizeText(Int32 id) in C:\Users\csandfort\Documents\Visual Studio 2017\Projects\GuerillaTrader\GuerillaTrader.Application\Services\ScreenshotAppService.cs:line 86
+   at Castle.Proxies.ScreenshotAppServiceProxy.RecognizeText_callback(Int32 id)
+   at Castle.Proxies.Invocations.IScreenshotAppService_RecognizeText.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Auditing.AuditingInterceptor.PerformSyncAuditing(IInvocation invocation, AuditInfo auditInfo)
+   at Abp.Auditing.AuditingInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Runtime.Validation.Interception.ValidationInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.ScreenshotAppServiceProxy.RecognizeText(Int32 id)
+   at GuerillaTrader.BackgroundJobs.RunRecognizeTextBackgroundJob.Execute(Int32 args) in C:\Users\csandfort\Documents\Visual Studio 2017\Projects\GuerillaTrader\GuerillaTrader.Application\BackgroundJobs\BackgoundJobs.cs:line 39
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
+   at System.Reflection.RuntimeMethodInfo.UnsafeInvokeInternal(Object obj, Object[] parameters, Object[] arguments)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Abp.BackgroundJobs.BackgroundJobManager.TryProcessJob(BackgroundJobInfo jobInfo)
+WARN  2017-08-09 06:44:31,768 [81   ] Abp.BackgroundJobs.BackgroundJobManager  - Exception has been thrown by the target of an invocation.
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> Tesseract.TesseractException: Failed to initialise tesseract engine.. See https://github.com/charlesw/tesseract/wiki/Error-1 for details.
+   at Tesseract.TesseractEngine.Initialise(String datapath, String language, EngineMode engineMode, IEnumerable`1 configFiles, IDictionary`2 initialValues, Boolean setOnlyNonDebugVariables)
+   at Tesseract.TesseractEngine..ctor(String datapath, String language, EngineMode engineMode, IEnumerable`1 configFiles, IDictionary`2 initialOptions, Boolean setOnlyNonDebugVariables)
+   at Tesseract.TesseractEngine..ctor(String datapath, String language, EngineMode engineMode)
+   at GuerillaTrader.Services.ScreenshotAppService.RecognizeText(Int32 id) in C:\Users\csandfort\Documents\Visual Studio 2017\Projects\GuerillaTrader\GuerillaTrader.Application\Services\ScreenshotAppService.cs:line 86
+   at Castle.Proxies.ScreenshotAppServiceProxy.RecognizeText_callback(Int32 id)
+   at Castle.Proxies.Invocations.IScreenshotAppService_RecognizeText.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Auditing.AuditingInterceptor.PerformSyncAuditing(IInvocation invocation, AuditInfo auditInfo)
+   at Abp.Auditing.AuditingInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Runtime.Validation.Interception.ValidationInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.ScreenshotAppServiceProxy.RecognizeText(Int32 id)
+   at GuerillaTrader.BackgroundJobs.RunRecognizeTextBackgroundJob.Execute(Int32 args) in C:\Users\csandfort\Documents\Visual Studio 2017\Projects\GuerillaTrader\GuerillaTrader.Application\BackgroundJobs\BackgoundJobs.cs:line 39
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
+   at System.Reflection.RuntimeMethodInfo.UnsafeInvokeInternal(Object obj, Object[] parameters, Object[] arguments)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Abp.BackgroundJobs.BackgroundJobManager.TryProcessJob(BackgroundJobInfo jobInfo)
+DEBUG 2017-08-09 08:42:16,382 [14   ] Abp.Modules.AbpModuleManager             - Shutting down has been started
+DEBUG 2017-08-09 08:42:16,384 [14   ] Abp.BackgroundJobs.BackgroundJobManager  - Stop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-08-09 08:42:16,385 [14   ] Abp.BackgroundJobs.BackgroundJobManager  - WaitToStop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-08-09 08:42:16,385 [14   ] Abp.Modules.AbpModuleManager             - Shutting down completed.
+DEBUG 2017-08-09 08:42:21,505 [3    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-08-09 08:42:21,924 [3    ] Abp.Modules.AbpModuleManager             - Found 16 ABP modules in total.
+DEBUG 2017-08-09 08:42:21,936 [3    ] Abp.Modules.AbpModuleManager             - Loaded module: GuerillaTrader.Web.GuerillaTraderWebModule, GuerillaTrader.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 08:42:21,939 [3    ] Abp.Modules.AbpModuleManager             - Loaded module: GuerillaTrader.GuerillaTraderDataModule, GuerillaTrader.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 08:42:21,939 [3    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=1.5.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 08:42:21,939 [3    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=1.5.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 08:42:21,940 [3    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 08:42:21,940 [3    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 08:42:21,940 [3    ] Abp.Modules.AbpModuleManager             - Loaded module: GuerillaTrader.GuerillaTraderCoreModule, GuerillaTrader.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 08:42:21,940 [3    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 08:42:21,941 [3    ] Abp.Modules.AbpModuleManager             - Loaded module: GuerillaTrader.Shared.GuerillaTraderSharedModule, GuerillaTrader.Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 08:42:21,941 [3    ] Abp.Modules.AbpModuleManager             - Loaded module: GuerillaTrader.GuerillaTraderApplicationModule, GuerillaTrader.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 08:42:21,941 [3    ] Abp.Modules.AbpModuleManager             - Loaded module: GuerillaTrader.Api.GuerillaTraderWebApiModule, GuerillaTrader.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 08:42:21,942 [3    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 08:42:21,942 [3    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 08:42:21,942 [3    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 08:42:21,942 [3    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 08:42:21,942 [3    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 08:42:21,946 [3    ] Abp.Modules.AbpModuleManager             - 16 modules loaded.
+DEBUG 2017-08-09 08:42:22,583 [3    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-08-09 08:42:22,583 [3    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-08-09 08:42:22,583 [3    ] o.Configuration.LanguageManagementConfig - Converted GuerillaTrader (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-08-09 08:42:22,583 [3    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-08-09 08:42:23,719 [3    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: GuerillaTrader.EntityFramework.GuerillaTraderDbContext, GuerillaTrader.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 08:42:26,129 [3    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2017-08-09 08:42:26,193 [3    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-08-09 08:42:26,197 [3    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2017-08-09 08:42:26,201 [3    ] Abp.Localization.LocalizationManager     - Initialized localization source: GuerillaTrader
+DEBUG 2017-08-09 08:42:26,203 [3    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2017-08-09 08:42:26,431 [3    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-08-09 08:42:26,538 [3    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 12 classes define auto mapping attributes
+DEBUG 2017-08-09 08:42:26,539 [3    ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Entities.TradingDayDto
+DEBUG 2017-08-09 08:42:26,544 [3    ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Entities.Dtos.MarketDto
+DEBUG 2017-08-09 08:42:26,545 [3    ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Entities.Dtos.ScreenshotDto
+DEBUG 2017-08-09 08:42:26,545 [3    ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Entities.Dtos.TradingAccountDto
+DEBUG 2017-08-09 08:42:26,545 [3    ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2017-08-09 08:42:26,545 [3    ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Sessions.Dto.UserLoginInfoDto
+DEBUG 2017-08-09 08:42:26,545 [3    ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Users.Dto.CreateUserInput
+DEBUG 2017-08-09 08:42:26,546 [3    ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Users.Dto.UserListDto
+DEBUG 2017-08-09 08:42:26,546 [3    ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.MultiTenancy.Dto.CreateTenantInput
+DEBUG 2017-08-09 08:42:26,546 [3    ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.MultiTenancy.Dto.TenantListDto
+DEBUG 2017-08-09 08:42:26,546 [3    ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Web.Models.ExtractedPricesModel
+DEBUG 2017-08-09 08:42:26,546 [3    ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Web.Models.Account.TenantSelectionViewModel+TenantInfo
+DEBUG 2017-08-09 08:42:29,983 [3    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Sessions.ISessionAppService' with service name 'app/session'.
+DEBUG 2017-08-09 08:42:29,986 [3    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2017-08-09 08:42:29,988 [3    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Services.IMarketAppService' with service name 'app/market'.
+DEBUG 2017-08-09 08:42:29,990 [3    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Services.IMarketLogEntryAppService' with service name 'app/marketLogEntry'.
+DEBUG 2017-08-09 08:42:29,993 [3    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Services.IMonteCarloSimulationAppService' with service name 'app/monteCarloSimulation'.
+DEBUG 2017-08-09 08:42:29,996 [3    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Services.IScreenshotAppService' with service name 'app/screenshot'.
+DEBUG 2017-08-09 08:42:30,041 [3    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Services.ITradeAppService' with service name 'app/trade'.
+DEBUG 2017-08-09 08:42:30,047 [3    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Services.ITradingAccountAppService' with service name 'app/tradingAccount'.
+DEBUG 2017-08-09 08:42:30,049 [3    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Services.ITradingDayAppService' with service name 'app/tradingDay'.
+DEBUG 2017-08-09 08:42:30,051 [3    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Roles.IRoleAppService' with service name 'app/role'.
+DEBUG 2017-08-09 08:42:30,053 [3    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.MultiTenancy.ITenantAppService' with service name 'app/tenant'.
+DEBUG 2017-08-09 08:42:37,110 [97   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected (on reconnected event): {"ConnectionId":"37ee7e94-f551-4d95-8425-6a11eb6b755d","IpAddress":"10.16.1.140","TenantId":1,"UserId":null,"ConnectTime":"2017-08-09T08:42:36.9172352-07:00","Properties":{}}
+DEBUG 2017-08-09 08:44:22,018 [94   ] Abp.Modules.AbpModuleManager             - Shutting down has been started
+DEBUG 2017-08-09 08:44:22,019 [94   ] Abp.BackgroundJobs.BackgroundJobManager  - Stop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-08-09 08:44:22,020 [94   ] Abp.BackgroundJobs.BackgroundJobManager  - WaitToStop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-08-09 08:44:22,020 [94   ] Abp.Modules.AbpModuleManager             - Shutting down completed.
+DEBUG 2017-08-09 08:44:37,499 [43   ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-08-09 08:44:37,544 [43   ] Abp.Modules.AbpModuleManager             - Found 16 ABP modules in total.
+DEBUG 2017-08-09 08:44:37,558 [43   ] Abp.Modules.AbpModuleManager             - Loaded module: GuerillaTrader.Web.GuerillaTraderWebModule, GuerillaTrader.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 08:44:37,560 [43   ] Abp.Modules.AbpModuleManager             - Loaded module: GuerillaTrader.GuerillaTraderDataModule, GuerillaTrader.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 08:44:37,560 [43   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=1.5.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 08:44:37,560 [43   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=1.5.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 08:44:37,562 [43   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 08:44:37,562 [43   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 08:44:37,562 [43   ] Abp.Modules.AbpModuleManager             - Loaded module: GuerillaTrader.GuerillaTraderCoreModule, GuerillaTrader.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 08:44:37,562 [43   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 08:44:37,563 [43   ] Abp.Modules.AbpModuleManager             - Loaded module: GuerillaTrader.Shared.GuerillaTraderSharedModule, GuerillaTrader.Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 08:44:37,563 [43   ] Abp.Modules.AbpModuleManager             - Loaded module: GuerillaTrader.GuerillaTraderApplicationModule, GuerillaTrader.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 08:44:37,563 [43   ] Abp.Modules.AbpModuleManager             - Loaded module: GuerillaTrader.Api.GuerillaTraderWebApiModule, GuerillaTrader.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 08:44:37,563 [43   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 08:44:37,563 [43   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 08:44:37,563 [43   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 08:44:37,564 [43   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 08:44:37,564 [43   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 08:44:37,567 [43   ] Abp.Modules.AbpModuleManager             - 16 modules loaded.
+DEBUG 2017-08-09 08:44:38,017 [43   ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-08-09 08:44:38,018 [43   ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-08-09 08:44:38,018 [43   ] o.Configuration.LanguageManagementConfig - Converted GuerillaTrader (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-08-09 08:44:38,018 [43   ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-08-09 08:44:38,621 [43   ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: GuerillaTrader.EntityFramework.GuerillaTraderDbContext, GuerillaTrader.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 08:44:41,376 [43   ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2017-08-09 08:44:41,387 [43   ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-08-09 08:44:41,499 [43   ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2017-08-09 08:44:41,504 [43   ] Abp.Localization.LocalizationManager     - Initialized localization source: GuerillaTrader
+DEBUG 2017-08-09 08:44:41,506 [43   ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2017-08-09 08:44:41,632 [43   ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-08-09 08:44:41,713 [43   ] Abp.AutoMapper.AbpAutoMapperModule       - Found 12 classes define auto mapping attributes
+DEBUG 2017-08-09 08:44:41,715 [43   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Entities.TradingDayDto
+DEBUG 2017-08-09 08:44:41,729 [43   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Entities.Dtos.MarketDto
+DEBUG 2017-08-09 08:44:41,730 [43   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Entities.Dtos.ScreenshotDto
+DEBUG 2017-08-09 08:44:41,730 [43   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Entities.Dtos.TradingAccountDto
+DEBUG 2017-08-09 08:44:41,730 [43   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2017-08-09 08:44:41,730 [43   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Sessions.Dto.UserLoginInfoDto
+DEBUG 2017-08-09 08:44:41,730 [43   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Users.Dto.CreateUserInput
+DEBUG 2017-08-09 08:44:41,730 [43   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Users.Dto.UserListDto
+DEBUG 2017-08-09 08:44:41,730 [43   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.MultiTenancy.Dto.CreateTenantInput
+DEBUG 2017-08-09 08:44:41,732 [43   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.MultiTenancy.Dto.TenantListDto
+DEBUG 2017-08-09 08:44:41,732 [43   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Web.Models.ExtractedPricesModel
+DEBUG 2017-08-09 08:44:41,732 [43   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Web.Models.Account.TenantSelectionViewModel+TenantInfo
+DEBUG 2017-08-09 08:44:43,816 [43   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Sessions.ISessionAppService' with service name 'app/session'.
+DEBUG 2017-08-09 08:44:43,818 [43   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2017-08-09 08:44:43,819 [43   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Services.IMarketAppService' with service name 'app/market'.
+DEBUG 2017-08-09 08:44:43,820 [43   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Services.IMarketLogEntryAppService' with service name 'app/marketLogEntry'.
+DEBUG 2017-08-09 08:44:43,821 [43   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Services.IMonteCarloSimulationAppService' with service name 'app/monteCarloSimulation'.
+DEBUG 2017-08-09 08:44:43,823 [43   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Services.IScreenshotAppService' with service name 'app/screenshot'.
+DEBUG 2017-08-09 08:44:43,824 [43   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Services.ITradeAppService' with service name 'app/trade'.
+DEBUG 2017-08-09 08:44:43,825 [43   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Services.ITradingAccountAppService' with service name 'app/tradingAccount'.
+DEBUG 2017-08-09 08:44:43,827 [43   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Services.ITradingDayAppService' with service name 'app/tradingDay'.
+DEBUG 2017-08-09 08:44:43,829 [43   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Roles.IRoleAppService' with service name 'app/role'.
+DEBUG 2017-08-09 08:44:43,856 [43   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.MultiTenancy.ITenantAppService' with service name 'app/tenant'.
+DEBUG 2017-08-09 08:44:44,586 [14   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected (on reconnected event): {"ConnectionId":"37ee7e94-f551-4d95-8425-6a11eb6b755d","IpAddress":"10.16.1.140","TenantId":1,"UserId":null,"ConnectTime":"2017-08-09T08:44:44.4766896-07:00","Properties":{}}
+WARN  2017-08-09 11:51:34,519 [89   ] Abp.BackgroundJobs.BackgroundJobManager  - System.Data.Entity.Core.EntityException: The underlying provider failed on Open. ---> System.Data.SqlClient.SqlException: SHUTDOWN is in progress.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.TdsParser.TdsExecuteTransactionManagerRequest(Byte[] buffer, TransactionManagerRequestType request, String transactionName, TransactionManagerIsolationLevel isoLevel, Int32 timeout, SqlInternalTransaction transaction, TdsParserStateObject stateObj, Boolean isDelegateControlRequest)
+   at System.Data.SqlClient.TdsParser.GetDTCAddress(Int32 timeout, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlInternalConnectionTds.GetDTCAddress()
+   at System.Data.SqlClient.SqlInternalConnection.EnlistNonNull(Transaction tx)
+   at System.Data.SqlClient.SqlInternalConnection.Enlist(Transaction tx)
+   at System.Data.SqlClient.SqlInternalConnectionTds.Activate(Transaction transaction)
+   at System.Data.ProviderBase.DbConnectionInternal.ActivateConnection(Transaction transaction)
+   at System.Data.ProviderBase.DbConnectionPool.PrepareConnection(DbConnection owningObject, DbConnectionInternal obj, Transaction transaction)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.<Open>b__36(DbConnection t, DbConnectionInterceptionContext c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.<Open>b__2()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   at System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection(Boolean shouldMonitorTransactions)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Abp.BackgroundJobs.BackgroundJobStore.GetWaitingJobsAsync(Int32 maxResultCount)
+   at Castle.Proxies.BackgroundJobStoreProxy.GetWaitingJobsAsync_callback(Int32 maxResultCount)
+   at Castle.Proxies.Invocations.BackgroundJobStore_GetWaitingJobsAsync.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformAsyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.BackgroundJobStoreProxy.GetWaitingJobsAsync(Int32 maxResultCount)
+   at Abp.BackgroundJobs.BackgroundJobManager.<DoWork>b__13_0()
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Nito.AsyncEx.Synchronous.TaskExtensions.WaitAndUnwrapException[TResult](Task`1 task)
+   at Nito.AsyncEx.AsyncContext.<>c__DisplayClass16_0`1.<Run>b__0(Task`1 t)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Nito.AsyncEx.Synchronous.TaskExtensions.WaitAndUnwrapException[TResult](Task`1 task)
+   at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
+   at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
+   at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
+System.Data.Entity.Core.EntityException: The underlying provider failed on Open. ---> System.Data.SqlClient.SqlException: SHUTDOWN is in progress.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.TdsParser.TdsExecuteTransactionManagerRequest(Byte[] buffer, TransactionManagerRequestType request, String transactionName, TransactionManagerIsolationLevel isoLevel, Int32 timeout, SqlInternalTransaction transaction, TdsParserStateObject stateObj, Boolean isDelegateControlRequest)
+   at System.Data.SqlClient.TdsParser.GetDTCAddress(Int32 timeout, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlInternalConnectionTds.GetDTCAddress()
+   at System.Data.SqlClient.SqlInternalConnection.EnlistNonNull(Transaction tx)
+   at System.Data.SqlClient.SqlInternalConnection.Enlist(Transaction tx)
+   at System.Data.SqlClient.SqlInternalConnectionTds.Activate(Transaction transaction)
+   at System.Data.ProviderBase.DbConnectionInternal.ActivateConnection(Transaction transaction)
+   at System.Data.ProviderBase.DbConnectionPool.PrepareConnection(DbConnection owningObject, DbConnectionInternal obj, Transaction transaction)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.<Open>b__36(DbConnection t, DbConnectionInterceptionContext c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.<Open>b__2()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   at System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection(Boolean shouldMonitorTransactions)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Abp.BackgroundJobs.BackgroundJobStore.GetWaitingJobsAsync(Int32 maxResultCount)
+   at Castle.Proxies.BackgroundJobStoreProxy.GetWaitingJobsAsync_callback(Int32 maxResultCount)
+   at Castle.Proxies.Invocations.BackgroundJobStore_GetWaitingJobsAsync.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformAsyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.BackgroundJobStoreProxy.GetWaitingJobsAsync(Int32 maxResultCount)
+   at Abp.BackgroundJobs.BackgroundJobManager.<DoWork>b__13_0()
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Nito.AsyncEx.Synchronous.TaskExtensions.WaitAndUnwrapException[TResult](Task`1 task)
+   at Nito.AsyncEx.AsyncContext.<>c__DisplayClass16_0`1.<Run>b__0(Task`1 t)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Nito.AsyncEx.Synchronous.TaskExtensions.WaitAndUnwrapException[TResult](Task`1 task)
+   at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
+   at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
+   at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
+WARN  2017-08-09 11:52:01,283 [14   ] Abp.BackgroundJobs.BackgroundJobManager  - System.Data.Entity.Core.EntityException: The underlying provider failed on Open. ---> System.Data.SqlClient.SqlException: Timeout expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. ---> System.ComponentModel.Win32Exception: The wait operation timed out
+   --- End of inner exception stack trace ---
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   at System.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   at System.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   at System.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
+   at System.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.TdsParser.TdsExecuteTransactionManagerRequest(Byte[] buffer, TransactionManagerRequestType request, String transactionName, TransactionManagerIsolationLevel isoLevel, Int32 timeout, SqlInternalTransaction transaction, TdsParserStateObject stateObj, Boolean isDelegateControlRequest)
+   at System.Data.SqlClient.SqlInternalConnectionTds.ExecuteTransactionYukon(TransactionRequest transactionRequest, String transactionName, IsolationLevel iso, SqlInternalTransaction internalTransaction, Boolean isDelegateControlRequest)
+   at System.Data.SqlClient.SqlInternalConnectionTds.ExecuteTransaction(TransactionRequest transactionRequest, String name, IsolationLevel iso, SqlInternalTransaction internalTransaction, Boolean isDelegateControlRequest)
+   at System.Data.SqlClient.SqlDelegatedTransaction.Initialize()
+   at System.Transactions.TransactionStatePSPEOperation.PSPEInitialize(InternalTransaction tx, IPromotableSinglePhaseNotification promotableSinglePhaseNotification, Guid promoterType)
+   at System.Transactions.TransactionStateActive.EnlistPromotableSinglePhase(InternalTransaction tx, IPromotableSinglePhaseNotification promotableSinglePhaseNotification, Transaction atomicTransaction, Guid promoterType)
+   at System.Transactions.Transaction.EnlistPromotableSinglePhase(IPromotableSinglePhaseNotification promotableSinglePhaseNotification, Guid promoterType)
+   at System.Transactions.Transaction.EnlistPromotableSinglePhase(IPromotableSinglePhaseNotification promotableSinglePhaseNotification)
+   at System.Data.SqlClient.SqlInternalConnection.EnlistNonNull(Transaction tx)
+   at System.Data.SqlClient.SqlInternalConnection.Enlist(Transaction tx)
+   at System.Data.SqlClient.SqlInternalConnectionTds.Activate(Transaction transaction)
+   at System.Data.ProviderBase.DbConnectionInternal.ActivateConnection(Transaction transaction)
+   at System.Data.ProviderBase.DbConnectionPool.PrepareConnection(DbConnection owningObject, DbConnectionInternal obj, Transaction transaction)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.<Open>b__36(DbConnection t, DbConnectionInterceptionContext c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.<Open>b__2()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   at System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection(Boolean shouldMonitorTransactions)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Abp.BackgroundJobs.BackgroundJobStore.GetWaitingJobsAsync(Int32 maxResultCount)
+   at Castle.Proxies.BackgroundJobStoreProxy.GetWaitingJobsAsync_callback(Int32 maxResultCount)
+   at Castle.Proxies.Invocations.BackgroundJobStore_GetWaitingJobsAsync.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformAsyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.BackgroundJobStoreProxy.GetWaitingJobsAsync(Int32 maxResultCount)
+   at Abp.BackgroundJobs.BackgroundJobManager.<DoWork>b__13_0()
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Nito.AsyncEx.Synchronous.TaskExtensions.WaitAndUnwrapException[TResult](Task`1 task)
+   at Nito.AsyncEx.AsyncContext.<>c__DisplayClass16_0`1.<Run>b__0(Task`1 t)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Nito.AsyncEx.Synchronous.TaskExtensions.WaitAndUnwrapException[TResult](Task`1 task)
+   at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
+   at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
+   at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
+System.Data.Entity.Core.EntityException: The underlying provider failed on Open. ---> System.Data.SqlClient.SqlException: Timeout expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. ---> System.ComponentModel.Win32Exception: The wait operation timed out
+   --- End of inner exception stack trace ---
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   at System.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   at System.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   at System.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
+   at System.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.TdsParser.TdsExecuteTransactionManagerRequest(Byte[] buffer, TransactionManagerRequestType request, String transactionName, TransactionManagerIsolationLevel isoLevel, Int32 timeout, SqlInternalTransaction transaction, TdsParserStateObject stateObj, Boolean isDelegateControlRequest)
+   at System.Data.SqlClient.SqlInternalConnectionTds.ExecuteTransactionYukon(TransactionRequest transactionRequest, String transactionName, IsolationLevel iso, SqlInternalTransaction internalTransaction, Boolean isDelegateControlRequest)
+   at System.Data.SqlClient.SqlInternalConnectionTds.ExecuteTransaction(TransactionRequest transactionRequest, String name, IsolationLevel iso, SqlInternalTransaction internalTransaction, Boolean isDelegateControlRequest)
+   at System.Data.SqlClient.SqlDelegatedTransaction.Initialize()
+   at System.Transactions.TransactionStatePSPEOperation.PSPEInitialize(InternalTransaction tx, IPromotableSinglePhaseNotification promotableSinglePhaseNotification, Guid promoterType)
+   at System.Transactions.TransactionStateActive.EnlistPromotableSinglePhase(InternalTransaction tx, IPromotableSinglePhaseNotification promotableSinglePhaseNotification, Transaction atomicTransaction, Guid promoterType)
+   at System.Transactions.Transaction.EnlistPromotableSinglePhase(IPromotableSinglePhaseNotification promotableSinglePhaseNotification, Guid promoterType)
+   at System.Transactions.Transaction.EnlistPromotableSinglePhase(IPromotableSinglePhaseNotification promotableSinglePhaseNotification)
+   at System.Data.SqlClient.SqlInternalConnection.EnlistNonNull(Transaction tx)
+   at System.Data.SqlClient.SqlInternalConnection.Enlist(Transaction tx)
+   at System.Data.SqlClient.SqlInternalConnectionTds.Activate(Transaction transaction)
+   at System.Data.ProviderBase.DbConnectionInternal.ActivateConnection(Transaction transaction)
+   at System.Data.ProviderBase.DbConnectionPool.PrepareConnection(DbConnection owningObject, DbConnectionInternal obj, Transaction transaction)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.<Open>b__36(DbConnection t, DbConnectionInterceptionContext c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.<Open>b__2()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   at System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection(Boolean shouldMonitorTransactions)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Abp.BackgroundJobs.BackgroundJobStore.GetWaitingJobsAsync(Int32 maxResultCount)
+   at Castle.Proxies.BackgroundJobStoreProxy.GetWaitingJobsAsync_callback(Int32 maxResultCount)
+   at Castle.Proxies.Invocations.BackgroundJobStore_GetWaitingJobsAsync.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformAsyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.BackgroundJobStoreProxy.GetWaitingJobsAsync(Int32 maxResultCount)
+   at Abp.BackgroundJobs.BackgroundJobManager.<DoWork>b__13_0()
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Nito.AsyncEx.Synchronous.TaskExtensions.WaitAndUnwrapException[TResult](Task`1 task)
+   at Nito.AsyncEx.AsyncContext.<>c__DisplayClass16_0`1.<Run>b__0(Task`1 t)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Nito.AsyncEx.Synchronous.TaskExtensions.WaitAndUnwrapException[TResult](Task`1 task)
+   at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
+   at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
+   at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
+WARN  2017-08-09 11:52:38,965 [19   ] Abp.BackgroundJobs.BackgroundJobManager  - System.Data.Entity.Core.EntityException: The underlying provider failed on Open. ---> System.Data.SqlClient.SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) ---> System.ComponentModel.Win32Exception: The network path was not found
+   --- End of inner exception stack trace ---
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.<Open>b__36(DbConnection t, DbConnectionInterceptionContext c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.<Open>b__2()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   at System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection(Boolean shouldMonitorTransactions)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Abp.BackgroundJobs.BackgroundJobStore.GetWaitingJobsAsync(Int32 maxResultCount)
+   at Castle.Proxies.BackgroundJobStoreProxy.GetWaitingJobsAsync_callback(Int32 maxResultCount)
+   at Castle.Proxies.Invocations.BackgroundJobStore_GetWaitingJobsAsync.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformAsyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.BackgroundJobStoreProxy.GetWaitingJobsAsync(Int32 maxResultCount)
+   at Abp.BackgroundJobs.BackgroundJobManager.<DoWork>b__13_0()
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Nito.AsyncEx.Synchronous.TaskExtensions.WaitAndUnwrapException[TResult](Task`1 task)
+   at Nito.AsyncEx.AsyncContext.<>c__DisplayClass16_0`1.<Run>b__0(Task`1 t)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Nito.AsyncEx.Synchronous.TaskExtensions.WaitAndUnwrapException[TResult](Task`1 task)
+   at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
+   at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
+   at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
+System.Data.Entity.Core.EntityException: The underlying provider failed on Open. ---> System.Data.SqlClient.SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) ---> System.ComponentModel.Win32Exception: The network path was not found
+   --- End of inner exception stack trace ---
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.<Open>b__36(DbConnection t, DbConnectionInterceptionContext c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.<Open>b__2()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   at System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection(Boolean shouldMonitorTransactions)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Abp.BackgroundJobs.BackgroundJobStore.GetWaitingJobsAsync(Int32 maxResultCount)
+   at Castle.Proxies.BackgroundJobStoreProxy.GetWaitingJobsAsync_callback(Int32 maxResultCount)
+   at Castle.Proxies.Invocations.BackgroundJobStore_GetWaitingJobsAsync.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformAsyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.BackgroundJobStoreProxy.GetWaitingJobsAsync(Int32 maxResultCount)
+   at Abp.BackgroundJobs.BackgroundJobManager.<DoWork>b__13_0()
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Nito.AsyncEx.Synchronous.TaskExtensions.WaitAndUnwrapException[TResult](Task`1 task)
+   at Nito.AsyncEx.AsyncContext.<>c__DisplayClass16_0`1.<Run>b__0(Task`1 t)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Nito.AsyncEx.Synchronous.TaskExtensions.WaitAndUnwrapException[TResult](Task`1 task)
+   at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
+   at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
+   at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
+DEBUG 2017-08-09 15:02:15,946 [18   ] Abp.Modules.AbpModuleManager             - Shutting down has been started
+DEBUG 2017-08-09 15:02:15,948 [18   ] Abp.BackgroundJobs.BackgroundJobManager  - Stop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-08-09 15:02:15,949 [18   ] Abp.BackgroundJobs.BackgroundJobManager  - WaitToStop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-08-09 15:02:15,949 [18   ] Abp.Modules.AbpModuleManager             - Shutting down completed.
+DEBUG 2017-08-09 15:02:26,770 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-08-09 15:02:26,784 [1    ] Abp.Modules.AbpModuleManager             - Found 16 ABP modules in total.
+DEBUG 2017-08-09 15:02:26,789 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: GuerillaTrader.Web.GuerillaTraderWebModule, GuerillaTrader.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 15:02:26,792 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: GuerillaTrader.GuerillaTraderDataModule, GuerillaTrader.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 15:02:26,792 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=1.5.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 15:02:26,793 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=1.5.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 15:02:26,793 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 15:02:26,793 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 15:02:26,793 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: GuerillaTrader.GuerillaTraderCoreModule, GuerillaTrader.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 15:02:26,793 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 15:02:26,794 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: GuerillaTrader.Shared.GuerillaTraderSharedModule, GuerillaTrader.Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 15:02:26,794 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: GuerillaTrader.GuerillaTraderApplicationModule, GuerillaTrader.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 15:02:26,794 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: GuerillaTrader.Api.GuerillaTraderWebApiModule, GuerillaTrader.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 15:02:26,794 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 15:02:26,794 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 15:02:26,815 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 15:02:26,817 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 15:02:26,817 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 15:02:26,823 [1    ] Abp.Modules.AbpModuleManager             - 16 modules loaded.
+DEBUG 2017-08-09 15:02:26,946 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-08-09 15:02:26,946 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-08-09 15:02:26,946 [1    ] o.Configuration.LanguageManagementConfig - Converted GuerillaTrader (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-08-09 15:02:26,947 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-08-09 15:02:27,299 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: GuerillaTrader.EntityFramework.GuerillaTraderDbContext, GuerillaTrader.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 15:02:28,594 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2017-08-09 15:02:28,600 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-08-09 15:02:28,603 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2017-08-09 15:02:28,606 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: GuerillaTrader
+DEBUG 2017-08-09 15:02:28,607 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2017-08-09 15:02:28,674 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-08-09 15:02:28,750 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 12 classes define auto mapping attributes
+DEBUG 2017-08-09 15:02:28,751 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Entities.TradingDayDto
+DEBUG 2017-08-09 15:02:28,754 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Entities.Dtos.MarketDto
+DEBUG 2017-08-09 15:02:28,754 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Entities.Dtos.ScreenshotDto
+DEBUG 2017-08-09 15:02:28,754 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Entities.Dtos.TradingAccountDto
+DEBUG 2017-08-09 15:02:28,754 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2017-08-09 15:02:28,755 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Sessions.Dto.UserLoginInfoDto
+DEBUG 2017-08-09 15:02:28,755 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Users.Dto.CreateUserInput
+DEBUG 2017-08-09 15:02:28,755 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Users.Dto.UserListDto
+DEBUG 2017-08-09 15:02:28,755 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.MultiTenancy.Dto.CreateTenantInput
+DEBUG 2017-08-09 15:02:28,755 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.MultiTenancy.Dto.TenantListDto
+DEBUG 2017-08-09 15:02:28,755 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Web.Models.ExtractedPricesModel
+DEBUG 2017-08-09 15:02:28,755 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Web.Models.Account.TenantSelectionViewModel+TenantInfo
+DEBUG 2017-08-09 15:02:30,416 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Sessions.ISessionAppService' with service name 'app/session'.
+DEBUG 2017-08-09 15:02:30,417 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2017-08-09 15:02:30,419 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Services.IMarketAppService' with service name 'app/market'.
+DEBUG 2017-08-09 15:02:30,420 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Services.IMarketLogEntryAppService' with service name 'app/marketLogEntry'.
+DEBUG 2017-08-09 15:02:30,421 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Services.IMonteCarloSimulationAppService' with service name 'app/monteCarloSimulation'.
+DEBUG 2017-08-09 15:02:30,422 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Services.IScreenshotAppService' with service name 'app/screenshot'.
+DEBUG 2017-08-09 15:02:30,423 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Services.ITradeAppService' with service name 'app/trade'.
+DEBUG 2017-08-09 15:02:30,424 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Services.ITradingAccountAppService' with service name 'app/tradingAccount'.
+DEBUG 2017-08-09 15:02:30,425 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Services.ITradingDayAppService' with service name 'app/tradingDay'.
+DEBUG 2017-08-09 15:02:30,427 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Roles.IRoleAppService' with service name 'app/role'.
+DEBUG 2017-08-09 15:02:30,428 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.MultiTenancy.ITenantAppService' with service name 'app/tenant'.
+DEBUG 2017-08-09 15:02:31,041 [18   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected (on reconnected event): {"ConnectionId":"37ee7e94-f551-4d95-8425-6a11eb6b755d","IpAddress":"10.16.1.140","TenantId":1,"UserId":null,"ConnectTime":"2017-08-09T15:02:30.9897634-07:00","Properties":{}}
+DEBUG 2017-08-09 15:02:55,677 [22   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 37ee7e94-f551-4d95-8425-6a11eb6b755d
+DEBUG 2017-08-09 15:02:58,536 [26   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"a59a178a-59ee-448c-bd1f-cc3cf3ef3669","IpAddress":"10.16.1.140","TenantId":1,"UserId":null,"ConnectTime":"2017-08-09T15:02:58.5361411-07:00","Properties":{}}
+DEBUG 2017-08-09 15:02:58,580 [22   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: a59a178a-59ee-448c-bd1f-cc3cf3ef3669
+DEBUG 2017-08-09 15:03:32,039 [22   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: a59a178a-59ee-448c-bd1f-cc3cf3ef3669
+DEBUG 2017-08-09 15:03:34,185 [22   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"e7bd5f36-5f9b-4fcc-986b-3dcbf092e45d","IpAddress":"10.16.1.140","TenantId":1,"UserId":null,"ConnectTime":"2017-08-09T15:03:34.1847052-07:00","Properties":{}}
+DEBUG 2017-08-09 15:03:34,192 [46   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: e7bd5f36-5f9b-4fcc-986b-3dcbf092e45d
+DEBUG 2017-08-09 15:04:19,498 [26   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: e7bd5f36-5f9b-4fcc-986b-3dcbf092e45d
+DEBUG 2017-08-09 15:04:21,737 [78   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"2c5f4674-1ecb-463f-8e52-1e4b95d50243","IpAddress":"10.16.1.140","TenantId":1,"UserId":null,"ConnectTime":"2017-08-09T15:04:21.7360609-07:00","Properties":{}}
+DEBUG 2017-08-09 15:04:21,746 [20   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: 2c5f4674-1ecb-463f-8e52-1e4b95d50243
+DEBUG 2017-08-09 15:10:44,731 [20   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 2c5f4674-1ecb-463f-8e52-1e4b95d50243
+DEBUG 2017-08-09 15:10:46,804 [90   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"a8c3fe96-1578-4d41-92eb-8e363b94b7e6","IpAddress":"10.16.1.140","TenantId":1,"UserId":null,"ConnectTime":"2017-08-09T15:10:46.8042319-07:00","Properties":{}}
+DEBUG 2017-08-09 15:10:46,813 [23   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: a8c3fe96-1578-4d41-92eb-8e363b94b7e6
+DEBUG 2017-08-09 15:10:56,981 [22   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: a8c3fe96-1578-4d41-92eb-8e363b94b7e6
+DEBUG 2017-08-09 15:10:59,735 [20   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"7c224ade-bded-4596-8d93-86767a66b4aa","IpAddress":"10.16.1.140","TenantId":1,"UserId":null,"ConnectTime":"2017-08-09T15:10:59.7353404-07:00","Properties":{}}
+DEBUG 2017-08-09 15:10:59,750 [22   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: 7c224ade-bded-4596-8d93-86767a66b4aa
+DEBUG 2017-08-09 15:11:36,683 [81   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 7c224ade-bded-4596-8d93-86767a66b4aa
+DEBUG 2017-08-09 15:11:39,175 [23   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"92feca16-f02a-4e4b-bc1c-e37bfa837958","IpAddress":"10.16.1.140","TenantId":1,"UserId":null,"ConnectTime":"2017-08-09T15:11:39.1759629-07:00","Properties":{}}
+DEBUG 2017-08-09 15:11:39,186 [98   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: 92feca16-f02a-4e4b-bc1c-e37bfa837958
+DEBUG 2017-08-09 15:12:53,261 [72   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 92feca16-f02a-4e4b-bc1c-e37bfa837958
+DEBUG 2017-08-09 15:12:55,682 [36   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"4648ffd5-af5c-4596-b9bb-14056607fef7","IpAddress":"10.16.1.140","TenantId":1,"UserId":null,"ConnectTime":"2017-08-09T15:12:55.6819965-07:00","Properties":{}}
+DEBUG 2017-08-09 15:12:55,693 [81   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: 4648ffd5-af5c-4596-b9bb-14056607fef7
+DEBUG 2017-08-09 15:13:35,841 [90   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 4648ffd5-af5c-4596-b9bb-14056607fef7
+DEBUG 2017-08-09 15:13:37,306 [35   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"2c83df30-8762-4b36-9d4f-7d229f0f8a0e","IpAddress":"10.16.1.140","TenantId":1,"UserId":null,"ConnectTime":"2017-08-09T15:13:37.305924-07:00","Properties":{}}
+DEBUG 2017-08-09 15:13:37,319 [98   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: 2c83df30-8762-4b36-9d4f-7d229f0f8a0e
+DEBUG 2017-08-09 15:14:46,366 [23   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 2c83df30-8762-4b36-9d4f-7d229f0f8a0e
+DEBUG 2017-08-09 15:14:50,586 [74   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"fd73c924-6388-48fd-a585-ed2f74d66028","IpAddress":"10.16.1.140","TenantId":1,"UserId":null,"ConnectTime":"2017-08-09T15:14:50.5867443-07:00","Properties":{}}
+DEBUG 2017-08-09 15:14:50,596 [19   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: fd73c924-6388-48fd-a585-ed2f74d66028
+DEBUG 2017-08-09 15:31:37,131 [95   ] Abp.Modules.AbpModuleManager             - Shutting down has been started
+DEBUG 2017-08-09 15:31:37,134 [95   ] Abp.BackgroundJobs.BackgroundJobManager  - Stop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-08-09 15:31:37,135 [95   ] Abp.BackgroundJobs.BackgroundJobManager  - WaitToStop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-08-09 15:31:37,135 [95   ] Abp.Modules.AbpModuleManager             - Shutting down completed.
+DEBUG 2017-08-09 15:31:47,104 [92   ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-08-09 15:31:47,118 [92   ] Abp.Modules.AbpModuleManager             - Found 16 ABP modules in total.
+DEBUG 2017-08-09 15:31:47,128 [92   ] Abp.Modules.AbpModuleManager             - Loaded module: GuerillaTrader.Web.GuerillaTraderWebModule, GuerillaTrader.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 15:31:47,131 [92   ] Abp.Modules.AbpModuleManager             - Loaded module: GuerillaTrader.GuerillaTraderDataModule, GuerillaTrader.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 15:31:47,131 [92   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=1.5.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 15:31:47,131 [92   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=1.5.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 15:31:47,131 [92   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 15:31:47,132 [92   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 15:31:47,132 [92   ] Abp.Modules.AbpModuleManager             - Loaded module: GuerillaTrader.GuerillaTraderCoreModule, GuerillaTrader.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 15:31:47,132 [92   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 15:31:47,132 [92   ] Abp.Modules.AbpModuleManager             - Loaded module: GuerillaTrader.Shared.GuerillaTraderSharedModule, GuerillaTrader.Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 15:31:47,132 [92   ] Abp.Modules.AbpModuleManager             - Loaded module: GuerillaTrader.GuerillaTraderApplicationModule, GuerillaTrader.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 15:31:47,133 [92   ] Abp.Modules.AbpModuleManager             - Loaded module: GuerillaTrader.Api.GuerillaTraderWebApiModule, GuerillaTrader.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 15:31:47,133 [92   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 15:31:47,133 [92   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 15:31:47,133 [92   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 15:31:47,133 [92   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 15:31:47,134 [92   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 15:31:47,137 [92   ] Abp.Modules.AbpModuleManager             - 16 modules loaded.
+DEBUG 2017-08-09 15:31:47,369 [92   ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-08-09 15:31:47,369 [92   ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-08-09 15:31:47,369 [92   ] o.Configuration.LanguageManagementConfig - Converted GuerillaTrader (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-08-09 15:31:47,369 [92   ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-08-09 15:31:47,910 [92   ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: GuerillaTrader.EntityFramework.GuerillaTraderDbContext, GuerillaTrader.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-09 15:31:49,432 [92   ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2017-08-09 15:31:49,546 [92   ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-08-09 15:31:49,549 [92   ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2017-08-09 15:31:49,552 [92   ] Abp.Localization.LocalizationManager     - Initialized localization source: GuerillaTrader
+DEBUG 2017-08-09 15:31:49,555 [92   ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2017-08-09 15:31:49,627 [92   ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-08-09 15:31:49,698 [92   ] Abp.AutoMapper.AbpAutoMapperModule       - Found 12 classes define auto mapping attributes
+DEBUG 2017-08-09 15:31:49,699 [92   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Entities.TradingDayDto
+DEBUG 2017-08-09 15:31:49,707 [92   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Entities.Dtos.MarketDto
+DEBUG 2017-08-09 15:31:49,707 [92   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Entities.Dtos.ScreenshotDto
+DEBUG 2017-08-09 15:31:49,707 [92   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Entities.Dtos.TradingAccountDto
+DEBUG 2017-08-09 15:31:49,707 [92   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2017-08-09 15:31:49,707 [92   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Sessions.Dto.UserLoginInfoDto
+DEBUG 2017-08-09 15:31:49,708 [92   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Users.Dto.CreateUserInput
+DEBUG 2017-08-09 15:31:49,708 [92   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Users.Dto.UserListDto
+DEBUG 2017-08-09 15:31:49,708 [92   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.MultiTenancy.Dto.CreateTenantInput
+DEBUG 2017-08-09 15:31:49,708 [92   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.MultiTenancy.Dto.TenantListDto
+DEBUG 2017-08-09 15:31:49,708 [92   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Web.Models.ExtractedPricesModel
+DEBUG 2017-08-09 15:31:49,708 [92   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Web.Models.Account.TenantSelectionViewModel+TenantInfo
+DEBUG 2017-08-09 15:31:51,047 [92   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Sessions.ISessionAppService' with service name 'app/session'.
+DEBUG 2017-08-09 15:31:51,050 [92   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2017-08-09 15:31:51,050 [92   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Services.IMarketAppService' with service name 'app/market'.
+DEBUG 2017-08-09 15:31:51,051 [92   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Services.IMarketLogEntryAppService' with service name 'app/marketLogEntry'.
+DEBUG 2017-08-09 15:31:51,052 [92   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Services.IMonteCarloSimulationAppService' with service name 'app/monteCarloSimulation'.
+DEBUG 2017-08-09 15:31:51,053 [92   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Services.IScreenshotAppService' with service name 'app/screenshot'.
+DEBUG 2017-08-09 15:31:51,054 [92   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Services.ITradeAppService' with service name 'app/trade'.
+DEBUG 2017-08-09 15:31:51,056 [92   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Services.ITradingAccountAppService' with service name 'app/tradingAccount'.
+DEBUG 2017-08-09 15:31:51,057 [92   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Services.ITradingDayAppService' with service name 'app/tradingDay'.
+DEBUG 2017-08-09 15:31:51,058 [92   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Roles.IRoleAppService' with service name 'app/role'.
+DEBUG 2017-08-09 15:31:51,059 [92   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.MultiTenancy.ITenantAppService' with service name 'app/tenant'.
+DEBUG 2017-08-09 15:31:51,760 [20   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected (on reconnected event): {"ConnectionId":"fd73c924-6388-48fd-a585-ed2f74d66028","IpAddress":"10.16.1.140","TenantId":1,"UserId":null,"ConnectTime":"2017-08-09T15:31:51.690474-07:00","Properties":{}}
+DEBUG 2017-08-09 15:32:18,455 [95   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: fd73c924-6388-48fd-a585-ed2f74d66028
+DEBUG 2017-08-09 15:32:21,049 [75   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"7e1c5097-b843-452f-a8f5-29b2361f03a3","IpAddress":"10.16.1.140","TenantId":1,"UserId":null,"ConnectTime":"2017-08-09T15:32:21.0494718-07:00","Properties":{}}
+DEBUG 2017-08-09 15:32:21,089 [18   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: 7e1c5097-b843-452f-a8f5-29b2361f03a3
+DEBUG 2017-08-09 15:32:39,619 [18   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 7e1c5097-b843-452f-a8f5-29b2361f03a3
+DEBUG 2017-08-09 15:32:43,115 [56   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"8ffad901-0576-47ad-9fbe-87f5e6e4e6ae","IpAddress":"10.16.1.140","TenantId":1,"UserId":null,"ConnectTime":"2017-08-09T15:32:43.1154964-07:00","Properties":{}}
+DEBUG 2017-08-09 15:32:43,127 [18   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: 8ffad901-0576-47ad-9fbe-87f5e6e4e6ae
+DEBUG 2017-08-09 15:33:28,204 [75   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 8ffad901-0576-47ad-9fbe-87f5e6e4e6ae
+DEBUG 2017-08-09 15:33:30,135 [95   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"4d8e79e4-f46c-45f1-998d-59976d223393","IpAddress":"10.16.1.140","TenantId":1,"UserId":null,"ConnectTime":"2017-08-09T15:33:30.1351057-07:00","Properties":{}}
+DEBUG 2017-08-09 15:33:30,144 [18   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: 4d8e79e4-f46c-45f1-998d-59976d223393
+DEBUG 2017-08-09 15:34:29,730 [95   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 4d8e79e4-f46c-45f1-998d-59976d223393
+DEBUG 2017-08-09 15:34:31,676 [18   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"daff66ff-1abc-4190-9a67-7941748bdb39","IpAddress":"10.16.1.140","TenantId":1,"UserId":null,"ConnectTime":"2017-08-09T15:34:31.6764641-07:00","Properties":{}}
+DEBUG 2017-08-09 15:34:31,684 [18   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: daff66ff-1abc-4190-9a67-7941748bdb39
+DEBUG 2017-08-09 15:34:43,296 [89   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: daff66ff-1abc-4190-9a67-7941748bdb39
+DEBUG 2017-08-09 15:34:45,021 [73   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"25c17e80-e251-495f-bc9a-52a837b28667","IpAddress":"10.16.1.140","TenantId":1,"UserId":null,"ConnectTime":"2017-08-09T15:34:45.0218288-07:00","Properties":{}}
+DEBUG 2017-08-09 15:34:45,031 [73   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: 25c17e80-e251-495f-bc9a-52a837b28667
+DEBUG 2017-08-09 15:34:55,369 [95   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 25c17e80-e251-495f-bc9a-52a837b28667
+DEBUG 2017-08-09 15:34:57,010 [89   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"4d3c9d60-db6a-4137-a033-3f3e17c5a799","IpAddress":"10.16.1.140","TenantId":1,"UserId":null,"ConnectTime":"2017-08-09T15:34:57.0104835-07:00","Properties":{}}
+DEBUG 2017-08-09 15:34:57,025 [14   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: 4d3c9d60-db6a-4137-a033-3f3e17c5a799
+DEBUG 2017-08-09 15:35:02,310 [18   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 4d3c9d60-db6a-4137-a033-3f3e17c5a799
+DEBUG 2017-08-09 15:35:04,701 [18   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"e169618b-e6ed-483b-befa-f3c07ccd0cd3","IpAddress":"10.16.1.140","TenantId":1,"UserId":null,"ConnectTime":"2017-08-09T15:35:04.7010565-07:00","Properties":{}}
+DEBUG 2017-08-09 15:35:04,709 [75   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: e169618b-e6ed-483b-befa-f3c07ccd0cd3

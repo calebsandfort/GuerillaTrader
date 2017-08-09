@@ -32,6 +32,8 @@ namespace GuerillaTrader.Web
             //Configure navigation/menu
             Configuration.Navigation.Providers.Add<GuerillaTraderNavigationProvider>();
 
+            Configuration.Settings.Providers.Add<MySettingProvider>();
+
             //Configure Hangfire - ENABLE TO USE HANGFIRE INSTEAD OF DEFAULT JOB MANAGER
             //Configuration.BackgroundJobs.UseHangfire(configuration =>
             //{

@@ -474,6 +474,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\GuerillaTraderNavigationProvider.cs" />
     <Compile Include="App_Start\GuerillaTraderWebModule.cs" />
+    <Compile Include="App_Start\MySettingProvider.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Controllers\AboutController.cs" />

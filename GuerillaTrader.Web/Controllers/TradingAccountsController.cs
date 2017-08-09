@@ -33,7 +33,8 @@ namespace GuerillaTrader.Web.Controllers
             return View();
         }
 
-        public ActionResult GetTradingAccounts()
+        [OutputCache(VaryByParam = "cacheCounter", Duration = 360000000)]
+        public ActionResult GetTradingAccounts(int cacheCounter)
         {
             return new GuerillaLogisticsApiJsonResult(_tradingAccountAppService.GetAll());
         }
@@ -78,6 +79,8 @@ namespace GuerillaTrader.Web.Controllers
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult TradingAccount_Create([DataSourceRequest] DataSourceRequest request, TradingAccountDto model)
         {
+            this.SettingManager.IncrementCacheCounter("TradingAccounts");
+
             if (model != null && ModelState.IsValid)
             {
                 this._tradingAccountAppService.Save(model);
@@ -91,6 +94,8 @@ namespace GuerillaTrader.Web.Controllers
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult TradingAccount_Update([DataSourceRequest] DataSourceRequest request, TradingAccountDto model)
         {
+            this.SettingManager.IncrementCacheCounter("TradingAccounts");
+
             if (model != null && ModelState.IsValid)
             {
                 this._tradingAccountAppService.Save(model);
@@ -104,6 +109,8 @@ namespace GuerillaTrader.Web.Controllers
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult TradingAccount_Destroy([DataSourceRequest] DataSourceRequest request, TradingAccountDto model)
         {
+            this.SettingManager.IncrementCacheCounter("TradingAccounts");
+
             if (model != null)
             {
                 this._tradingAccountRepository.Delete(model.Id);

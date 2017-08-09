@@ -171,6 +171,10 @@ GuerillaTrader.Log.showAddLogEntryModal = function () {
             GuerillaTrader.Util.initForm("addLogEntryForm", GuerillaTrader.Log.addLogEntry);
             GuerillaTrader.Util.showModalForm("addLogEntryModal", false);
 
+            $("#addLogEntryModal").on("hidden.bs.modal", function (e) {
+                $("#addLogEntryModalWrapper").html("");
+            });
+
             document.getElementById("pasteTargetScreenshotDbId").
                 addEventListener("paste", function (e) {
                     GuerillaTrader.Util.handlePaste("ScreenshotDbId", e);
@@ -285,6 +289,10 @@ GuerillaTrader.Trade.showTradeModal = function (id) {
             $("#tradeModalWrapper").html(r);
             GuerillaTrader.Util.initForm("tradeForm", GuerillaTrader.Trade.saveTrade);
             GuerillaTrader.Util.showModalForm("tradeModal", false);
+
+            $("#tradeModal").on("hidden.bs.modal", function (e) {
+                $("#tradeModalWrapper").html("");
+            });
 
             if ($("#pasteTargetEntryScreenshotDbId").size() > 0) {
                 document.getElementById("pasteTargetEntryScreenshotDbId").

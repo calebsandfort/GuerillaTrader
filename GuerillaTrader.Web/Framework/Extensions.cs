@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web.Mvc;
 using GuerillaTrader.Entities;
 using GuerillaTrader.Framework;
+using Abp.Configuration;
 
 namespace GuerillaTrader.Web.Framework
 {
@@ -43,6 +44,13 @@ namespace GuerillaTrader.Web.Framework
         public static List<SelectListItem> GetTradingSetups()
         {
             return Extensions.EnumToSelectListItems<TradingSetups>();
-        }        
+        }
+        
+        public static void IncrementCacheCounter(this ISettingManager settingManager, String prefix)
+        {
+            int cacheCounter = settingManager.GetSettingValue<int>($"{prefix}CacheCounter");
+            cacheCounter += 1;
+            settingManager.ChangeSettingForApplication($"{prefix}CacheCounter", cacheCounter.ToString());
+        }
     }
 }

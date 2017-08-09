@@ -39,7 +39,8 @@
             {
                 source.Read(read =>
                 {
-                    read.Action("GetMarkets", "Markets");
+                    read.Action("GetMarkets", "Markets")
+                    .Data("function(){ return { cacheCounter: abp.setting.get('MarketsCacheCounter')} }");
                 })
                 .ServerFiltering(false);
             })
