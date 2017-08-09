@@ -272,3 +272,4 @@ __pycache__/
 
 /MachineLearningBP.Core/CodeGen/**/*.cs
 TesseractLanguageFiles/
+/GuerillaTrader.Web/App_Data/Logs/*.txt

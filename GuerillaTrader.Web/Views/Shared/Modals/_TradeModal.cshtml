@@ -20,8 +20,8 @@
                     @*@Html.EditorFor(x => x.EntryPrice, new { onChange = "GuerillaTrader.Trade.entryPriceChange" })*@
                     @Html.EditorFor(x => x.StopLossPrice)
                     @Html.EditorFor(x => x.ProfitTakerPrice)
-                    @Html.EditorFor(x => x.EntryRemarks)
                     @Html.EditorFor(x => x.EntrySetups)
+                    @Html.EditorFor(x => x.EntryRemarks)
                     @Html.EditorFor(x => x.ExitDate, new { required = false })
                     @Html.EditorFor(x => x.ExitReason, new { required = false, onSelect = "GuerillaTrader.Trade.exitReasonSelect" })
                     @Html.EditorFor(x => x.ExitPrice, new { required = false })

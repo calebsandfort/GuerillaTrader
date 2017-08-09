@@ -36,7 +36,9 @@ namespace GuerillaTrader
                               .ForMember(u => u.ExitScreenshotDbId, options => options.MapFrom(input => input.ExitScreenshotDbId.HasValue ? input.ExitScreenshotDbId.Value : 0));
 
                 config.CreateMap<TradeDto, Trade>()
-                      .ForMember(u => u.EntrySetups, options => options.MapFrom(input => EnumExtensions.ListToFlaggedEnum<TradingSetups>(input.EntrySetups)));
+                      .ForMember(u => u.EntrySetups, options => options.MapFrom(input => EnumExtensions.ListToFlaggedEnum<TradingSetups>(input.EntrySetups)))
+                              .ForMember(u => u.EntryScreenshotDbId, options => options.MapFrom(input => Extensions.GetNullableValue(input.EntryScreenshotDbId)))
+                              .ForMember(u => u.ExitScreenshotDbId, options => options.MapFrom(input => Extensions.GetNullableValue(input.ExitScreenshotDbId)));
                 #endregion
 
                 #region MarketLogEntry

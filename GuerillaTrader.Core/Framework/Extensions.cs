@@ -15,5 +15,11 @@ namespace GuerillaTrader.Framework
             if (index == 0) index = 1;
             return data.Take(index).Last();
         }
+
+        public static int? GetNullableValue(int val)
+        {
+            if (val > 0) return val;
+            else return null;
+        }
     }
 }
