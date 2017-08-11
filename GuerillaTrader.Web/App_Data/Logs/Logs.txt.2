@@ -1,4 +1,4 @@
-WARN  2017-08-11 11:45:14,450 [32   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+WARN  2017-08-11 11:39:41,419 [49   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
    at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
@@ -182,66 +182,7 @@ Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActi
    at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
    at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
    at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
-DEBUG 2017-08-11 11:45:15,963 [32   ] Abp.Modules.AbpModuleManager             - Shutting down has been started
-DEBUG 2017-08-11 11:45:15,965 [32   ] Abp.BackgroundJobs.BackgroundJobManager  - Stop background worker: Abp.BackgroundJobs.BackgroundJobManager
-DEBUG 2017-08-11 11:45:15,966 [32   ] Abp.BackgroundJobs.BackgroundJobManager  - WaitToStop background worker: Abp.BackgroundJobs.BackgroundJobManager
-DEBUG 2017-08-11 11:45:15,966 [32   ] Abp.Modules.AbpModuleManager             - Shutting down completed.
-DEBUG 2017-08-11 11:45:30,145 [50   ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
-DEBUG 2017-08-11 11:45:30,162 [50   ] Abp.Modules.AbpModuleManager             - Found 16 ABP modules in total.
-DEBUG 2017-08-11 11:45:30,170 [50   ] Abp.Modules.AbpModuleManager             - Loaded module: GuerillaTrader.Web.GuerillaTraderWebModule, GuerillaTrader.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-DEBUG 2017-08-11 11:45:30,172 [50   ] Abp.Modules.AbpModuleManager             - Loaded module: GuerillaTrader.GuerillaTraderDataModule, GuerillaTrader.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-DEBUG 2017-08-11 11:45:30,172 [50   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=1.5.1.0, Culture=neutral, PublicKeyToken=null
-DEBUG 2017-08-11 11:45:30,172 [50   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=1.5.1.0, Culture=neutral, PublicKeyToken=null
-DEBUG 2017-08-11 11:45:30,173 [50   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
-DEBUG 2017-08-11 11:45:30,173 [50   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
-DEBUG 2017-08-11 11:45:30,173 [50   ] Abp.Modules.AbpModuleManager             - Loaded module: GuerillaTrader.GuerillaTraderCoreModule, GuerillaTrader.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-DEBUG 2017-08-11 11:45:30,173 [50   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
-DEBUG 2017-08-11 11:45:30,174 [50   ] Abp.Modules.AbpModuleManager             - Loaded module: GuerillaTrader.Shared.GuerillaTraderSharedModule, GuerillaTrader.Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-DEBUG 2017-08-11 11:45:30,174 [50   ] Abp.Modules.AbpModuleManager             - Loaded module: GuerillaTrader.GuerillaTraderApplicationModule, GuerillaTrader.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-DEBUG 2017-08-11 11:45:30,174 [50   ] Abp.Modules.AbpModuleManager             - Loaded module: GuerillaTrader.Api.GuerillaTraderWebApiModule, GuerillaTrader.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-DEBUG 2017-08-11 11:45:30,174 [50   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
-DEBUG 2017-08-11 11:45:30,174 [50   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
-DEBUG 2017-08-11 11:45:30,174 [50   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
-DEBUG 2017-08-11 11:45:30,175 [50   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
-DEBUG 2017-08-11 11:45:30,175 [50   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
-DEBUG 2017-08-11 11:45:30,178 [50   ] Abp.Modules.AbpModuleManager             - 16 modules loaded.
-DEBUG 2017-08-11 11:45:30,587 [50   ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
-DEBUG 2017-08-11 11:45:30,587 [50   ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
-DEBUG 2017-08-11 11:45:30,587 [50   ] o.Configuration.LanguageManagementConfig - Converted GuerillaTrader (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
-DEBUG 2017-08-11 11:45:30,587 [50   ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
-DEBUG 2017-08-11 11:45:31,162 [50   ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: GuerillaTrader.EntityFramework.GuerillaTraderDbContext, GuerillaTrader.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-DEBUG 2017-08-11 11:45:33,736 [50   ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
-DEBUG 2017-08-11 11:45:33,749 [50   ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
-DEBUG 2017-08-11 11:45:33,754 [50   ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
-DEBUG 2017-08-11 11:45:33,758 [50   ] Abp.Localization.LocalizationManager     - Initialized localization source: GuerillaTrader
-DEBUG 2017-08-11 11:45:33,776 [50   ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
-DEBUG 2017-08-11 11:45:33,904 [50   ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
-DEBUG 2017-08-11 11:45:33,980 [50   ] Abp.AutoMapper.AbpAutoMapperModule       - Found 12 classes define auto mapping attributes
-DEBUG 2017-08-11 11:45:33,980 [50   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Entities.TradingDayDto
-DEBUG 2017-08-11 11:45:34,003 [50   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Entities.Dtos.MarketDto
-DEBUG 2017-08-11 11:45:34,005 [50   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Entities.Dtos.ScreenshotDto
-DEBUG 2017-08-11 11:45:34,005 [50   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Entities.Dtos.TradingAccountDto
-DEBUG 2017-08-11 11:45:34,005 [50   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Sessions.Dto.TenantLoginInfoDto
-DEBUG 2017-08-11 11:45:34,006 [50   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Sessions.Dto.UserLoginInfoDto
-DEBUG 2017-08-11 11:45:34,006 [50   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Users.Dto.CreateUserInput
-DEBUG 2017-08-11 11:45:34,006 [50   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Users.Dto.UserListDto
-DEBUG 2017-08-11 11:45:34,006 [50   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.MultiTenancy.Dto.CreateTenantInput
-DEBUG 2017-08-11 11:45:34,006 [50   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.MultiTenancy.Dto.TenantListDto
-DEBUG 2017-08-11 11:45:34,007 [50   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Web.Models.ExtractedPricesModel
-DEBUG 2017-08-11 11:45:34,007 [50   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Web.Models.Account.TenantSelectionViewModel+TenantInfo
-DEBUG 2017-08-11 11:45:36,192 [50   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Sessions.ISessionAppService' with service name 'app/session'.
-DEBUG 2017-08-11 11:45:36,193 [50   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Users.IUserAppService' with service name 'app/user'.
-DEBUG 2017-08-11 11:45:36,195 [50   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Services.IMarketAppService' with service name 'app/market'.
-DEBUG 2017-08-11 11:45:36,197 [50   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Services.IMarketLogEntryAppService' with service name 'app/marketLogEntry'.
-DEBUG 2017-08-11 11:45:36,198 [50   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Services.IMonteCarloSimulationAppService' with service name 'app/monteCarloSimulation'.
-DEBUG 2017-08-11 11:45:36,199 [50   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Services.IScreenshotAppService' with service name 'app/screenshot'.
-DEBUG 2017-08-11 11:45:36,201 [50   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Services.ITradeAppService' with service name 'app/trade'.
-DEBUG 2017-08-11 11:45:36,202 [50   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Services.ITradingAccountAppService' with service name 'app/tradingAccount'.
-DEBUG 2017-08-11 11:45:36,203 [50   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Services.ITradingDayAppService' with service name 'app/tradingDay'.
-DEBUG 2017-08-11 11:45:36,204 [50   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Roles.IRoleAppService' with service name 'app/role'.
-DEBUG 2017-08-11 11:45:36,206 [50   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.MultiTenancy.ITenantAppService' with service name 'app/tenant'.
-DEBUG 2017-08-11 11:45:37,165 [48   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected (on reconnected event): {"ConnectionId":"ccaa305f-9ed1-4aeb-9e96-0bc3ff8de02a","IpAddress":"10.16.1.140","TenantId":1,"UserId":null,"ConnectTime":"2017-08-11T11:45:37.0869882-07:00","Properties":{}}
-WARN  2017-08-11 11:45:42,860 [57   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+WARN  2017-08-11 11:39:47,402 [53   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
    at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
@@ -425,7 +366,7 @@ Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActi
    at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
    at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
    at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
-WARN  2017-08-11 11:45:48,764 [48   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+WARN  2017-08-11 11:39:53,232 [14   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
    at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
@@ -609,7 +550,7 @@ Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActi
    at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
    at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
    at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
-WARN  2017-08-11 11:45:54,723 [70   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+WARN  2017-08-11 11:39:59,047 [49   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
    at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
@@ -793,7 +734,7 @@ Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActi
    at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
    at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
    at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
-WARN  2017-08-11 11:46:00,965 [77   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+WARN  2017-08-11 11:40:04,851 [57   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
    at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
@@ -977,7 +918,7 @@ Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActi
    at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
    at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
    at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
-WARN  2017-08-11 11:46:06,691 [77   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+WARN  2017-08-11 11:40:10,607 [53   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
    at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
@@ -1161,12 +1102,7 @@ Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActi
    at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
    at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
    at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
-DEBUG 2017-08-11 11:46:06,869 [32   ] Abp.Modules.AbpModuleManager             - Shutting down has been started
-DEBUG 2017-08-11 11:46:06,870 [32   ] Abp.BackgroundJobs.BackgroundJobManager  - Stop background worker: Abp.BackgroundJobs.BackgroundJobManager
-DEBUG 2017-08-11 11:46:06,871 [32   ] Abp.BackgroundJobs.BackgroundJobManager  - WaitToStop background worker: Abp.BackgroundJobs.BackgroundJobManager
-DEBUG 2017-08-11 11:46:06,871 [32   ] Abp.Modules.AbpModuleManager             - Shutting down completed.
-DEBUG 2017-08-11 11:46:08,999 [48   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected (on reconnected event): {"ConnectionId":"ccaa305f-9ed1-4aeb-9e96-0bc3ff8de02a","IpAddress":"10.16.1.140","TenantId":1,"UserId":null,"ConnectTime":"2017-08-11T11:46:08.9134089-07:00","Properties":{}}
-WARN  2017-08-11 11:46:09,625 [32   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+WARN  2017-08-11 11:40:16,452 [77   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
    at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
@@ -1350,7 +1286,7 @@ Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActi
    at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
    at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
    at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
-WARN  2017-08-11 11:46:15,433 [55   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+WARN  2017-08-11 11:40:22,233 [14   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
    at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
@@ -1534,7 +1470,7 @@ Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActi
    at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
    at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
    at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
-WARN  2017-08-11 11:46:21,123 [77   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+WARN  2017-08-11 11:40:28,101 [53   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
    at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
@@ -1718,7 +1654,7 @@ Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActi
    at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
    at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
    at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
-WARN  2017-08-11 11:46:26,752 [55   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+WARN  2017-08-11 11:40:33,907 [16   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
    at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
@@ -1902,7 +1838,7 @@ Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActi
    at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
    at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
    at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
-WARN  2017-08-11 11:46:32,425 [77   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+WARN  2017-08-11 11:40:37,200 [16   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
    at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
@@ -2086,7 +2022,7 @@ Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActi
    at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
    at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
    at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
-WARN  2017-08-11 11:46:37,173 [48   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+WARN  2017-08-11 11:40:43,009 [57   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
    at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
@@ -2270,7 +2206,7 @@ Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActi
    at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
    at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
    at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
-WARN  2017-08-11 11:46:42,941 [48   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+WARN  2017-08-11 11:40:48,767 [49   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
    at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
@@ -2454,7 +2390,7 @@ Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActi
    at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
    at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
    at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
-WARN  2017-08-11 11:46:48,793 [48   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+WARN  2017-08-11 11:40:54,559 [46   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
    at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
@@ -2638,7 +2574,7 @@ Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActi
    at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
    at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
    at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
-WARN  2017-08-11 11:46:54,698 [14   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+WARN  2017-08-11 11:41:00,429 [53   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
    at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
@@ -2822,66 +2758,7 @@ Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActi
    at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
    at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
    at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
-DEBUG 2017-08-11 11:46:59,495 [48   ] Abp.Modules.AbpModuleManager             - Shutting down has been started
-DEBUG 2017-08-11 11:46:59,497 [48   ] Abp.BackgroundJobs.BackgroundJobManager  - Stop background worker: Abp.BackgroundJobs.BackgroundJobManager
-DEBUG 2017-08-11 11:46:59,497 [48   ] Abp.BackgroundJobs.BackgroundJobManager  - WaitToStop background worker: Abp.BackgroundJobs.BackgroundJobManager
-DEBUG 2017-08-11 11:46:59,497 [48   ] Abp.Modules.AbpModuleManager             - Shutting down completed.
-DEBUG 2017-08-11 11:47:14,931 [50   ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
-DEBUG 2017-08-11 11:47:14,946 [50   ] Abp.Modules.AbpModuleManager             - Found 16 ABP modules in total.
-DEBUG 2017-08-11 11:47:14,954 [50   ] Abp.Modules.AbpModuleManager             - Loaded module: GuerillaTrader.Web.GuerillaTraderWebModule, GuerillaTrader.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-DEBUG 2017-08-11 11:47:14,956 [50   ] Abp.Modules.AbpModuleManager             - Loaded module: GuerillaTrader.GuerillaTraderDataModule, GuerillaTrader.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-DEBUG 2017-08-11 11:47:14,956 [50   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=1.5.1.0, Culture=neutral, PublicKeyToken=null
-DEBUG 2017-08-11 11:47:14,956 [50   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=1.5.1.0, Culture=neutral, PublicKeyToken=null
-DEBUG 2017-08-11 11:47:14,957 [50   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
-DEBUG 2017-08-11 11:47:14,957 [50   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
-DEBUG 2017-08-11 11:47:14,957 [50   ] Abp.Modules.AbpModuleManager             - Loaded module: GuerillaTrader.GuerillaTraderCoreModule, GuerillaTrader.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-DEBUG 2017-08-11 11:47:14,957 [50   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
-DEBUG 2017-08-11 11:47:14,957 [50   ] Abp.Modules.AbpModuleManager             - Loaded module: GuerillaTrader.Shared.GuerillaTraderSharedModule, GuerillaTrader.Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-DEBUG 2017-08-11 11:47:14,958 [50   ] Abp.Modules.AbpModuleManager             - Loaded module: GuerillaTrader.GuerillaTraderApplicationModule, GuerillaTrader.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-DEBUG 2017-08-11 11:47:14,958 [50   ] Abp.Modules.AbpModuleManager             - Loaded module: GuerillaTrader.Api.GuerillaTraderWebApiModule, GuerillaTrader.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-DEBUG 2017-08-11 11:47:14,958 [50   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
-DEBUG 2017-08-11 11:47:14,959 [50   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
-DEBUG 2017-08-11 11:47:14,989 [50   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
-DEBUG 2017-08-11 11:47:14,990 [50   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
-DEBUG 2017-08-11 11:47:14,990 [50   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
-DEBUG 2017-08-11 11:47:14,998 [50   ] Abp.Modules.AbpModuleManager             - 16 modules loaded.
-DEBUG 2017-08-11 11:47:15,363 [50   ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
-DEBUG 2017-08-11 11:47:15,364 [50   ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
-DEBUG 2017-08-11 11:47:15,364 [50   ] o.Configuration.LanguageManagementConfig - Converted GuerillaTrader (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
-DEBUG 2017-08-11 11:47:15,364 [50   ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
-DEBUG 2017-08-11 11:47:15,978 [50   ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: GuerillaTrader.EntityFramework.GuerillaTraderDbContext, GuerillaTrader.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-DEBUG 2017-08-11 11:47:19,276 [50   ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
-DEBUG 2017-08-11 11:47:19,309 [50   ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
-DEBUG 2017-08-11 11:47:19,442 [50   ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
-DEBUG 2017-08-11 11:47:19,448 [50   ] Abp.Localization.LocalizationManager     - Initialized localization source: GuerillaTrader
-DEBUG 2017-08-11 11:47:19,450 [50   ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
-DEBUG 2017-08-11 11:47:19,581 [50   ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
-DEBUG 2017-08-11 11:47:19,678 [50   ] Abp.AutoMapper.AbpAutoMapperModule       - Found 12 classes define auto mapping attributes
-DEBUG 2017-08-11 11:47:19,678 [50   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Entities.TradingDayDto
-DEBUG 2017-08-11 11:47:19,685 [50   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Entities.Dtos.MarketDto
-DEBUG 2017-08-11 11:47:19,685 [50   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Entities.Dtos.ScreenshotDto
-DEBUG 2017-08-11 11:47:19,685 [50   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Entities.Dtos.TradingAccountDto
-DEBUG 2017-08-11 11:47:19,685 [50   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Sessions.Dto.TenantLoginInfoDto
-DEBUG 2017-08-11 11:47:19,686 [50   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Sessions.Dto.UserLoginInfoDto
-DEBUG 2017-08-11 11:47:19,686 [50   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Users.Dto.CreateUserInput
-DEBUG 2017-08-11 11:47:19,686 [50   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Users.Dto.UserListDto
-DEBUG 2017-08-11 11:47:19,686 [50   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.MultiTenancy.Dto.CreateTenantInput
-DEBUG 2017-08-11 11:47:19,686 [50   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.MultiTenancy.Dto.TenantListDto
-DEBUG 2017-08-11 11:47:19,686 [50   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Web.Models.ExtractedPricesModel
-DEBUG 2017-08-11 11:47:19,687 [50   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Web.Models.Account.TenantSelectionViewModel+TenantInfo
-DEBUG 2017-08-11 11:47:24,392 [50   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Sessions.ISessionAppService' with service name 'app/session'.
-DEBUG 2017-08-11 11:47:24,394 [50   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Users.IUserAppService' with service name 'app/user'.
-DEBUG 2017-08-11 11:47:24,395 [50   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Services.IMarketAppService' with service name 'app/market'.
-DEBUG 2017-08-11 11:47:24,396 [50   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Services.IMarketLogEntryAppService' with service name 'app/marketLogEntry'.
-DEBUG 2017-08-11 11:47:24,397 [50   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Services.IMonteCarloSimulationAppService' with service name 'app/monteCarloSimulation'.
-DEBUG 2017-08-11 11:47:24,400 [50   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Services.IScreenshotAppService' with service name 'app/screenshot'.
-DEBUG 2017-08-11 11:47:24,402 [50   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Services.ITradeAppService' with service name 'app/trade'.
-DEBUG 2017-08-11 11:47:24,434 [50   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Services.ITradingAccountAppService' with service name 'app/tradingAccount'.
-DEBUG 2017-08-11 11:47:24,437 [50   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Services.ITradingDayAppService' with service name 'app/tradingDay'.
-DEBUG 2017-08-11 11:47:24,441 [50   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Roles.IRoleAppService' with service name 'app/role'.
-DEBUG 2017-08-11 11:47:24,442 [50   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.MultiTenancy.ITenantAppService' with service name 'app/tenant'.
-DEBUG 2017-08-11 11:47:25,738 [9    ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected (on reconnected event): {"ConnectionId":"ccaa305f-9ed1-4aeb-9e96-0bc3ff8de02a","IpAddress":"10.16.1.140","TenantId":1,"UserId":null,"ConnectTime":"2017-08-11T11:47:25.6350909-07:00","Properties":{}}
-WARN  2017-08-11 11:47:27,542 [10   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+WARN  2017-08-11 11:41:06,241 [16   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
    at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
@@ -3065,7 +2942,7 @@ Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActi
    at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
    at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
    at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
-WARN  2017-08-11 11:47:33,148 [10   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+WARN  2017-08-11 11:41:12,080 [16   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
    at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
@@ -3249,7 +3126,7 @@ Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActi
    at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
    at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
    at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
-WARN  2017-08-11 11:47:38,823 [10   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+WARN  2017-08-11 11:41:17,877 [49   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
    at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
@@ -3433,7 +3310,7 @@ Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActi
    at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
    at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
    at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
-WARN  2017-08-11 11:47:44,806 [32   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+WARN  2017-08-11 11:41:23,783 [77   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
    at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
@@ -3617,7 +3494,7 @@ Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActi
    at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
    at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
    at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
-WARN  2017-08-11 11:47:50,485 [32   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+WARN  2017-08-11 11:41:29,723 [16   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
    at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
@@ -3801,66 +3678,7 @@ Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActi
    at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
    at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
    at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
-DEBUG 2017-08-11 11:47:55,291 [48   ] Abp.Modules.AbpModuleManager             - Shutting down has been started
-DEBUG 2017-08-11 11:47:55,292 [48   ] Abp.BackgroundJobs.BackgroundJobManager  - Stop background worker: Abp.BackgroundJobs.BackgroundJobManager
-DEBUG 2017-08-11 11:47:55,293 [48   ] Abp.BackgroundJobs.BackgroundJobManager  - WaitToStop background worker: Abp.BackgroundJobs.BackgroundJobManager
-DEBUG 2017-08-11 11:47:55,293 [48   ] Abp.Modules.AbpModuleManager             - Shutting down completed.
-DEBUG 2017-08-11 11:48:04,047 [84   ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
-DEBUG 2017-08-11 11:48:04,059 [84   ] Abp.Modules.AbpModuleManager             - Found 16 ABP modules in total.
-DEBUG 2017-08-11 11:48:04,066 [84   ] Abp.Modules.AbpModuleManager             - Loaded module: GuerillaTrader.Web.GuerillaTraderWebModule, GuerillaTrader.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-DEBUG 2017-08-11 11:48:04,068 [84   ] Abp.Modules.AbpModuleManager             - Loaded module: GuerillaTrader.GuerillaTraderDataModule, GuerillaTrader.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-DEBUG 2017-08-11 11:48:04,068 [84   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=1.5.1.0, Culture=neutral, PublicKeyToken=null
-DEBUG 2017-08-11 11:48:04,068 [84   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=1.5.1.0, Culture=neutral, PublicKeyToken=null
-DEBUG 2017-08-11 11:48:04,068 [84   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=2.1.3.0, Culture=neutral, PublicKeyToken=null
-DEBUG 2017-08-11 11:48:04,068 [84   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
-DEBUG 2017-08-11 11:48:04,069 [84   ] Abp.Modules.AbpModuleManager             - Loaded module: GuerillaTrader.GuerillaTraderCoreModule, GuerillaTrader.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-DEBUG 2017-08-11 11:48:04,069 [84   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=2.1.3.0, Culture=neutral, PublicKeyToken=null
-DEBUG 2017-08-11 11:48:04,069 [84   ] Abp.Modules.AbpModuleManager             - Loaded module: GuerillaTrader.Shared.GuerillaTraderSharedModule, GuerillaTrader.Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-DEBUG 2017-08-11 11:48:04,069 [84   ] Abp.Modules.AbpModuleManager             - Loaded module: GuerillaTrader.GuerillaTraderApplicationModule, GuerillaTrader.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-DEBUG 2017-08-11 11:48:04,069 [84   ] Abp.Modules.AbpModuleManager             - Loaded module: GuerillaTrader.Api.GuerillaTraderWebApiModule, GuerillaTrader.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-DEBUG 2017-08-11 11:48:04,069 [84   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
-DEBUG 2017-08-11 11:48:04,069 [84   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
-DEBUG 2017-08-11 11:48:04,070 [84   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
-DEBUG 2017-08-11 11:48:04,070 [84   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
-DEBUG 2017-08-11 11:48:04,070 [84   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
-DEBUG 2017-08-11 11:48:04,072 [84   ] Abp.Modules.AbpModuleManager             - 16 modules loaded.
-DEBUG 2017-08-11 11:48:04,280 [84   ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
-DEBUG 2017-08-11 11:48:04,281 [84   ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
-DEBUG 2017-08-11 11:48:04,281 [84   ] o.Configuration.LanguageManagementConfig - Converted GuerillaTrader (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
-DEBUG 2017-08-11 11:48:04,281 [84   ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
-DEBUG 2017-08-11 11:48:04,663 [84   ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: GuerillaTrader.EntityFramework.GuerillaTraderDbContext, GuerillaTrader.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-DEBUG 2017-08-11 11:48:06,300 [84   ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
-DEBUG 2017-08-11 11:48:06,309 [84   ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
-DEBUG 2017-08-11 11:48:06,312 [84   ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
-DEBUG 2017-08-11 11:48:06,316 [84   ] Abp.Localization.LocalizationManager     - Initialized localization source: GuerillaTrader
-DEBUG 2017-08-11 11:48:06,317 [84   ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
-DEBUG 2017-08-11 11:48:06,383 [84   ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
-DEBUG 2017-08-11 11:48:06,436 [84   ] Abp.AutoMapper.AbpAutoMapperModule       - Found 12 classes define auto mapping attributes
-DEBUG 2017-08-11 11:48:06,437 [84   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Entities.TradingDayDto
-DEBUG 2017-08-11 11:48:06,440 [84   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Entities.Dtos.MarketDto
-DEBUG 2017-08-11 11:48:06,440 [84   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Entities.Dtos.ScreenshotDto
-DEBUG 2017-08-11 11:48:06,440 [84   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Entities.Dtos.TradingAccountDto
-DEBUG 2017-08-11 11:48:06,440 [84   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Sessions.Dto.TenantLoginInfoDto
-DEBUG 2017-08-11 11:48:06,440 [84   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Sessions.Dto.UserLoginInfoDto
-DEBUG 2017-08-11 11:48:06,440 [84   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Users.Dto.CreateUserInput
-DEBUG 2017-08-11 11:48:06,440 [84   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Users.Dto.UserListDto
-DEBUG 2017-08-11 11:48:06,440 [84   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.MultiTenancy.Dto.CreateTenantInput
-DEBUG 2017-08-11 11:48:06,440 [84   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.MultiTenancy.Dto.TenantListDto
-DEBUG 2017-08-11 11:48:06,440 [84   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Web.Models.ExtractedPricesModel
-DEBUG 2017-08-11 11:48:06,441 [84   ] Abp.AutoMapper.AbpAutoMapperModule       - GuerillaTrader.Web.Models.Account.TenantSelectionViewModel+TenantInfo
-DEBUG 2017-08-11 11:48:07,974 [84   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Sessions.ISessionAppService' with service name 'app/session'.
-DEBUG 2017-08-11 11:48:07,975 [84   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Users.IUserAppService' with service name 'app/user'.
-DEBUG 2017-08-11 11:48:07,976 [84   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Services.IMarketAppService' with service name 'app/market'.
-DEBUG 2017-08-11 11:48:07,977 [84   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Services.IMarketLogEntryAppService' with service name 'app/marketLogEntry'.
-DEBUG 2017-08-11 11:48:07,978 [84   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Services.IMonteCarloSimulationAppService' with service name 'app/monteCarloSimulation'.
-DEBUG 2017-08-11 11:48:07,979 [84   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Services.IScreenshotAppService' with service name 'app/screenshot'.
-DEBUG 2017-08-11 11:48:07,980 [84   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Services.ITradeAppService' with service name 'app/trade'.
-DEBUG 2017-08-11 11:48:07,981 [84   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Services.ITradingAccountAppService' with service name 'app/tradingAccount'.
-DEBUG 2017-08-11 11:48:07,982 [84   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Services.ITradingDayAppService' with service name 'app/tradingDay'.
-DEBUG 2017-08-11 11:48:07,983 [84   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.Roles.IRoleAppService' with service name 'app/role'.
-DEBUG 2017-08-11 11:48:07,984 [84   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'GuerillaTrader.MultiTenancy.ITenantAppService' with service name 'app/tenant'.
-DEBUG 2017-08-11 11:48:08,628 [69   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected (on reconnected event): {"ConnectionId":"ccaa305f-9ed1-4aeb-9e96-0bc3ff8de02a","IpAddress":"10.16.1.140","TenantId":1,"UserId":null,"ConnectTime":"2017-08-11T11:48:08.5742177-07:00","Properties":{}}
-WARN  2017-08-11 11:48:15,172 [48   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+WARN  2017-08-11 11:41:33,306 [46   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
    at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
@@ -4044,7 +3862,7 @@ Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActi
    at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
    at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
    at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
-WARN  2017-08-11 11:48:20,828 [77   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+WARN  2017-08-11 11:41:39,258 [16   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
    at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
@@ -4228,7 +4046,7 @@ Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActi
    at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
    at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
    at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
-WARN  2017-08-11 11:48:26,394 [77   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+WARN  2017-08-11 11:41:45,166 [16   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
    at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
@@ -4412,7 +4230,7 @@ Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActi
    at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
    at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
    at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
-WARN  2017-08-11 11:48:32,178 [48   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+WARN  2017-08-11 11:41:51,367 [16   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
    at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
@@ -4596,7 +4414,7 @@ Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActi
    at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
    at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
    at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
-WARN  2017-08-11 11:48:36,301 [48   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+WARN  2017-08-11 11:41:58,166 [69   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
    at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
@@ -4780,7 +4598,7 @@ Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActi
    at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
    at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
    at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
-WARN  2017-08-11 11:48:41,905 [69   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+WARN  2017-08-11 11:42:04,892 [16   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
    at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
@@ -4964,7 +4782,7 @@ Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActi
    at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
    at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
    at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
-WARN  2017-08-11 11:48:47,453 [70   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+WARN  2017-08-11 11:42:11,065 [69   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
    at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
@@ -5148,7 +4966,7 @@ Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActi
    at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
    at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
    at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
-WARN  2017-08-11 11:48:53,264 [69   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+WARN  2017-08-11 11:42:17,013 [34   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
    at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
@@ -5332,7 +5150,7 @@ Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActi
    at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
    at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
    at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
-WARN  2017-08-11 11:48:58,837 [77   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+WARN  2017-08-11 11:42:22,968 [67   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
    at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
@@ -5516,7 +5334,7 @@ Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActi
    at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
    at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
    at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
-WARN  2017-08-11 11:49:04,600 [77   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+WARN  2017-08-11 11:42:28,979 [55   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
    at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
@@ -5700,7 +5518,7 @@ Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActi
    at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
    at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
    at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
-WARN  2017-08-11 11:49:10,444 [9    ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+WARN  2017-08-11 11:42:33,291 [10   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
    at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
@@ -5884,7 +5702,7 @@ Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActi
    at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
    at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
    at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
-WARN  2017-08-11 11:49:16,199 [77   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+WARN  2017-08-11 11:42:40,239 [67   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
    at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
@@ -6068,7 +5886,7 @@ Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActi
    at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
    at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
    at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
-WARN  2017-08-11 11:49:21,986 [70   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+WARN  2017-08-11 11:42:47,183 [34   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
    at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
@@ -6252,7 +6070,7 @@ Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActi
    at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
    at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
    at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
-WARN  2017-08-11 11:49:27,697 [10   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+WARN  2017-08-11 11:42:55,347 [69   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
    at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
@@ -6436,7 +6254,7 @@ Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActi
    at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
    at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
    at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
-WARN  2017-08-11 11:49:33,416 [48   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+WARN  2017-08-11 11:43:02,994 [46   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
    at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
@@ -6620,7 +6438,7 @@ Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActi
    at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
    at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
    at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
-WARN  2017-08-11 11:49:39,693 [69   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+WARN  2017-08-11 11:43:09,407 [34   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
    at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
@@ -6804,7 +6622,7 @@ Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActi
    at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
    at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
    at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
-WARN  2017-08-11 11:49:46,129 [69   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+WARN  2017-08-11 11:43:15,321 [48   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
    at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
@@ -6988,7 +6806,7 @@ Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActi
    at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
    at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
    at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
-WARN  2017-08-11 11:49:52,490 [70   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+WARN  2017-08-11 11:43:21,074 [10   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
    at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
@@ -7172,7 +6990,7 @@ Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActi
    at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
    at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
    at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
-WARN  2017-08-11 11:49:58,842 [10   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+WARN  2017-08-11 11:43:26,733 [34   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
    at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
@@ -7356,7 +7174,7 @@ Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActi
    at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
    at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
    at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
-WARN  2017-08-11 11:50:05,046 [70   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+WARN  2017-08-11 11:43:32,476 [34   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
    at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
@@ -7540,7 +7358,7 @@ Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActi
    at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
    at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
    at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
-WARN  2017-08-11 11:50:11,234 [14   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+WARN  2017-08-11 11:43:37,161 [9    ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
    at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
@@ -7724,7 +7542,7 @@ Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActi
    at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
    at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
    at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
-WARN  2017-08-11 11:50:17,449 [14   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+WARN  2017-08-11 11:43:42,857 [46   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
    at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
@@ -7908,7 +7726,7 @@ Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActi
    at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
    at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
    at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
-WARN  2017-08-11 11:50:23,736 [14   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+WARN  2017-08-11 11:43:48,573 [48   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
    at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
@@ -8092,7 +7910,7 @@ Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActi
    at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
    at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
    at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
-WARN  2017-08-11 11:50:30,011 [36   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+WARN  2017-08-11 11:43:54,681 [10   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
    at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
@@ -8276,7 +8094,7 @@ Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActi
    at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
    at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
    at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
-WARN  2017-08-11 11:50:36,257 [14   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+WARN  2017-08-11 11:44:00,864 [34   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
    at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
@@ -8460,7 +8278,7 @@ Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActi
    at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
    at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
    at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
-WARN  2017-08-11 11:50:35,530 [48   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+WARN  2017-08-11 11:44:06,593 [9    ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
    at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
@@ -8644,7 +8462,7 @@ Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActi
    at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
    at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
    at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
-WARN  2017-08-11 11:50:41,710 [70   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+WARN  2017-08-11 11:44:12,438 [34   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
    at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
@@ -8828,7 +8646,7 @@ Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActi
    at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
    at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
    at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
-WARN  2017-08-11 11:50:47,885 [9    ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+WARN  2017-08-11 11:44:18,304 [69   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
    at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
@@ -9012,7 +8830,7 @@ Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActi
    at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
    at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
    at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
-WARN  2017-08-11 11:50:54,033 [69   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+WARN  2017-08-11 11:44:23,945 [9    ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
    at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
@@ -9196,7 +9014,7 @@ Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActi
    at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
    at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
    at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
-WARN  2017-08-11 11:51:00,275 [36   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+WARN  2017-08-11 11:44:29,595 [34   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
    at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
@@ -9380,7 +9198,7 @@ Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActi
    at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
    at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
    at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
-WARN  2017-08-11 11:51:06,397 [69   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+WARN  2017-08-11 11:44:34,375 [34   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
    at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
@@ -9564,7 +9382,7 @@ Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActi
    at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
    at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
    at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
-WARN  2017-08-11 11:51:12,656 [48   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+WARN  2017-08-11 11:44:40,120 [34   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
    at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
@@ -9748,7 +9566,7 @@ Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActi
    at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
    at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
    at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
-WARN  2017-08-11 11:51:19,000 [10   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+WARN  2017-08-11 11:44:45,765 [32   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
    at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
@@ -9932,7 +9750,7 @@ Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActi
    at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
    at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
    at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
-WARN  2017-08-11 11:51:25,244 [9    ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+WARN  2017-08-11 11:44:51,403 [34   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
    at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
@@ -10116,7 +9934,375 @@ Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActi
    at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
    at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
    at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
-WARN  2017-08-11 11:51:31,479 [69   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+WARN  2017-08-11 11:44:57,118 [9    ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+   at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
+   at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
+   at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   at System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   at System.Data.Entity.Internal.LazyInternalContext.<InitializeDatabase>b__4(InternalContext c)
+   at System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabase()
+   at System.Data.Entity.Internal.InternalContext.ForceOSpaceLoadingForKnownEntityTypes()
+   at System.Data.Entity.DbContext.System.Data.Entity.Infrastructure.IObjectContextAdapter.get_ObjectContext()
+   at Abp.EntityFramework.AbpDbContext.RegisterToChanges()
+   at Abp.Zero.EntityFramework.AbpZeroDbContext`3..ctor(String nameOrConnectionString)
+   at GuerillaTrader.EntityFramework.GuerillaTraderDbContext..ctor(String nameOrConnectionString) in C:\Users\csandfort\Documents\Visual Studio 2017\Projects\GuerillaTrader\GuerillaTrader.EntityFramework\EntityFramework\GuerillaTraderDbContext.cs:line 39
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
+   at System.Reflection.RuntimeConstructorInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.FastCreateInstance(Type implType, Object[] arguments, ConstructorCandidate constructor)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstanceCore(ConstructorCandidate constructor, Object[] arguments, Type implType)
+   --- End of inner exception stack trace ---
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstanceCore(ConstructorCandidate constructor, Object[] arguments, Type implType)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstance(CreationContext context, ConstructorCandidate constructor, Object[] arguments)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.Instantiate(CreationContext context)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.InternalCreate(CreationContext context)
+   at Castle.MicroKernel.ComponentActivator.AbstractComponentActivator.Create(CreationContext context, Burden burden)
+   at Castle.MicroKernel.Lifestyle.AbstractLifestyleManager.CreateInstance(CreationContext context, Boolean trackedExternally)
+   at Castle.MicroKernel.Lifestyle.AbstractLifestyleManager.Resolve(CreationContext context, IReleasePolicy releasePolicy)
+   at Castle.MicroKernel.Handlers.DefaultHandler.ResolveCore(CreationContext context, Boolean requiresDecommission, Boolean instanceRequired, Burden& burden)
+   at Castle.MicroKernel.Handlers.DefaultHandler.Resolve(CreationContext context, Boolean instanceRequired)
+   at Castle.MicroKernel.Handlers.AbstractHandler.Resolve(CreationContext context)
+   at Castle.MicroKernel.DefaultKernel.ResolveComponent(IHandler handler, Type service, IDictionary additionalArguments, IReleasePolicy policy)
+   at Castle.MicroKernel.DefaultKernel.Castle.MicroKernel.IKernelInternal.Resolve(Type service, IDictionary arguments, IReleasePolicy policy)
+   at Castle.MicroKernel.DefaultKernel.Resolve(Type service, IDictionary arguments)
+   at Castle.Windsor.WindsorContainer.Resolve(Type service, IDictionary arguments)
+   at Castle.Windsor.WindsorContainer.Resolve(Type service, Object argumentsAsAnonymousType)
+   at Abp.Dependency.IocManager.Resolve(Type type, Object argumentsAsAnonymousType)
+   at Abp.EntityFramework.DefaultDbContextResolver.Resolve[TDbContext](String connectionString)
+   at Abp.EntityFramework.Uow.TransactionScopeEfTransactionStrategy.CreateDbContext[TDbContext](String connectionString, IDbContextResolver dbContextResolver)
+   at Abp.EntityFramework.Uow.EfUnitOfWork.GetOrCreateDbContext[TDbContext](Nullable`1 multiTenancySide)
+   at Abp.EntityFramework.Uow.UnitOfWorkExtensions.GetDbContext[TDbContext](IActiveUnitOfWork unitOfWork, Nullable`1 multiTenancySide)
+   at Abp.EntityFramework.Uow.UnitOfWorkDbContextProvider`1.GetDbContext(Nullable`1 multiTenancySide)
+   at Castle.Proxies.EfRepositoryBase`3Proxy_1.get_Context_callback()
+   at Castle.Proxies.Invocations.EfRepositoryBase`3_get_Context_3.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.EfRepositoryBase`3Proxy_1.get_Context()
+   at Abp.EntityFramework.Repositories.EfRepositoryBase`3.get_Table()
+   at Castle.Proxies.EfRepositoryBase`3Proxy_1.get_Table_callback()
+   at Castle.Proxies.Invocations.EfRepositoryBase`3_get_Table_3.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.EfRepositoryBase`3Proxy_1.get_Table()
+   at Castle.Proxies.EfRepositoryBase`3Proxy_1.GetAll_callback()
+   at Castle.Proxies.Invocations.EfRepositoryBase`3_GetAll_3.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.EfRepositoryBase`3Proxy_1.GetAll()
+   at Abp.BackgroundJobs.BackgroundJobStore.GetWaitingJobsAsync(Int32 maxResultCount)
+   at Castle.Proxies.BackgroundJobStoreProxy.GetWaitingJobsAsync_callback(Int32 maxResultCount)
+   at Castle.Proxies.Invocations.BackgroundJobStore_GetWaitingJobsAsync.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformAsyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.BackgroundJobStoreProxy.GetWaitingJobsAsync(Int32 maxResultCount)
+   at Abp.BackgroundJobs.BackgroundJobManager.<DoWork>b__13_0()
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Nito.AsyncEx.Synchronous.TaskExtensions.WaitAndUnwrapException[TResult](Task`1 task)
+   at Nito.AsyncEx.AsyncContext.<>c__DisplayClass16_0`1.<Run>b__0(Task`1 t)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Nito.AsyncEx.Synchronous.TaskExtensions.WaitAndUnwrapException[TResult](Task`1 task)
+   at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
+   at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
+   at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
+Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+   at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
+   at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
+   at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   at System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   at System.Data.Entity.Internal.LazyInternalContext.<InitializeDatabase>b__4(InternalContext c)
+   at System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabase()
+   at System.Data.Entity.Internal.InternalContext.ForceOSpaceLoadingForKnownEntityTypes()
+   at System.Data.Entity.DbContext.System.Data.Entity.Infrastructure.IObjectContextAdapter.get_ObjectContext()
+   at Abp.EntityFramework.AbpDbContext.RegisterToChanges()
+   at Abp.Zero.EntityFramework.AbpZeroDbContext`3..ctor(String nameOrConnectionString)
+   at GuerillaTrader.EntityFramework.GuerillaTraderDbContext..ctor(String nameOrConnectionString) in C:\Users\csandfort\Documents\Visual Studio 2017\Projects\GuerillaTrader\GuerillaTrader.EntityFramework\EntityFramework\GuerillaTraderDbContext.cs:line 39
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
+   at System.Reflection.RuntimeConstructorInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.FastCreateInstance(Type implType, Object[] arguments, ConstructorCandidate constructor)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstanceCore(ConstructorCandidate constructor, Object[] arguments, Type implType)
+   --- End of inner exception stack trace ---
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstanceCore(ConstructorCandidate constructor, Object[] arguments, Type implType)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstance(CreationContext context, ConstructorCandidate constructor, Object[] arguments)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.Instantiate(CreationContext context)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.InternalCreate(CreationContext context)
+   at Castle.MicroKernel.ComponentActivator.AbstractComponentActivator.Create(CreationContext context, Burden burden)
+   at Castle.MicroKernel.Lifestyle.AbstractLifestyleManager.CreateInstance(CreationContext context, Boolean trackedExternally)
+   at Castle.MicroKernel.Lifestyle.AbstractLifestyleManager.Resolve(CreationContext context, IReleasePolicy releasePolicy)
+   at Castle.MicroKernel.Handlers.DefaultHandler.ResolveCore(CreationContext context, Boolean requiresDecommission, Boolean instanceRequired, Burden& burden)
+   at Castle.MicroKernel.Handlers.DefaultHandler.Resolve(CreationContext context, Boolean instanceRequired)
+   at Castle.MicroKernel.Handlers.AbstractHandler.Resolve(CreationContext context)
+   at Castle.MicroKernel.DefaultKernel.ResolveComponent(IHandler handler, Type service, IDictionary additionalArguments, IReleasePolicy policy)
+   at Castle.MicroKernel.DefaultKernel.Castle.MicroKernel.IKernelInternal.Resolve(Type service, IDictionary arguments, IReleasePolicy policy)
+   at Castle.MicroKernel.DefaultKernel.Resolve(Type service, IDictionary arguments)
+   at Castle.Windsor.WindsorContainer.Resolve(Type service, IDictionary arguments)
+   at Castle.Windsor.WindsorContainer.Resolve(Type service, Object argumentsAsAnonymousType)
+   at Abp.Dependency.IocManager.Resolve(Type type, Object argumentsAsAnonymousType)
+   at Abp.EntityFramework.DefaultDbContextResolver.Resolve[TDbContext](String connectionString)
+   at Abp.EntityFramework.Uow.TransactionScopeEfTransactionStrategy.CreateDbContext[TDbContext](String connectionString, IDbContextResolver dbContextResolver)
+   at Abp.EntityFramework.Uow.EfUnitOfWork.GetOrCreateDbContext[TDbContext](Nullable`1 multiTenancySide)
+   at Abp.EntityFramework.Uow.UnitOfWorkExtensions.GetDbContext[TDbContext](IActiveUnitOfWork unitOfWork, Nullable`1 multiTenancySide)
+   at Abp.EntityFramework.Uow.UnitOfWorkDbContextProvider`1.GetDbContext(Nullable`1 multiTenancySide)
+   at Castle.Proxies.EfRepositoryBase`3Proxy_1.get_Context_callback()
+   at Castle.Proxies.Invocations.EfRepositoryBase`3_get_Context_3.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.EfRepositoryBase`3Proxy_1.get_Context()
+   at Abp.EntityFramework.Repositories.EfRepositoryBase`3.get_Table()
+   at Castle.Proxies.EfRepositoryBase`3Proxy_1.get_Table_callback()
+   at Castle.Proxies.Invocations.EfRepositoryBase`3_get_Table_3.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.EfRepositoryBase`3Proxy_1.get_Table()
+   at Castle.Proxies.EfRepositoryBase`3Proxy_1.GetAll_callback()
+   at Castle.Proxies.Invocations.EfRepositoryBase`3_GetAll_3.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.EfRepositoryBase`3Proxy_1.GetAll()
+   at Abp.BackgroundJobs.BackgroundJobStore.GetWaitingJobsAsync(Int32 maxResultCount)
+   at Castle.Proxies.BackgroundJobStoreProxy.GetWaitingJobsAsync_callback(Int32 maxResultCount)
+   at Castle.Proxies.Invocations.BackgroundJobStore_GetWaitingJobsAsync.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformAsyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.BackgroundJobStoreProxy.GetWaitingJobsAsync(Int32 maxResultCount)
+   at Abp.BackgroundJobs.BackgroundJobManager.<DoWork>b__13_0()
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Nito.AsyncEx.Synchronous.TaskExtensions.WaitAndUnwrapException[TResult](Task`1 task)
+   at Nito.AsyncEx.AsyncContext.<>c__DisplayClass16_0`1.<Run>b__0(Task`1 t)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Nito.AsyncEx.Synchronous.TaskExtensions.WaitAndUnwrapException[TResult](Task`1 task)
+   at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
+   at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
+   at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
+WARN  2017-08-11 11:45:02,805 [48   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+   at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
+   at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
+   at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   at System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   at System.Data.Entity.Internal.LazyInternalContext.<InitializeDatabase>b__4(InternalContext c)
+   at System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabase()
+   at System.Data.Entity.Internal.InternalContext.ForceOSpaceLoadingForKnownEntityTypes()
+   at System.Data.Entity.DbContext.System.Data.Entity.Infrastructure.IObjectContextAdapter.get_ObjectContext()
+   at Abp.EntityFramework.AbpDbContext.RegisterToChanges()
+   at Abp.Zero.EntityFramework.AbpZeroDbContext`3..ctor(String nameOrConnectionString)
+   at GuerillaTrader.EntityFramework.GuerillaTraderDbContext..ctor(String nameOrConnectionString) in C:\Users\csandfort\Documents\Visual Studio 2017\Projects\GuerillaTrader\GuerillaTrader.EntityFramework\EntityFramework\GuerillaTraderDbContext.cs:line 39
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
+   at System.Reflection.RuntimeConstructorInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.FastCreateInstance(Type implType, Object[] arguments, ConstructorCandidate constructor)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstanceCore(ConstructorCandidate constructor, Object[] arguments, Type implType)
+   --- End of inner exception stack trace ---
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstanceCore(ConstructorCandidate constructor, Object[] arguments, Type implType)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstance(CreationContext context, ConstructorCandidate constructor, Object[] arguments)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.Instantiate(CreationContext context)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.InternalCreate(CreationContext context)
+   at Castle.MicroKernel.ComponentActivator.AbstractComponentActivator.Create(CreationContext context, Burden burden)
+   at Castle.MicroKernel.Lifestyle.AbstractLifestyleManager.CreateInstance(CreationContext context, Boolean trackedExternally)
+   at Castle.MicroKernel.Lifestyle.AbstractLifestyleManager.Resolve(CreationContext context, IReleasePolicy releasePolicy)
+   at Castle.MicroKernel.Handlers.DefaultHandler.ResolveCore(CreationContext context, Boolean requiresDecommission, Boolean instanceRequired, Burden& burden)
+   at Castle.MicroKernel.Handlers.DefaultHandler.Resolve(CreationContext context, Boolean instanceRequired)
+   at Castle.MicroKernel.Handlers.AbstractHandler.Resolve(CreationContext context)
+   at Castle.MicroKernel.DefaultKernel.ResolveComponent(IHandler handler, Type service, IDictionary additionalArguments, IReleasePolicy policy)
+   at Castle.MicroKernel.DefaultKernel.Castle.MicroKernel.IKernelInternal.Resolve(Type service, IDictionary arguments, IReleasePolicy policy)
+   at Castle.MicroKernel.DefaultKernel.Resolve(Type service, IDictionary arguments)
+   at Castle.Windsor.WindsorContainer.Resolve(Type service, IDictionary arguments)
+   at Castle.Windsor.WindsorContainer.Resolve(Type service, Object argumentsAsAnonymousType)
+   at Abp.Dependency.IocManager.Resolve(Type type, Object argumentsAsAnonymousType)
+   at Abp.EntityFramework.DefaultDbContextResolver.Resolve[TDbContext](String connectionString)
+   at Abp.EntityFramework.Uow.TransactionScopeEfTransactionStrategy.CreateDbContext[TDbContext](String connectionString, IDbContextResolver dbContextResolver)
+   at Abp.EntityFramework.Uow.EfUnitOfWork.GetOrCreateDbContext[TDbContext](Nullable`1 multiTenancySide)
+   at Abp.EntityFramework.Uow.UnitOfWorkExtensions.GetDbContext[TDbContext](IActiveUnitOfWork unitOfWork, Nullable`1 multiTenancySide)
+   at Abp.EntityFramework.Uow.UnitOfWorkDbContextProvider`1.GetDbContext(Nullable`1 multiTenancySide)
+   at Castle.Proxies.EfRepositoryBase`3Proxy_1.get_Context_callback()
+   at Castle.Proxies.Invocations.EfRepositoryBase`3_get_Context_3.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.EfRepositoryBase`3Proxy_1.get_Context()
+   at Abp.EntityFramework.Repositories.EfRepositoryBase`3.get_Table()
+   at Castle.Proxies.EfRepositoryBase`3Proxy_1.get_Table_callback()
+   at Castle.Proxies.Invocations.EfRepositoryBase`3_get_Table_3.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.EfRepositoryBase`3Proxy_1.get_Table()
+   at Castle.Proxies.EfRepositoryBase`3Proxy_1.GetAll_callback()
+   at Castle.Proxies.Invocations.EfRepositoryBase`3_GetAll_3.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.EfRepositoryBase`3Proxy_1.GetAll()
+   at Abp.BackgroundJobs.BackgroundJobStore.GetWaitingJobsAsync(Int32 maxResultCount)
+   at Castle.Proxies.BackgroundJobStoreProxy.GetWaitingJobsAsync_callback(Int32 maxResultCount)
+   at Castle.Proxies.Invocations.BackgroundJobStore_GetWaitingJobsAsync.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformAsyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.BackgroundJobStoreProxy.GetWaitingJobsAsync(Int32 maxResultCount)
+   at Abp.BackgroundJobs.BackgroundJobManager.<DoWork>b__13_0()
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Nito.AsyncEx.Synchronous.TaskExtensions.WaitAndUnwrapException[TResult](Task`1 task)
+   at Nito.AsyncEx.AsyncContext.<>c__DisplayClass16_0`1.<Run>b__0(Task`1 t)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Nito.AsyncEx.Synchronous.TaskExtensions.WaitAndUnwrapException[TResult](Task`1 task)
+   at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
+   at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
+   at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
+Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+   at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
+   at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
+   at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   at System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   at System.Data.Entity.Internal.LazyInternalContext.<InitializeDatabase>b__4(InternalContext c)
+   at System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabase()
+   at System.Data.Entity.Internal.InternalContext.ForceOSpaceLoadingForKnownEntityTypes()
+   at System.Data.Entity.DbContext.System.Data.Entity.Infrastructure.IObjectContextAdapter.get_ObjectContext()
+   at Abp.EntityFramework.AbpDbContext.RegisterToChanges()
+   at Abp.Zero.EntityFramework.AbpZeroDbContext`3..ctor(String nameOrConnectionString)
+   at GuerillaTrader.EntityFramework.GuerillaTraderDbContext..ctor(String nameOrConnectionString) in C:\Users\csandfort\Documents\Visual Studio 2017\Projects\GuerillaTrader\GuerillaTrader.EntityFramework\EntityFramework\GuerillaTraderDbContext.cs:line 39
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
+   at System.Reflection.RuntimeConstructorInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.FastCreateInstance(Type implType, Object[] arguments, ConstructorCandidate constructor)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstanceCore(ConstructorCandidate constructor, Object[] arguments, Type implType)
+   --- End of inner exception stack trace ---
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstanceCore(ConstructorCandidate constructor, Object[] arguments, Type implType)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstance(CreationContext context, ConstructorCandidate constructor, Object[] arguments)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.Instantiate(CreationContext context)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.InternalCreate(CreationContext context)
+   at Castle.MicroKernel.ComponentActivator.AbstractComponentActivator.Create(CreationContext context, Burden burden)
+   at Castle.MicroKernel.Lifestyle.AbstractLifestyleManager.CreateInstance(CreationContext context, Boolean trackedExternally)
+   at Castle.MicroKernel.Lifestyle.AbstractLifestyleManager.Resolve(CreationContext context, IReleasePolicy releasePolicy)
+   at Castle.MicroKernel.Handlers.DefaultHandler.ResolveCore(CreationContext context, Boolean requiresDecommission, Boolean instanceRequired, Burden& burden)
+   at Castle.MicroKernel.Handlers.DefaultHandler.Resolve(CreationContext context, Boolean instanceRequired)
+   at Castle.MicroKernel.Handlers.AbstractHandler.Resolve(CreationContext context)
+   at Castle.MicroKernel.DefaultKernel.ResolveComponent(IHandler handler, Type service, IDictionary additionalArguments, IReleasePolicy policy)
+   at Castle.MicroKernel.DefaultKernel.Castle.MicroKernel.IKernelInternal.Resolve(Type service, IDictionary arguments, IReleasePolicy policy)
+   at Castle.MicroKernel.DefaultKernel.Resolve(Type service, IDictionary arguments)
+   at Castle.Windsor.WindsorContainer.Resolve(Type service, IDictionary arguments)
+   at Castle.Windsor.WindsorContainer.Resolve(Type service, Object argumentsAsAnonymousType)
+   at Abp.Dependency.IocManager.Resolve(Type type, Object argumentsAsAnonymousType)
+   at Abp.EntityFramework.DefaultDbContextResolver.Resolve[TDbContext](String connectionString)
+   at Abp.EntityFramework.Uow.TransactionScopeEfTransactionStrategy.CreateDbContext[TDbContext](String connectionString, IDbContextResolver dbContextResolver)
+   at Abp.EntityFramework.Uow.EfUnitOfWork.GetOrCreateDbContext[TDbContext](Nullable`1 multiTenancySide)
+   at Abp.EntityFramework.Uow.UnitOfWorkExtensions.GetDbContext[TDbContext](IActiveUnitOfWork unitOfWork, Nullable`1 multiTenancySide)
+   at Abp.EntityFramework.Uow.UnitOfWorkDbContextProvider`1.GetDbContext(Nullable`1 multiTenancySide)
+   at Castle.Proxies.EfRepositoryBase`3Proxy_1.get_Context_callback()
+   at Castle.Proxies.Invocations.EfRepositoryBase`3_get_Context_3.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.EfRepositoryBase`3Proxy_1.get_Context()
+   at Abp.EntityFramework.Repositories.EfRepositoryBase`3.get_Table()
+   at Castle.Proxies.EfRepositoryBase`3Proxy_1.get_Table_callback()
+   at Castle.Proxies.Invocations.EfRepositoryBase`3_get_Table_3.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.EfRepositoryBase`3Proxy_1.get_Table()
+   at Castle.Proxies.EfRepositoryBase`3Proxy_1.GetAll_callback()
+   at Castle.Proxies.Invocations.EfRepositoryBase`3_GetAll_3.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.EfRepositoryBase`3Proxy_1.GetAll()
+   at Abp.BackgroundJobs.BackgroundJobStore.GetWaitingJobsAsync(Int32 maxResultCount)
+   at Castle.Proxies.BackgroundJobStoreProxy.GetWaitingJobsAsync_callback(Int32 maxResultCount)
+   at Castle.Proxies.Invocations.BackgroundJobStore_GetWaitingJobsAsync.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformAsyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.BackgroundJobStoreProxy.GetWaitingJobsAsync(Int32 maxResultCount)
+   at Abp.BackgroundJobs.BackgroundJobManager.<DoWork>b__13_0()
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Nito.AsyncEx.Synchronous.TaskExtensions.WaitAndUnwrapException[TResult](Task`1 task)
+   at Nito.AsyncEx.AsyncContext.<>c__DisplayClass16_0`1.<Run>b__0(Task`1 t)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Nito.AsyncEx.Synchronous.TaskExtensions.WaitAndUnwrapException[TResult](Task`1 task)
+   at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
+   at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
+   at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
+WARN  2017-08-11 11:45:08,751 [55   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate GuerillaTrader.EntityFramework.GuerillaTraderDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: The model backing the 'GuerillaTraderDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
    at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
