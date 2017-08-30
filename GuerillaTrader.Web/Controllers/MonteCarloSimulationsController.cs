@@ -104,7 +104,9 @@ namespace GuerillaTrader.Web.Controllers
                 model.TimeStamp = DateTime.Now;
                 model.TradingAccountId = tradingAccount.Id;
                 model.NumberOfTradesInSample = this._tradeRepository.GetAll().Count(x => x.TradingAccountId == model.TradingAccountId && x.ExitReason != TradeExitReasons.None);
-                model.NumberOfTradesPerIteration = 30;
+                model.NumberOfTradesPerIteration = (int)(21.0 * MonteCarloSimulation.GetTradesPerDay(this._tradeRepository.GetAll().Where(x => x.TradingAccount.Active).Min(x => x.EntryDate),
+                    this._tradeRepository.GetAll().Where(x => x.TradingAccount.Active).Max(x => x.EntryDate),
+                    this._tradeRepository.GetAll().Count(x => x.TradingAccount.Active)));
                 model.NumberOfIterations = 1000;
                 model.CumulativeProfitK = .95m;
                 model.ConsecutiveLossesK = 1m;

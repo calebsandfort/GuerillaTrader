@@ -25,6 +25,15 @@ namespace GuerillaTrader.Entities.Dtos
         public Decimal InitialMargin { get; set; }
 
         public int MTT { get; set; }
+        public int AverageRange { get; set; }
+        public Decimal Demoninator { get; set; }
+
+        public Decimal DailyVolume { get; set; }
+        [DataType(DataType.Currency)]
+        public Decimal DailyWave { get; set; }
+        public Decimal VolumeScore { get; set; }
+        public Decimal WaveScore { get; set; }
+        public Decimal CompositeScore { get; set; }
 
         public bool Active { get; set; }
 

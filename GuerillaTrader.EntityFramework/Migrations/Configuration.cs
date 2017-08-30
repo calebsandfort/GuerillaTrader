@@ -28,12 +28,13 @@ namespace GuerillaTrader.Migrations
                 //Default tenant seed (in host database).
                 new DefaultTenantCreator(context).Create();
                 new TenantRoleAndUserBuilder(context, 1).Create();
-                //new MarketsCreator(context).Create();
+                new MarketsCreator(context).Create();
                 //new TradingDirectivesCreator(context).Create();
             }
             else
             {
                 //You can add seed for tenant databases and use Tenant property...
+                new MarketsCreator(context).Create();
             }
 
             context.SaveChanges();

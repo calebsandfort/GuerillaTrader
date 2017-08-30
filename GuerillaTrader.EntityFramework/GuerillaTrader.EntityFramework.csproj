@@ -171,6 +171,18 @@
     <Compile Include="Migrations\201708111837252_AddMoreDecimalPlaces.Designer.cs">
       <DependentUpon>201708111837252_AddMoreDecimalPlaces.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708180356361_MoreMarketFields.cs" />
+    <Compile Include="Migrations\201708180356361_MoreMarketFields.Designer.cs">
+      <DependentUpon>201708180356361_MoreMarketFields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708290348491_MoreMarketFields2.cs" />
+    <Compile Include="Migrations\201708290348491_MoreMarketFields2.Designer.cs">
+      <DependentUpon>201708290348491_MoreMarketFields2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708300257532_OneMoreDecimalPlace.cs" />
+    <Compile Include="Migrations\201708300257532_OneMoreDecimalPlace.Designer.cs">
+      <DependentUpon>201708300257532_OneMoreDecimalPlace.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="GuerillaTraderDataModule.cs" />
@@ -205,6 +217,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708111837252_AddMoreDecimalPlaces.resx">
       <DependentUpon>201708111837252_AddMoreDecimalPlaces.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708180356361_MoreMarketFields.resx">
+      <DependentUpon>201708180356361_MoreMarketFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708290348491_MoreMarketFields2.resx">
+      <DependentUpon>201708290348491_MoreMarketFields2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708300257532_OneMoreDecimalPlace.resx">
+      <DependentUpon>201708300257532_OneMoreDecimalPlace.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

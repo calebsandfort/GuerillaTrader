@@ -54,7 +54,7 @@ namespace GuerillaTrader.Services
                 tradeEnterLogEntry.MarketId = trade.MarketId;
                 tradeEnterLogEntry.MarketLogEntryType = MarketLogEntryTypes.TradeEnter;
                 if (trade.EntryScreenshotDbId.HasValue) tradeEnterLogEntry.ScreenshotDbId = trade.EntryScreenshotDbId;
-                tradeEnterLogEntry.Text = String.Format("{0} {1} @ {2:C}<br/>{3}", trade.TradeType == TradeTypes.Long ? "Buy" : "Sell", trade.Size, trade.EntryPrice, trade.EntryRemarks);
+                tradeEnterLogEntry.Text = String.Format("{0} {1} @ {2:C5}<br/>{3}", trade.TradeType == TradeTypes.Long ? "Buy" : "Sell", trade.Size, trade.EntryPrice, trade.EntryRemarks);
                 tradeEnterLogEntry.TimeStamp = trade.EntryDate;
                 tradeEnterLogEntry.TradingAccountId = trade.TradingAccountId;
                 tradeEnterLogEntry.TradingDayId = trade.TradingDayId;
@@ -88,7 +88,7 @@ namespace GuerillaTrader.Services
                 tradeExitLogEntry.MarketId = trade.MarketId;
                 tradeExitLogEntry.MarketLogEntryType = MarketLogEntryTypes.TradeExit;
                 if (trade.ExitScreenshotDbId.HasValue) tradeExitLogEntry.ScreenshotDbId = trade.ExitScreenshotDbId;
-                tradeExitLogEntry.Text = String.Format("{0}: {1} {2} @ {3:C}, P/L: {4:C}<br/>{5}", trade.ExitReason.GetDisplay(), trade.TradeType == TradeTypes.Long ? "Sell" : "Buy", trade.Size, trade.ExitPrice, trade.ProfitLoss, trade.ExitRemarks);
+                tradeExitLogEntry.Text = String.Format("{0}: {1} {2} @ {3:C5}, P/L: {4:C5}<br/>{5}", trade.ExitReason.GetDisplay(), trade.TradeType == TradeTypes.Long ? "Sell" : "Buy", trade.Size, trade.ExitPrice, trade.ProfitLoss, trade.ExitRemarks);
                 tradeExitLogEntry.TimeStamp = trade.ExitDate.Value;
                 tradeExitLogEntry.TradingAccountId = trade.TradingAccountId;
                 tradeExitLogEntry.TradingDayId = trade.TradingDayId;

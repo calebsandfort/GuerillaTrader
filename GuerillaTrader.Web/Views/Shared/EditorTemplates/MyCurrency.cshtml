@@ -3,6 +3,7 @@
 @{
     bool required = ViewData["required"] == null ? false : (bool)ViewData["required"];
     String onChange = ViewData["onChange"] == null ? String.Empty : (String)ViewData["onChange"];
+    int decimals = ViewData["decimals"] == null ? 2 : (int)ViewData["decimals"];
 
     Dictionary<String, object> attributes = new Dictionary<string, object>();
     attributes.Add("style", "width:100%;");
@@ -18,6 +19,8 @@
     @Html.LabelFor(m => m, new { @class = "col-sm-3 control-label" })
     <div class="col-sm-9">
         @(Html.Kendo().CurrencyTextBoxFor(m => m)
+            .Decimals(decimals)
+            .Format(String.Format("c{0}", decimals))
             .Events(events =>
             {
                 if (!String.IsNullOrEmpty(onChange))

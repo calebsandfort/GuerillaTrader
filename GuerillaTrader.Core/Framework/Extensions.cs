@@ -21,5 +21,16 @@ namespace GuerillaTrader.Framework
             if (val > 0) return val;
             else return null;
         }
+
+        public static List<Decimal> Split(this Decimal val)
+        {
+            return val.ToString("N3").Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).Select(x => Decimal.Parse(x)).ToList();
+        }
+
+        public static Decimal FromFraction(this Decimal val, Decimal demoninator)
+        {
+            List<Decimal> split = val.Split();
+            return split[0] + (split[1] / demoninator);
+        }
     }
 }

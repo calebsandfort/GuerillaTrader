@@ -56,7 +56,7 @@ namespace GuerillaTrader.EntityFramework
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Properties<decimal>().Configure(c => c.HasPrecision(18, 6));
+            modelBuilder.Properties<decimal>().Configure(c => c.HasPrecision(18, 7));
 
             modelBuilder.Entity<Trade>().HasOptional(m => m.EntryScreenshotDb)
                                  .WithMany(m => m.EntryTrades).HasForeignKey(m => m.EntryScreenshotDbId);

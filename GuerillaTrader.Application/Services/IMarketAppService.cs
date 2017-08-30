@@ -15,5 +15,10 @@ namespace GuerillaTrader.Services
         List<MarketDto> GetAllActive();
         MarketDto Get(int id);
         void Save(MarketDto dto);
+        void Save(TosMarketDto dto);
+        Task GenerateSeedCode();
+        Task UpdateTosProperties();
+        Task<List<TosMarketDto>> LoadAndScrape(bool scrape = true);
+        Task Scrape(TosMarketDto dto);
     }
 }

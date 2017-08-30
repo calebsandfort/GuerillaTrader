@@ -6,9 +6,9 @@
         columns.Bound(x => x.Market).Width(75).Title("Mkt");
         columns.Bound(x => x.Size).Width(75).Title("Qty");
         columns.Bound(x => x.TradeType).Width(75);
-        columns.Bound(x => x.EntryPrice).Width(100);
-        columns.Bound(x => x.StopLossPrice).Width(100);
-        columns.Bound(x => x.ProfitTakerPrice).Width(100);
+        columns.Bound(x => x.EntryPrice).Width(100).Format("{0:c5}");
+        columns.Bound(x => x.StopLossPrice).Width(100).Format("{0:c5}");
+        columns.Bound(x => x.ProfitTakerPrice).Width(100).Format("{0:c5}");
         columns.Bound(x => x.ExitDate).Width(100).Format("{0:h:mm tt}").Title("Exit Time");
         columns.Bound(x => x.ProfitLoss).Width(100).Title("P/L");
         //columns.Bound(x => x.Active).Width(100).ClientTemplate("#= Active ? 'Yes' : 'No' #");

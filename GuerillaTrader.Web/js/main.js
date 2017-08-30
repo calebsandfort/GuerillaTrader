@@ -72,6 +72,13 @@ $(function () {
     $("#marketsModal").on("shown.bs.modal", function (e) {
         $("#marketsGrid").data("kendoGrid").refresh();
     });
+
+    $('#marketTabs a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+        var marketsScatter = $("#marketsScatter");
+        if (marketsScatter.is(":visible")) {
+            marketsScatter.data("kendoChart").redraw();
+        }
+    });
 });
 
 $(document).ready(function () {
@@ -160,6 +167,113 @@ GuerillaTrader.Util.hideEditField = function (container, name) {
 
     var field = container.find("[name=" + name + "]");
     if (field.size() > 0) field.closest(".editor-field").hide();
+}
+
+GuerillaTrader.Util.getScoreColor = function (dataItem) {
+    console.log(dataItem);
+    var color = '';
+    if (val <= 0.00) color = '#0000FF'
+    else if (val <= 1.00) color = '#0008F7'
+    else if (val <= 2.00) color = '#000FF0'
+    else if (val <= 3.00) color = '#0017E8'
+    else if (val <= 4.00) color = '#001FE0'
+    else if (val <= 5.00) color = '#0027D8'
+    else if (val <= 6.00) color = '#002ED1'
+    else if (val <= 7.00) color = '#0036C9'
+    else if (val <= 8.00) color = '#003EC1'
+    else if (val <= 9.00) color = '#0046B9'
+    else if (val <= 10.00) color = '#004DB2'
+    else if (val <= 11.00) color = '#0055AA'
+    else if (val <= 12.00) color = '#005DA2'
+    else if (val <= 13.00) color = '#00649B'
+    else if (val <= 14.00) color = '#006C93'
+    else if (val <= 15.00) color = '#00748B'
+    else if (val <= 16.00) color = '#007C83'
+    else if (val <= 17.00) color = '#00837C'
+    else if (val <= 18.00) color = '#008B74'
+    else if (val <= 19.00) color = '#00936C'
+    else if (val <= 20.00) color = '#009B64'
+    else if (val <= 21.00) color = '#00A25D'
+    else if (val <= 22.00) color = '#00AA55'
+    else if (val <= 23.00) color = '#00B24D'
+    else if (val <= 24.00) color = '#00B946'
+    else if (val <= 25.00) color = '#00C13E'
+    else if (val <= 26.00) color = '#00C936'
+    else if (val <= 27.00) color = '#00D12E'
+    else if (val <= 28.00) color = '#00D827'
+    else if (val <= 29.00) color = '#00E01F'
+    else if (val <= 30.00) color = '#00E817'
+    else if (val <= 31.00) color = '#00F00F'
+    else if (val <= 32.00) color = '#00F708'
+    else if (val <= 33.00) color = '#00FF00'
+    else if (val <= 34.00) color = '#08FF00'
+    else if (val <= 35.00) color = '#0FFF00'
+    else if (val <= 36.00) color = '#17FF00'
+    else if (val <= 37.00) color = '#1FFF00'
+    else if (val <= 38.00) color = '#27FF00'
+    else if (val <= 39.00) color = '#2EFF00'
+    else if (val <= 40.00) color = '#36FF00'
+    else if (val <= 41.00) color = '#3EFF00'
+    else if (val <= 42.00) color = '#46FF00'
+    else if (val <= 43.00) color = '#4DFF00'
+    else if (val <= 44.00) color = '#55FF00'
+    else if (val <= 45.00) color = '#5DFF00'
+    else if (val <= 46.00) color = '#64FF00'
+    else if (val <= 47.00) color = '#6CFF00'
+    else if (val <= 48.00) color = '#74FF00'
+    else if (val <= 49.00) color = '#7CFF00'
+    else if (val <= 50.00) color = '#83FF00'
+    else if (val <= 51.00) color = '#8BFF00'
+    else if (val <= 52.00) color = '#93FF00'
+    else if (val <= 53.00) color = '#9BFF00'
+    else if (val <= 54.00) color = '#A2FF00'
+    else if (val <= 55.00) color = '#AAFF00'
+    else if (val <= 56.00) color = '#B2FF00'
+    else if (val <= 57.00) color = '#B9FF00'
+    else if (val <= 58.00) color = '#C1FF00'
+    else if (val <= 59.00) color = '#C9FF00'
+    else if (val <= 60.00) color = '#D1FF00'
+    else if (val <= 61.00) color = '#D8FF00'
+    else if (val <= 62.00) color = '#E0FF00'
+    else if (val <= 63.00) color = '#E8FF00'
+    else if (val <= 64.00) color = '#F0FF00'
+    else if (val <= 65.00) color = '#F7FF00'
+    else if (val <= 66.00) color = '#FFFF00'
+    else if (val <= 67.00) color = '#FFF800'
+    else if (val <= 68.00) color = '#FFF000'
+    else if (val <= 69.00) color = '#FFE900'
+    else if (val <= 70.00) color = '#FFE100'
+    else if (val <= 71.00) color = '#FFDA00'
+    else if (val <= 72.00) color = '#FFD200'
+    else if (val <= 73.00) color = '#FFCB00'
+    else if (val <= 74.00) color = '#FFC300'
+    else if (val <= 75.00) color = '#FFBC00'
+    else if (val <= 76.00) color = '#FFB400'
+    else if (val <= 77.00) color = '#FFAC00'
+    else if (val <= 78.00) color = '#FFA500'
+    else if (val <= 79.00) color = '#FF9E00'
+    else if (val <= 80.00) color = '#FF9600'
+    else if (val <= 81.00) color = '#FF8E00'
+    else if (val <= 82.00) color = '#FF8700'
+    else if (val <= 83.00) color = '#FF8000'
+    else if (val <= 84.00) color = '#FF7800'
+    else if (val <= 85.00) color = '#FF7100'
+    else if (val <= 86.00) color = '#FF6900'
+    else if (val <= 87.00) color = '#FF6200'
+    else if (val <= 88.00) color = '#FF5A00'
+    else if (val <= 89.00) color = '#FF5300'
+    else if (val <= 90.00) color = '#FF4B00'
+    else if (val <= 91.00) color = '#FF4400'
+    else if (val <= 92.00) color = '#FF3C00'
+    else if (val <= 93.00) color = '#FF3400'
+    else if (val <= 94.00) color = '#FF2D00'
+    else if (val <= 95.00) color = '#FF2600'
+    else if (val <= 96.00) color = '#FF1E00'
+    else if (val <= 97.00) color = '#FF1700'
+    else if (val <= 98.00) color = '#FF0F00'
+    else if (val <= 99.00) color = '#FF0800'
+    else if (val <= 100.00) color = '#FF0000'
+    return color;
 }
 
 GuerillaTrader.Log.showAddLogEntryModal = function () {

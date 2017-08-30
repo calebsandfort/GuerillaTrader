@@ -1,5 +1,26 @@
 ﻿@{
     ViewBag.ActiveMenu = "Markets"; //The menu item will be active for this page.
+    ViewBag.FluidContainer = true;
 }
 
-@Html.Partial("_MarketsGrid")
+<div>
+    <ul id="marketTabs" class="nav nav-tabs">
+        <li role="presentation" class="active"><a href="#grid" aria-controls="grid" role="tab" data-toggle="tab">Grid</a></li>
+        <li role="presentation"><a href="#scatter" aria-controls="scatter" role="tab" data-toggle="tab">Scatter</a></li>
+    </ul>
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="grid">
+            @Html.Partial("_MarketsGrid")
+        </div>
+        <div role="tabpanel" class="tab-pane" id="scatter">
+            <div class="row">
+                <div class="col-xs-offset-2 col-xs-8">
+                    @Html.Partial("_MarketsScatter")
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

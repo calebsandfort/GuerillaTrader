@@ -33,5 +33,23 @@ namespace GuerillaTrader.Entities
         [ForeignKey("TradingAccountId")]
         public virtual TradingAccount TradingAccount { get; set; }
         public virtual int TradingAccountId { get; set; }
+
+        public static Double GetTradesPerDay(DateTime start, DateTime end, int totalTrades)
+        {
+            TimeSpan range = end.Date - start.Date;
+            int tradingDays = 0;
+            DateTime currentDate;
+
+            for(int i = 0; i <= range.Days; i++)
+            {
+                currentDate = start.AddDays(i);
+                if(currentDate.DayOfWeek != DayOfWeek.Saturday && currentDate.DayOfWeek != DayOfWeek.Sunday)
+                {
+                    tradingDays += 1;
+                }
+            }
+
+            return (Double)totalTrades / (Double)tradingDays;
+        }
     }
 }

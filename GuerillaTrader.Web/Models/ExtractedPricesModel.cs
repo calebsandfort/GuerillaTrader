@@ -26,14 +26,14 @@ namespace GuerillaTrader.Web.Models
             {
                 if(tradeType == TradeTypes.Long)
                 {
-                    this.EntryPrice = ExtractPrice(priceStrings, "Upper Step", "Upper Stop");
-                    this.StopLossPrice = ExtractPrice(priceStrings, "Lower Step", "Lower Stop");
+                    this.EntryPrice = ExtractPrice(priceStrings, "Upper Step", "Upper Stop", "Upper smp", "Upper Slop");
+                    this.StopLossPrice = ExtractPrice(priceStrings, "Lower Step", "Lower Stop", "Lower smp", "Lower Slop");
                     this.ProfitTakerPrice = ExtractPrice(priceStrings, "Upper Target");
                 }
                 else
                 {
-                    this.EntryPrice = ExtractPrice(priceStrings, "Lower Step", "Lower Stop");
-                    this.StopLossPrice = ExtractPrice(priceStrings, "Upper Step", "Upper Stop");
+                    this.EntryPrice = ExtractPrice(priceStrings, "Lower Step", "Lower Stop", "Lower smp", "Lower Slop");
+                    this.StopLossPrice = ExtractPrice(priceStrings, "Upper Step", "Upper Stop", "Upper smp", "Upper Slop");
                     this.ProfitTakerPrice = ExtractPrice(priceStrings, "Lower Target");
                 }
             }
@@ -49,7 +49,7 @@ namespace GuerillaTrader.Web.Models
                 {
                     String p = priceStrings.First(x => x.Contains(label));
                     p = p.Substring(p.IndexOf(label) + label.Length);
-                    p = p.Replace(label, String.Empty).Replace("($", String.Empty).Replace(")", String.Empty).Replace(" ", String.Empty);
+                    p = p.Replace(label, String.Empty).Replace(",", String.Empty).Replace("(", String.Empty).Replace("$", String.Empty).Replace(")", String.Empty).Replace(" ", String.Empty).Replace("'", ".");
                     if (Decimal.TryParse(p, out extractedPrice) && extractedPrice > 0.0m) return extractedPrice;
                 }
             }

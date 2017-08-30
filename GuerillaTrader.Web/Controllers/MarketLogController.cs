@@ -56,7 +56,7 @@ namespace GuerillaTrader.Web.Controllers
             AddLogEntryModel model = new AddLogEntryModel();
 
             model.Date = DateTime.Now;
-            if(this._marketLogEntryRepository.Count() > 0)
+            if(this._marketLogEntryRepository.Count(x => x.TradingAccount.Active) > 0)
             {
                 MarketLogEntry lastEntry = this._marketLogEntryRepository.GetAll().Where(x => x.TradingAccount.Active).OrderByDescending(x => x.TimeStamp).First();
 

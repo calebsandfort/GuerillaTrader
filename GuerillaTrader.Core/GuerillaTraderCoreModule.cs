@@ -59,6 +59,20 @@ namespace GuerillaTrader
                     .ForMember(u => u.MarketMaxContractsJson, options => options.MapFrom(input => JsonConvert.SerializeObject(input.MarketMaxContractsList)));
                 #endregion
 
+                #region Market
+                config.CreateMap<Market, TosMarketDto>()
+                    .ForMember(u => u.Id, options => options.MapFrom(input => input.Id))
+                    .ForMember(u => u.TickValue, options => options.MapFrom(input => input.TickValue))
+                    .ForAllOtherMembers(options => options.Ignore());
+
+                config.CreateMap<TosMarketDto, Market>()
+                    .ForMember(u => u.Name, options => options.Ignore())
+                    .ForMember(u => u.Symbol, options => options.Ignore())
+                    .ForMember(u => u.TickValue, options => options.Ignore())
+                    .ForMember(u => u.TickSize, options => options.Ignore())
+                    .ForMember(u => u.InitialMargin, options => options.Ignore());
+                #endregion
+
                 //Configuration.Settings.Providers.Add<MySettingProvider>();
             });
 

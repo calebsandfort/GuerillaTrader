@@ -94,7 +94,7 @@ namespace GuerillaTrader.Web.Controllers
 
                 model.EntryDate = DateTime.Now;
                 model.Size = 1;
-                if (this._tradeRepository.Count() > 0)
+                if (this._tradeRepository.Count(x => x.TradingAccount.Active) > 0)
                 {
                     Trade lastTrade = this._tradeRepository.GetAll().Where(x => x.TradingAccount.Active).OrderByDescending(x => x.EntryDate).First();
 

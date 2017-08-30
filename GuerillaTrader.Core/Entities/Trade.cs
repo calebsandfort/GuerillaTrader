@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GuerillaTrader.Entities.Interfaces;
+using GuerillaTrader.Framework;
 
 namespace GuerillaTrader.Entities
 {
@@ -83,10 +84,42 @@ namespace GuerillaTrader.Entities
         public virtual Screenshot ExitScreenshotDb { get; set; }
         public virtual int? ExitScreenshotDbId { get; set; }
 
+        [NotMapped]
+        public Decimal AdjEntryPrice
+        {
+            get
+            {
+                Decimal adjEntryPrice = this.EntryPrice;
+
+                if (this.Market.Demoninator > 0)
+                {
+                    adjEntryPrice = this.EntryPrice.FromFraction(this.Market.Demoninator);
+                }
+
+                return adjEntryPrice;
+            }
+        }
+
+        [NotMapped]
+        public Decimal AdjExitPrice
+        {
+            get
+            {
+                Decimal adjExitPrice = this.ExitPrice;
+
+                if (this.Market.Demoninator > 0)
+                {
+                    adjExitPrice = this.ExitPrice.FromFraction(this.Market.Demoninator);
+                }
+
+                return adjExitPrice;
+            }
+        }
+
         public void Reconcile()
         {
             this.Commissions = this.Size * 6.15m;
-            this.ProfitLoss = this.Size * ((((this.TradeType == TradeTypes.Long ? this.ExitPrice - this.EntryPrice : this.EntryPrice - this.ExitPrice)/this.Market.TickSize) * this.Market.TickValue)) - this.Commissions;
+            this.ProfitLoss = this.Size * ((((this.TradeType == TradeTypes.Long ? this.AdjExitPrice - this.AdjEntryPrice : this.AdjEntryPrice - this.AdjExitPrice) /this.Market.TickSize) * this.Market.TickValue)) - this.Commissions;
             this.ProfitLossPerContract = this.ProfitLoss / this.Size;
         }
 

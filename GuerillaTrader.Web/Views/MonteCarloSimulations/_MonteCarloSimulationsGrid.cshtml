@@ -2,8 +2,8 @@
     .Name("monteCarloSimulationsGrid")
     .Columns(columns =>
     {
-        columns.Bound(x => x.TimeStamp).Width(150).Format("{0:M/d/yyyy h:mm tt}").ClientTemplate("<a href='javascript:void(0);' onclick='GuerillaTrader.MonteCarloSimulation.showMonteCarloSimulationModal(#:Id#)'>#:kendo.toString(TimeStamp, 'M/d/yyyy h:mm tt')#</a>");
-        columns.Bound(x => x.TradingAccount).Width(75);
+        columns.Bound(x => x.TimeStamp).Width(125).Format("{0:M/d/yyyy h:mm tt}").ClientTemplate("<a href='javascript:void(0);' onclick='GuerillaTrader.MonteCarloSimulation.showMonteCarloSimulationModal(#:Id#)'>#:kendo.toString(TimeStamp, 'M/d/yyyy h:mm tt')#</a>");
+        columns.Bound(x => x.TradingAccount).Width(200);
         columns.Bound(x => x.CumulativeProfit).Width(75);
         columns.Bound(x => x.ConsecutiveLosses).Width(75);
         columns.Bound(x => x.MaxDrawdown).Width(75);
