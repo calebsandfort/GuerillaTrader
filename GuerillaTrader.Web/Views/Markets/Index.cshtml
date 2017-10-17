@@ -7,6 +7,7 @@
     <ul id="marketTabs" class="nav nav-tabs">
         <li role="presentation" class="active"><a href="#grid" aria-controls="grid" role="tab" data-toggle="tab">Grid</a></li>
         <li role="presentation"><a href="#scatter" aria-controls="scatter" role="tab" data-toggle="tab">Scatter</a></li>
+        <li role="presentation"><a href="#column" aria-controls="column" role="tab" data-toggle="tab">Column</a></li>
     </ul>
     <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="grid">
@@ -16,6 +17,13 @@
             <div class="row">
                 <div class="col-xs-offset-2 col-xs-8">
                     @Html.Partial("_MarketsScatter")
+                </div>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="column">
+            <div class="row">
+                <div class="col-xs-offset-2 col-xs-8">
+                    @Html.Partial("_MarketsColumn")
                 </div>
             </div>
         </div>

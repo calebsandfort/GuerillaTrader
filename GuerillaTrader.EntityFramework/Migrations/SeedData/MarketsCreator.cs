@@ -39,7 +39,7 @@ namespace GuerillaTrader.Migrations.SeedData
                     new Market { Name = "Russell 2000 Index Mini ", Symbol = "TF", TickSize = 0.1m, TickValue = 5m, InitialMargin = 3685m, MTT = 0},
                     new Market { Name = "British Pound ", Symbol = "6B", TickSize = 0.00010m, TickValue = 6.25m, InitialMargin = 2310.00m, MTT = 0},
                     new Market { Name = "Australian Dollar ", Symbol = "6A", TickSize = 0.00010m, TickValue = 10.00m, InitialMargin = 1595.00m, MTT = 0},
-                    new Market { Name = "Ultra T-Bond ", Symbol = "UB", TickSize = 0.03125m, TickValue = 31.25m, InitialMargin = 4070.00m, MTT = 0},
+                    new Market { Name = "Ultra T-Bond ", Symbol = "UB", TickSize = 0.03125m, TickValue = 31.25m, InitialMargin = 4070.00m, MTT = 0, Demoninator = 320m},
                     new Market { Name = "Ultra 10-Year U.S. Treasury Note ", Symbol = "TN", TickSize = 0.015625m, TickValue = 15.625m, InitialMargin = 1650m, MTT = 0},
                     new Market { Name = "Copper ", Symbol = "HG", TickSize = 0.00050m, TickValue = 12.50m, InitialMargin = 3025.00m, MTT = 0},
                     new Market { Name = "Silver ", Symbol = "SI", TickSize = 0.005m, TickValue = 25.00m, InitialMargin = 5940.00m, MTT = 0},

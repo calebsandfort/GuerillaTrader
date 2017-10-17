@@ -118,7 +118,7 @@ namespace GuerillaTrader.Services
                 //tosMarket.VolumeScore = ((maxDailyVolume - tosMarket.DailyVolume) / (maxDailyVolume - minDailyVolume)) * 100m;
                 tosMarket.VolumeScore = (idx / totalMarkets) * 100m;
                 tosMarket.WaveScore = ((minDailyWave - tosMarket.DailyWave) / (minDailyWave - maxDailyWave)) *100m;
-                tosMarket.CompositeScore = (tosMarket.VolumeScore + tosMarket.WaveScore) / 2;
+                tosMarket.CompositeScore = tosMarket.VolumeScore * .33m + tosMarket.WaveScore * .67m;
                 Save(tosMarket);
                 idx += 1m;
             }

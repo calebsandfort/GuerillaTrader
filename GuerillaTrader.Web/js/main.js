@@ -78,6 +78,11 @@ $(function () {
         if (marketsScatter.is(":visible")) {
             marketsScatter.data("kendoChart").redraw();
         }
+
+        var marketsColumn = $("#marketsColumn");
+        if (marketsColumn.is(":visible")) {
+            marketsColumn.data("kendoChart").redraw();
+        }
     });
 });
 
@@ -169,8 +174,7 @@ GuerillaTrader.Util.hideEditField = function (container, name) {
     if (field.size() > 0) field.closest(".editor-field").hide();
 }
 
-GuerillaTrader.Util.getScoreColor = function (dataItem) {
-    console.log(dataItem);
+GuerillaTrader.Util.getScoreColor = function (val) {
     var color = '';
     if (val <= 0.00) color = '#0000FF'
     else if (val <= 1.00) color = '#0008F7'

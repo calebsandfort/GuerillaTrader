@@ -1,0 +1,34 @@
+﻿@(Html.Kendo().Chart<MarketDto>()
+        .Name("marketsColumn")
+        .Title("Markets Column")
+        .Legend(legend => legend
+            .Visible(false)
+        )
+        .HtmlAttributes(new { style = "height: 750px;" })
+        .DataSource(source =>
+        {
+            source.Read(read =>
+            {
+                read.Action("GetAllMarkets", "Markets")
+                .Data("function(){ return { cacheCounter: abp.setting.get('MarketsCacheCounter')} }");
+            });
+        })
+        .Series(series =>
+        {
+            series.Column(model => model.CompositeScore).ColorHandler("function(point){ return GuerillaTrader.Util.getScoreColor(point.dataItem.CompositeScore);}");
+        })
+        .CategoryAxis(axis => axis
+            .Categories(model => model.Symbol)
+            .Labels(labels => labels.Rotation(-45))
+            .MajorGridLines(lines => lines.Visible(false))
+        )
+        .ValueAxis(axis => axis.Numeric()
+            .Labels(labels => labels.Format("{0:N0}"))
+            .MajorUnit(10)
+            .Line(line => line.Visible(false))
+        )
+        .Tooltip(tooltip => tooltip
+            .Visible(true)
+            .Template("#= '<div style=text-align:left;>' + dataItem.Symbol + '<br/>' + dataItem.Name + '<br/>Vol: ' + kendo.format('{0:n0}', dataItem.DailyVolume)  + '<br/>Wav: ' + kendo.format('{0:c2}', dataItem.DailyWave) + '<br/>Vol Scr: ' + kendo.format('{0:n0}', dataItem.VolumeScore) + '<br/>Wave Scr: ' + kendo.format('{0:n0}', dataItem.WaveScore) + '<br/>Scr: ' + kendo.format('{0:n0}', dataItem.CompositeScore) + '</div>' #")
+        )
+) 

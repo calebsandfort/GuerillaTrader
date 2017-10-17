@@ -42,7 +42,7 @@ namespace GuerillaTrader.Web.Controllers
         [OutputCache(VaryByParam = "cacheCounter", Duration = 360000000)]
         public ActionResult GetAllMarkets(int cacheCounter)
         {
-            return new GuerillaLogisticsApiJsonResult(_marketAppService.GetAll());
+            return new GuerillaLogisticsApiJsonResult(_marketAppService.GetAll().OrderByDescending(x => x.CompositeScore));
         }
 
         #region Markets_Read
