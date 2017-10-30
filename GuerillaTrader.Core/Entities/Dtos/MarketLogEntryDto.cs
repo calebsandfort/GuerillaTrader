@@ -32,9 +32,9 @@ namespace GuerillaTrader.Entities.Dtos
         public virtual int TradingAccountId { get; set; }
 
         public String Market { get; set; }
-        public virtual int MarketId { get; set; }
+        public virtual int? MarketId { get; set; }
 
-        public virtual int ScreenshotDbId { get; set; }
+        public virtual int? ScreenshotDbId { get; set; }
 
     }
 }

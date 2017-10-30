@@ -1,6 +1,6 @@
 ﻿@(Html.Kendo().Chart<MarketDto>()
-        .Name("marketsScatter")
-        .Title("Markets Scatter")
+        .Name("tosMarketsScatter")
+        .Title("TOS Markets Scatter")
         .Legend(legend => legend
             .Visible(false)
         )
@@ -15,7 +15,7 @@
         })
         .Series(series =>
         {
-            series.Scatter(model => model.VolumeScore, model => model.WaveScore).ColorHandler("function(point){ return GuerillaTrader.Util.getScoreColor(point.dataItem.CompositeScore);}");
+            series.Scatter(model => model.TosVolumeScore, model => model.TosWaveScore).ColorHandler("function(point){ return GuerillaTrader.Util.getScoreColor(point.dataItem.TosCompositeScore);}");
         })
         .XAxis(x => x
             .Numeric()
@@ -29,6 +29,6 @@
         )
         .Tooltip(tooltip => tooltip
             .Visible(true)
-            .Template("#= '<div style=text-align:left;>' + dataItem.Symbol + '<br/>' + dataItem.Name + '<br/>Vol: ' + kendo.format('{0:n0}', dataItem.DailyVolume)  + '<br/>Wav: ' + kendo.format('{0:c2}', dataItem.DailyWave) + '<br/>Vol Scr: ' + kendo.format('{0:n0}', dataItem.VolumeScore) + '<br/>Wave Scr: ' + kendo.format('{0:n0}', dataItem.WaveScore) + '<br/>Scr: ' + kendo.format('{0:n0}', dataItem.CompositeScore) + '</div>' #")
+            .Template("#= '<div style=text-align:left;>' + dataItem.Symbol + '<br/>' + dataItem.Name + '<br/>Vol: ' + kendo.format('{0:n0}', dataItem.TosDailyVolume)  + '<br/>Wav: ' + kendo.format('{0:c2}', dataItem.TosDailyWave) + '<br/>Vol Scr: ' + kendo.format('{0:n0}', dataItem.TosVolumeScore) + '<br/>Wave Scr: ' + kendo.format('{0:n0}', dataItem.TosWaveScore) + '<br/>Scr: ' + kendo.format('{0:n0}', dataItem.TosCompositeScore) + '</div>' #")
         )
 ) 

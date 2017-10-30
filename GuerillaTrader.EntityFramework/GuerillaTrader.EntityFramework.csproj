@@ -183,6 +183,18 @@
     <Compile Include="Migrations\201708300257532_OneMoreDecimalPlace.Designer.cs">
       <DependentUpon>201708300257532_OneMoreDecimalPlace.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710181542310_ChangeSomeMarketFieldNames.cs" />
+    <Compile Include="Migrations\201710181542310_ChangeSomeMarketFieldNames.Designer.cs">
+      <DependentUpon>201710181542310_ChangeSomeMarketFieldNames.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710181858506_AddQtSymbolToMarket.cs" />
+    <Compile Include="Migrations\201710181858506_AddQtSymbolToMarket.Designer.cs">
+      <DependentUpon>201710181858506_AddQtSymbolToMarket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710182134469_AddQtMarketFields.cs" />
+    <Compile Include="Migrations\201710182134469_AddQtMarketFields.Designer.cs">
+      <DependentUpon>201710182134469_AddQtMarketFields.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="GuerillaTraderDataModule.cs" />
@@ -226,6 +238,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708300257532_OneMoreDecimalPlace.resx">
       <DependentUpon>201708300257532_OneMoreDecimalPlace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710181542310_ChangeSomeMarketFieldNames.resx">
+      <DependentUpon>201710181542310_ChangeSomeMarketFieldNames.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710181858506_AddQtSymbolToMarket.resx">
+      <DependentUpon>201710181858506_AddQtSymbolToMarket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710182134469_AddQtMarketFields.resx">
+      <DependentUpon>201710182134469_AddQtMarketFields.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

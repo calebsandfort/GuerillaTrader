@@ -4,8 +4,6 @@
 /ZN[Z7],"10-Year U.S. Treasury Note Futures,ETH",126'195,+0.16%,1164344.17,0.015625,25.933333
 /TN[Z7],Ultra 10-Year U.S. Treasury Note Futures,135'315,+0.24%,96618.933,0.015625,37.166667
 /ZB[Z7],"30-Year U.S. Treasury Bond Futures,ETH",155'12,+0.34%,235817.03,0.03125,33.9
-/GE[U7],"Eurodollar Futures,ETH",98.6675,0.00%,136257.57,0.005,2.0
-/ZQ[V7],"Thirty-Day Fed Funds Futures,ETH",98.845,0.00%,9795.4,0.005,0.867
 /GLB[Z7],"LIBOR one-month Futures,ETH",98.6600,-0.01%,377.1667,0.0025,0.5667
 /UB[Z7],"Ultra T-Bond Futures, ETH",168'06,+0.37%,104111.4,0.03125,46.63333
 /SI[U7],"Silver Futures, ETH",17.060,+0.57%,81451.7,0.005,64.167
@@ -24,7 +22,6 @@
 /ZM[Z7],"Soybean Meal Futures,ETH",300.5,-0.13%,45274.2,0.1,55.2
 /ZL[Z7],"Soybean Oil Futures,ETH",34.91,-0.63%,58557.4,0.01,64.53
 /NQ[U7],"E-mini Nasdaq 100 Index Futures,ETH",5825.25,-0.26%,308007.9,0.25,261.7
-/TF[U7],Russell 2000 Index Mini Futures,<empty>,<empty>,103670.9,0.1,155.4
 /ES[U7],"E-mini S&P 500 Index Futures,ETH",2442.25,+0.06%,1276559.6,0.25,63.43
 /YM[U7],"Mini Dow Jones Industrial Average Futures,ETH",21798,+0.06%,115100.0,1.0,127.0
 /NG[U7],"Natural Gas Futures,ETH",2.896,-1.80%,122669.633,0.001,71.467

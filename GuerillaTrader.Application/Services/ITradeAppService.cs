@@ -14,5 +14,6 @@ namespace GuerillaTrader.Services
         bool Save(TradeDto dto);
         List<TradeDto> GetAll();
         void Purge();
+        void AddTradeFromPaste(TradeFromPasteDto dto);
     }
 }

@@ -18,11 +18,11 @@ namespace GuerillaTrader.Entities.Dtos
         public Decimal TickSize { get; set; }
         public Decimal InitialMargin { get; set; }
 
-        public Decimal DailyVolume { get; set; }
-        public Decimal DailyWave { get; set; }
-        public Decimal VolumeScore { get; set; }
-        public Decimal WaveScore { get; set; }
-        public Decimal CompositeScore { get; set; }
+        public Decimal TosDailyVolume { get; set; }
+        public Decimal TosDailyWave { get; set; }
+        public Decimal TosVolumeScore { get; set; }
+        public Decimal TosWaveScore { get; set; }
+        public Decimal TosCompositeScore { get; set; }
     }
 
     public sealed class TosMarketDtoMap : CsvClassMap<TosMarketDto>
@@ -42,9 +42,9 @@ namespace GuerillaTrader.Entities.Dtos
                 name = name.Substring(0, name.IndexOf("Future", StringComparison.CurrentCulture));
                 return name;
             });
-            Map(m => m.DailyVolume).Name("SimpleMovingAvg");
+            Map(m => m.TosDailyVolume).Name("SimpleMovingAvg");
             Map(m => m.TickSize).Name("TickSize");
-            Map(m => m.DailyWave).Default(0.0m).ConvertUsing(row =>
+            Map(m => m.TosDailyWave).Default(0.0m).ConvertUsing(row =>
             {
                 decimal amount = 0.0m;
                 decimal.TryParse(row.GetField<string>("Avg Tick Range"), NumberStyles.Any,

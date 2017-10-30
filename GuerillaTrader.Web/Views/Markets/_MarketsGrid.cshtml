@@ -11,9 +11,9 @@
         columns.Bound(x => x.PointValue).Width(100);
         columns.Bound(x => x.MTT).Width(75);
         columns.Bound(x => x.Active).Width(75).ClientTemplate("#= Active ? 'Yes' : 'No' #");
-        columns.Bound(x => x.DailyVolume).Width(100);
-        columns.Bound(x => x.DailyWave).Width(100);
-        columns.Bound(x => x.CompositeScore).Width(100).Title("Score").Format("{0:N2}");
+        columns.Bound(x => x.TosDailyVolume).Width(100);
+        columns.Bound(x => x.TosDailyWave).Width(100);
+        columns.Bound(x => x.TosCompositeScore).Width(100).Title("Score").Format("{0:N2}");
         columns.Command(command => { command.Edit(); command.Destroy(); }).Width(200);
 
     })
@@ -32,7 +32,7 @@
     )
     .DataSource(dataSource => dataSource
         .Ajax()
-        .Sort(sort => sort.Add(x => x.CompositeScore).Descending())
+        .Sort(sort => sort.Add(x => x.TosCompositeScore).Descending())
         .Read(read =>
         {
             read.Action("Markets_Read", "Markets");

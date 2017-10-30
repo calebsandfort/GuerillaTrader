@@ -609,8 +609,14 @@
     <Content Include="tessdata\eng.traineddata">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Views\Markets\_MarketsScatter.cshtml" />
-    <Content Include="Views\Markets\_MarketsColumn.cshtml" />
+    <Content Include="Views\Markets\_TosMarketsScatter.cshtml" />
+    <Content Include="Views\Markets\_TosMarketsColumn.cshtml" />
+    <Content Include="Views\Markets\_QtMarketsColumn.cshtml" />
+    <Content Include="Views\Markets\_QtMarketsScatter.cshtml" />
+    <Content Include="Views\Markets\_OverallMarketsColumn.cshtml" />
+    <Content Include="Views\Shared\Modals\_SetCountdownModal.cshtml" />
+    <Content Include="Views\Shared\Modals\_AddTradeFromPasteModal.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\MyText.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -16,6 +16,7 @@ using GuerillaTrader.Framework;
 using Abp.Timing;
 using Abp.BackgroundJobs;
 using GuerillaTrader.Shared;
+using GuerillaTrader.Shared.Dtos;
 
 namespace GuerillaTrader.Services
 {
@@ -37,6 +38,26 @@ namespace GuerillaTrader.Services
             this._tradingAccountAppService = tradingAccountAppService;
             this._tradingDayAppService = tradingDayAppService;
             this._marketLogEntryRepository = marketLogEntryRepository;
+        }
+
+        [UnitOfWork(IsDisabled = true)]
+        public void AddTradeFromPaste(TradeFromPasteDto dto)
+        {
+            try
+            {
+                foreach (TradeDto trade in dto.ToTradeDto(_marketRepository.GetAllList()))
+                {
+                    using (var unitOfWork = this.UnitOfWorkManager.Begin())
+                    {
+                        Save(trade);
+                        unitOfWork.Complete();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                this._consoleHubProxy.WriteLine(ConsoleWriteLineInput.Create($"Exception: {ex.Message} {Environment.NewLine} Stacktrace: {ex.StackTrace}"));
+            }
         }
 
         public bool Save(TradeDto dto)

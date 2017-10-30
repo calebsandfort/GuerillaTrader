@@ -160,8 +160,10 @@
     <Compile Include="Entities\Dtos\MarketLogEntryDto.cs" />
     <Compile Include="Entities\Dtos\MonteCarloSimulationDto.cs" />
     <Compile Include="Entities\Dtos\ScreenshotDto.cs" />
+    <Compile Include="Entities\Dtos\QtMarketDto.cs" />
     <Compile Include="Entities\Dtos\TosMarketDto.cs" />
     <Compile Include="Entities\Dtos\TradeDto.cs" />
+    <Compile Include="Entities\Dtos\TradeFromPasteDto.cs" />
     <Compile Include="Entities\Dtos\TradingAccountDto.cs" />
     <Compile Include="Entities\Dtos\TradingDayDto.cs" />
     <Compile Include="Entities\EntityBase.cs" />

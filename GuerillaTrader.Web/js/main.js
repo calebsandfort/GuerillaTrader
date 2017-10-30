@@ -7,6 +7,7 @@ if (!GuerillaTrader) GuerillaTrader = {
     Trade: {},
     Screenshot: {},
     MonteCarloSimulation: {},
+    Countdown: {},
     Market: {
         Markets: [
             { Name: "E-Mini NASDAQ 100", Symbol: "ES", TickSize: .25, TickValue: 5, InitialMargin: 4620 },
@@ -74,16 +75,28 @@ $(function () {
     });
 
     $('#marketTabs a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-        var marketsScatter = $("#marketsScatter");
-        if (marketsScatter.is(":visible")) {
-            marketsScatter.data("kendoChart").redraw();
+        var tosMarketsScatter = $("#tosMarketsScatter");
+        if (tosMarketsScatter.is(":visible")) {
+            tosMarketsScatter.data("kendoChart").redraw();
         }
 
-        var marketsColumn = $("#marketsColumn");
-        if (marketsColumn.is(":visible")) {
-            marketsColumn.data("kendoChart").redraw();
+        var tosMarketsColumn = $("#tosMarketsColumn");
+        if (tosMarketsColumn.is(":visible")) {
+            tosMarketsColumn.data("kendoChart").redraw();
+        }
+
+        var qtMarketsScatter = $("#qtMarketsScatter");
+        if (qtMarketsScatter.is(":visible")) {
+            qtMarketsScatter.data("kendoChart").redraw();
+        }
+
+        var qtMarketsColumn = $("#qtMarketsColumn");
+        if (qtMarketsColumn.is(":visible")) {
+            qtMarketsColumn.data("kendoChart").redraw();
         }
     });
+
+    GuerillaTrader.Util.initForm("addTradeFromPasteForm", GuerillaTrader.Trade.addTradeFromPaste);
 });
 
 $(document).ready(function () {
@@ -162,7 +175,7 @@ GuerillaTrader.Util.showModalForm = function (id, clearForm) {
 
 GuerillaTrader.Util.hideModalForm = function (id) {
     var _$modal = $('#' + id);
-    abp.ui.clearBusy('#' + id);
+    abp.ui.clearBusy(_$modal.find("form"));
     _$modal.modal("hide");
 }
 
@@ -304,7 +317,7 @@ GuerillaTrader.Log.showAddLogEntryModal = function () {
 
 GuerillaTrader.Log.addLogEntry = function (input) {
     input.TradingAccountId = $("#activeTradingAccount").data("id");
-    if (input.Screenshot == "{ id = Screenshot, class = includeHidden }") input.Screenshot = '';
+    if (input.ScreenshotDbId == "{ id = ScreenshotDbId, class = includeHidden }") input.ScreenshotDbId = '';
 
     abp.services.app.marketLogEntry.add(input).done(function () {
         GuerillaTrader.Util.hideModalForm("addLogEntryModal");
@@ -427,6 +440,24 @@ GuerillaTrader.Trade.showTradeModal = function (id) {
             }
         },
         contentType: "application/json"
+    });
+}
+
+GuerillaTrader.Trade.showAddTradeFromPasterModal = function (id) {
+    GuerillaTrader.Util.showModalForm("addTradeFromPasteModal", false);
+}
+
+GuerillaTrader.Trade.addTradeFromPaste = function (input) {
+    abp.services.app.trade.addTradeFromPaste(input).done(function () {
+        GuerillaTrader.Trade.refresh();
+        GuerillaTrader.Log.refresh();
+        $("#Opening").val("");
+        $("#Closing").val("");
+        abp.ui.clearBusy('#addTradeFromPasteModal');
+
+        abp.services.app.tradingAccount.reconcile().done(function () {
+            GuerillaTrader.TradingAccount.refreshDetails();
+        });
     });
 }
 
@@ -572,4 +603,31 @@ GuerillaTrader.Screenshot.recognizeText = function (id, tradeType) {
         },
         contentType: "application/json"
     });
+}
+
+GuerillaTrader.Countdown.startClick = function () {
+    var countdown = $("#countdown");
+    var countdownStart = $("#CountdownStart").data("kendoDateTimePicker");
+    var countdownDuration = $("#CountdownDuration").data("kendoNumericTextBox");
+
+    var durationStart = moment(countdownStart.value());
+    var durationEnd = moment(countdownStart.value());
+    durationEnd.add(countdownDuration.value(), "minutes");
+    var diff = durationEnd - durationStart;
+    var duration = moment.duration(diff);
+
+    countdown.html(moment(duration.asMilliseconds()).format('mm:ss'));
+
+    setInterval(function () {
+        if (duration.asSeconds() == 0) {
+            duration = moment.duration(diff);
+        }
+        else {
+            duration = moment.duration(duration.asSeconds() - 1, 'seconds');
+        }
+
+        countdown.html(moment(duration.asMilliseconds()).format('mm:ss'));
+    }, 1000);
+
+    $("#setCountDownModal").modal("hide");
 }

@@ -1,0 +1,43 @@
+﻿<div class="modal fade" id="setCountDownModal" tabindex="-1" role="dialog" aria-labelledby="setCountDownModal-label" data-backdrop="static">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="form-horizontal">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="setCountDownModal-label">Set Countdown</h4>
+                </div>
+                <div class="modal-body" style="padding-bottom: 0;">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="Trials">Start</label>
+                        <div class="col-sm-9">
+                            @(Html.Kendo().DateTimePicker()
+                                .Name("CountdownStart")
+                                .Value(DateTime.Now)
+                                .Interval(5)
+                                .HtmlAttributes(new { style = "width: 100%", title = "CountdownStart", id = "CountdownStart", required = "", @class = "includeHidden" })
+                                .DateInput()
+                            )
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body" style="padding-bottom: 0;">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="Trials">Duration</label>
+                        <div class="col-sm-9">
+                            @(Html.Kendo().NumericTextBox<int>()
+                                .Name("CountdownDuration")
+                                .Value(5)
+                                .Decimals(0)
+                                .Format("N0")
+                                .HtmlAttributes(new { style = "width: 100%", title = "CountdownDuration", id = "CountdownDuration", required = "", @class = "includeHidden" }))
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="GuerillaTrader.Countdown.startClick();">Start</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

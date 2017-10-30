@@ -75,6 +75,12 @@ namespace GuerillaTrader.Services
             }
         }
 
+        public void Save(QtMarketDto dto)
+        {
+            Market market = this._repository.GetAll().Single(x => x.QtSymbol == dto.QtSymbol);
+            dto.MapTo(market);
+        }
+
         public async Task GenerateSeedCode()
         {
             List<TosMarketDto> tosMarkets = await LoadAndScrape();
@@ -94,31 +100,85 @@ namespace GuerillaTrader.Services
             marketsSeedFile.Close();
         }
 
+        public void GenerateQtCode(String startDate, int maPeriod)
+        {
+            StreamWriter qtCodeFile = new StreamWriter("QtCode.txt");
+
+            foreach (Market market in this._repository.GetAll().Where(x => !String.IsNullOrEmpty(x.QtSymbol)))
+            {
+                qtCodeFile.WriteLine("futuresList.append(MyFuture(\"{0}\", {1}, {2}, \"{3}\", \"{4}\", \"{5}\", {6}, {7}))",
+                    market.QtSymbol, market.TickSize, market.TickValue, startDate, market.TradingStartTime, market.TradingEndTime, market.MTT, maPeriod);
+            }
+
+            qtCodeFile.Close();
+        }
+
+        public void UpdateQtProperties()
+        {
+            List<QtMarketDto> qtMarkets = new List<QtMarketDto>();
+
+            using (TextReader reader = File.OpenText("Files\\QtFutures.csv"))
+            {
+                var csv = new CsvReader(reader);
+                csv.Configuration.RegisterClassMap<QtMarketDtoMap>();
+                qtMarkets = csv.GetRecords<QtMarketDto>().ToList();
+            }
+
+            Decimal minDailyVolume = qtMarkets.Min(x => x.QtDailyVolume);
+            Decimal maxDailyVolume = qtMarkets.Max(x => x.QtDailyVolume);
+
+            Decimal minDailyWave = qtMarkets.Min(x => x.QtDailyWave);
+            Decimal maxDailyWave = qtMarkets.Max(x => x.QtDailyWave);
+
+            Decimal minRSquared = qtMarkets.Min(x => x.QtRSquared);
+            Decimal maxRSquared = qtMarkets.Max(x => x.QtRSquared);
+            //Decimal minRSquared = 25m;
+            //Decimal maxRSquared = 75m;
+
+            Decimal idx = 0m;
+            Decimal totalMarkets = (Decimal)(qtMarkets.Count - 1);
+
+            foreach (QtMarketDto qtMarket in qtMarkets.OrderBy(x => x.QtRSquared))
+            {
+                //tosMarket.VolumeScore = ((maxDailyVolume - tosMarket.DailyVolume) / (maxDailyVolume - minDailyVolume)) * 100m;
+                //qtMarket.QtVolumeScore = (idx / totalMarkets) * 100m;
+                qtMarket.QtWaveScore = ((minDailyWave - qtMarket.QtDailyWave) / (minDailyWave - maxDailyWave)) * 100m;
+                //qtMarket.QtRSquaredScore = (idx / totalMarkets) * 100m;
+                qtMarket.QtRSquaredScore = ((minRSquared - qtMarket.QtRSquared) / (minRSquared - maxRSquared)) * 100m;
+                qtMarket.QtCompositeScore = qtMarket.QtWaveScore * .5m + qtMarket.QtRSquared * .5m;
+                Save(qtMarket);
+                idx += 1m;
+            }
+        }
+
         public async Task UpdateTosProperties()
         {
             List<TosMarketDto> tosMarkets = await LoadAndScrape(false);
 
             foreach(TosMarketDto tosMarket in tosMarkets)
             {
-                Market m = this._repository.GetAll().Single(x => x.Symbol == tosMarket.Symbol);
-                tosMarket.Id = m.Id;
-                tosMarket.DailyWave = tosMarket.DailyWave * m.TickValue;
+                if (this._repository.GetAll().Any(x => x.Symbol == tosMarket.Symbol))
+                {
+                    Market m = this._repository.GetAll().Single(x => x.Symbol == tosMarket.Symbol);
+                    tosMarket.Id = m.Id;
+                    tosMarket.TosDailyWave = tosMarket.TosDailyWave * m.TickValue; 
+                }
             }
 
-            Decimal minDailyVolume = tosMarkets.Min(x => x.DailyVolume);
-            Decimal maxDailyVolume = tosMarkets.Max(x => x.DailyVolume);
+            Decimal minDailyVolume = tosMarkets.Min(x => x.TosDailyVolume);
+            Decimal maxDailyVolume = tosMarkets.Max(x => x.TosDailyVolume);
 
-            Decimal minDailyWave = tosMarkets.Min(x => x.DailyWave);
-            Decimal maxDailyWave = tosMarkets.Max(x => x.DailyWave);
+            Decimal minDailyWave = tosMarkets.Min(x => x.TosDailyWave);
+            Decimal maxDailyWave = tosMarkets.Max(x => x.TosDailyWave);
             Decimal idx = 0m;
             Decimal totalMarkets = (Decimal)(tosMarkets.Count - 1);
 
-            foreach (TosMarketDto tosMarket in tosMarkets.OrderBy(x => x.DailyVolume))
+            foreach (TosMarketDto tosMarket in tosMarkets.OrderBy(x => x.TosDailyVolume))
             {
                 //tosMarket.VolumeScore = ((maxDailyVolume - tosMarket.DailyVolume) / (maxDailyVolume - minDailyVolume)) * 100m;
-                tosMarket.VolumeScore = (idx / totalMarkets) * 100m;
-                tosMarket.WaveScore = ((minDailyWave - tosMarket.DailyWave) / (minDailyWave - maxDailyWave)) *100m;
-                tosMarket.CompositeScore = tosMarket.VolumeScore * .33m + tosMarket.WaveScore * .67m;
+                tosMarket.TosVolumeScore = (idx / totalMarkets) * 100m;
+                tosMarket.TosWaveScore = ((minDailyWave - tosMarket.TosDailyWave) / (minDailyWave - maxDailyWave)) *100m;
+                tosMarket.TosCompositeScore = tosMarket.TosVolumeScore * .33m + tosMarket.TosWaveScore * .67m;
                 Save(tosMarket);
                 idx += 1m;
             }

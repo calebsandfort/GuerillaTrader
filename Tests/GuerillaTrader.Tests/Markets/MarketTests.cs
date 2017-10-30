@@ -40,5 +40,17 @@ namespace GuerillaTrader.Tests.Markets
         {
             await this._MarketAppService.UpdateTosProperties();
         }
+
+        [Fact]
+        public void GenerateQtCode_Test()
+        {
+            this._MarketAppService.GenerateQtCode("2017-10-17", 30);
+        }
+
+        [Fact]
+        public void UpdateQtProperties_Test()
+        {
+            this._MarketAppService.UpdateQtProperties();
+        }
     }
 }

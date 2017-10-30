@@ -118,7 +118,7 @@ namespace GuerillaTrader.Entities
 
         public void Reconcile()
         {
-            this.Commissions = this.Size * 6.15m;
+            if(this.Commissions == 0m) this.Commissions = this.Size * 6.15m;
             this.ProfitLoss = this.Size * ((((this.TradeType == TradeTypes.Long ? this.AdjExitPrice - this.AdjEntryPrice : this.AdjEntryPrice - this.AdjExitPrice) /this.Market.TickSize) * this.Market.TickValue)) - this.Commissions;
             this.ProfitLossPerContract = this.ProfitLoss / this.Size;
         }

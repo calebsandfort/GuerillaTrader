@@ -17,7 +17,9 @@ namespace GuerillaTrader.Services
         void Save(MarketDto dto);
         void Save(TosMarketDto dto);
         Task GenerateSeedCode();
+        void GenerateQtCode(String startDate, int maPeriod);
         Task UpdateTosProperties();
+        void UpdateQtProperties();
         Task<List<TosMarketDto>> LoadAndScrape(bool scrape = true);
         Task Scrape(TosMarketDto dto);
     }

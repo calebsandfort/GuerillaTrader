@@ -36,6 +36,11 @@ namespace GuerillaTrader.Services
             }
             dto.TradingDayId = tradingDay.Id;
 
+            if(dto.ScreenshotDbId.HasValue && dto.ScreenshotDbId == 0)
+            {
+                dto.ScreenshotDbId = null;
+            }
+
             this._marketLogEntryRepository.Insert(dto.MapTo<MarketLogEntry>());
         }
     }

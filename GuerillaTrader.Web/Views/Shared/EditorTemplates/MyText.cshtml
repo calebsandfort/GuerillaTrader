@@ -1,0 +1,21 @@
+@model String
+
+@{
+    bool required = ViewData["required"] == null ? false : (bool)ViewData["required"];
+
+    Dictionary<String, object> attributes = new Dictionary<string, object>();
+    attributes.Add("style", "width:100%;");
+    attributes.Add("class", "includeHidden form-control");
+
+    if (required)
+    {
+        attributes.Add("required", "");
+    }
+}
+
+<div class="form-group">
+    @Html.LabelFor(m => m, new { @class = "col-sm-3 control-label" })
+    <div class="col-sm-9">
+        @(Html.TextBoxFor(m => m, attributes))
+    </div>
+</div>

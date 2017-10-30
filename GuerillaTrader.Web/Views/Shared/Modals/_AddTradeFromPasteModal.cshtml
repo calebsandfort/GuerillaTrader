@@ -1,0 +1,23 @@
+﻿@model TradeFromPasteDto
+
+<div class="modal fade" id="addTradeFromPasteModal" tabindex="-1" role="dialog" aria-labelledby="addTradeFromPasteModal-label">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <form id="addTradeFromPasteForm" class="form-horizontal">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="addTradeFromPasteModal-label">Paste Trade</h4>
+                </div>
+                <div class="modal-body">
+                    @Html.EditorFor(x => x.Opening, new { rows = 7, cols = 1 })
+                    @Html.EditorFor(x => x.Closing, new { rows = 7, cols = 1 })
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
