@@ -195,6 +195,74 @@
     <Compile Include="Migrations\201710182134469_AddQtMarketFields.Designer.cs">
       <DependentUpon>201710182134469_AddQtMarketFields.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711131833145_AddStockClasses.cs" />
+    <Compile Include="Migrations\201711131833145_AddStockClasses.Designer.cs">
+      <DependentUpon>201711131833145_AddStockClasses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711131840554_AddStockClassColumnName.cs" />
+    <Compile Include="Migrations\201711131840554_AddStockClassColumnName.Designer.cs">
+      <DependentUpon>201711131840554_AddStockClassColumnName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711140006493_AddStockStatFields.cs" />
+    <Compile Include="Migrations\201711140006493_AddStockStatFields.Designer.cs">
+      <DependentUpon>201711140006493_AddStockStatFields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711141731219_AddFailedToRetrieveBars.cs" />
+    <Compile Include="Migrations\201711141731219_AddFailedToRetrieveBars.Designer.cs">
+      <DependentUpon>201711141731219_AddFailedToRetrieveBars.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711141751036_AddStockTaxFields.cs" />
+    <Compile Include="Migrations\201711141751036_AddStockTaxFields.Designer.cs">
+      <DependentUpon>201711141751036_AddStockTaxFields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711141903406_RemoveStockTaxFields.cs" />
+    <Compile Include="Migrations\201711141903406_RemoveStockTaxFields.Designer.cs">
+      <DependentUpon>201711141903406_RemoveStockTaxFields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711151728044_RemoveStockField.cs" />
+    <Compile Include="Migrations\201711151728044_RemoveStockField.Designer.cs">
+      <DependentUpon>201711151728044_RemoveStockField.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711151836448_AddSectorEntity.cs" />
+    <Compile Include="Migrations\201711151836448_AddSectorEntity.Designer.cs">
+      <DependentUpon>201711151836448_AddSectorEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711151841089_AddSectorEntity2.cs" />
+    <Compile Include="Migrations\201711151841089_AddSectorEntity2.Designer.cs">
+      <DependentUpon>201711151841089_AddSectorEntity2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711152054266_AddFailedToRetrieveBars2.cs" />
+    <Compile Include="Migrations\201711152054266_AddFailedToRetrieveBars2.Designer.cs">
+      <DependentUpon>201711152054266_AddFailedToRetrieveBars2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711152109253_AddPastPerfFields.cs" />
+    <Compile Include="Migrations\201711152109253_AddPastPerfFields.Designer.cs">
+      <DependentUpon>201711152109253_AddPastPerfFields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711160018124_AddStockImportantDateFields.cs" />
+    <Compile Include="Migrations\201711160018124_AddStockImportantDateFields.Designer.cs">
+      <DependentUpon>201711160018124_AddStockImportantDateFields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711161701523_AddStockImportantDateFields2.cs" />
+    <Compile Include="Migrations\201711161701523_AddStockImportantDateFields2.Designer.cs">
+      <DependentUpon>201711161701523_AddStockImportantDateFields2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711161708094_AddStockImportantDateFields3.cs" />
+    <Compile Include="Migrations\201711161708094_AddStockImportantDateFields3.Designer.cs">
+      <DependentUpon>201711161708094_AddStockImportantDateFields3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711162010095_AddStockAvgVolume.cs" />
+    <Compile Include="Migrations\201711162010095_AddStockAvgVolume.Designer.cs">
+      <DependentUpon>201711162010095_AddStockAvgVolume.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711171602096_AddADV.cs" />
+    <Compile Include="Migrations\201711171602096_AddADV.Designer.cs">
+      <DependentUpon>201711171602096_AddADV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711171614360_AddADV2.cs" />
+    <Compile Include="Migrations\201711171614360_AddADV2.Designer.cs">
+      <DependentUpon>201711171614360_AddADV2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="GuerillaTraderDataModule.cs" />
@@ -204,6 +272,7 @@
     <Compile Include="Migrations\SeedData\DefaultTenantCreator.cs" />
     <Compile Include="Migrations\SeedData\HostRoleAndUserCreator.cs" />
     <Compile Include="Migrations\SeedData\InitialHostDbBuilder.cs" />
+    <Compile Include="Migrations\SeedData\SectorsCreator.cs" />
     <Compile Include="Migrations\SeedData\MarketsCreator.cs" />
     <Compile Include="Migrations\SeedData\TenantRoleAndUserBuilder.cs" />
     <Compile Include="Migrations\SeedData\TradingDirectivesCreator.cs" />
@@ -247,6 +316,57 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710182134469_AddQtMarketFields.resx">
       <DependentUpon>201710182134469_AddQtMarketFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711131833145_AddStockClasses.resx">
+      <DependentUpon>201711131833145_AddStockClasses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711131840554_AddStockClassColumnName.resx">
+      <DependentUpon>201711131840554_AddStockClassColumnName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711140006493_AddStockStatFields.resx">
+      <DependentUpon>201711140006493_AddStockStatFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711141731219_AddFailedToRetrieveBars.resx">
+      <DependentUpon>201711141731219_AddFailedToRetrieveBars.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711141751036_AddStockTaxFields.resx">
+      <DependentUpon>201711141751036_AddStockTaxFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711141903406_RemoveStockTaxFields.resx">
+      <DependentUpon>201711141903406_RemoveStockTaxFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711151728044_RemoveStockField.resx">
+      <DependentUpon>201711151728044_RemoveStockField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711151836448_AddSectorEntity.resx">
+      <DependentUpon>201711151836448_AddSectorEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711151841089_AddSectorEntity2.resx">
+      <DependentUpon>201711151841089_AddSectorEntity2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711152054266_AddFailedToRetrieveBars2.resx">
+      <DependentUpon>201711152054266_AddFailedToRetrieveBars2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711152109253_AddPastPerfFields.resx">
+      <DependentUpon>201711152109253_AddPastPerfFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711160018124_AddStockImportantDateFields.resx">
+      <DependentUpon>201711160018124_AddStockImportantDateFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711161701523_AddStockImportantDateFields2.resx">
+      <DependentUpon>201711161701523_AddStockImportantDateFields2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711161708094_AddStockImportantDateFields3.resx">
+      <DependentUpon>201711161708094_AddStockImportantDateFields3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711162010095_AddStockAvgVolume.resx">
+      <DependentUpon>201711162010095_AddStockAvgVolume.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711171602096_AddADV.resx">
+      <DependentUpon>201711171602096_AddADV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711171614360_AddADV2.resx">
+      <DependentUpon>201711171614360_AddADV2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

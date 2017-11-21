@@ -156,9 +156,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Dtos\EntityDtoBase.cs" />
+    <Compile Include="Entities\Dtos\GenerateStockReportsInput.cs" />
     <Compile Include="Entities\Dtos\MarketDto.cs" />
     <Compile Include="Entities\Dtos\MarketLogEntryDto.cs" />
     <Compile Include="Entities\Dtos\MonteCarloSimulationDto.cs" />
+    <Compile Include="Entities\Dtos\StockUpdatePriceAndDatesDto.cs" />
+    <Compile Include="Entities\Dtos\ViewStockDto.cs" />
+    <Compile Include="Entities\Dtos\TaxRateStockDto.cs" />
+    <Compile Include="Entities\Dtos\StockDtos.cs" />
+    <Compile Include="Entities\Dtos\PfStockDto.cs" />
     <Compile Include="Entities\Dtos\ScreenshotDto.cs" />
     <Compile Include="Entities\Dtos\QtMarketDto.cs" />
     <Compile Include="Entities\Dtos\TosMarketDto.cs" />
@@ -178,6 +184,7 @@
     <Compile Include="Entities\MarketLogEntry.cs" />
     <Compile Include="Entities\MonteCarloSimulation.cs" />
     <Compile Include="Entities\Screenshot.cs" />
+    <Compile Include="Entities\StockClasses.cs" />
     <Compile Include="Entities\Trade.cs" />
     <Compile Include="Entities\TradingAccount.cs" />
     <Compile Include="Entities\TradingDay.cs" />

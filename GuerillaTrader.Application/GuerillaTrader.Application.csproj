@@ -171,13 +171,17 @@
     <Compile Include="Services\IMarketLogEntryAppService.cs" />
     <Compile Include="Services\IMonteCarloSimulationAppService.cs" />
     <Compile Include="Services\IScreenshotAppService.cs" />
+    <Compile Include="Services\IStockAppService.cs" />
     <Compile Include="Services\ITradeAppService.cs" />
     <Compile Include="Services\ITradingAccountAppService.cs" />
     <Compile Include="Services\ITradingDayAppService.cs" />
+    <Compile Include="Services\StockAppService.cs" />
     <Compile Include="Services\MarketAppService.cs" />
     <Compile Include="Services\MarketLogEntryAppService.cs" />
     <Compile Include="Services\MonteCarloSimulationAppService.cs" />
     <Compile Include="Services\ScreenshotAppService.cs" />
+    <Compile Include="Services\Time.cs" />
+    <Compile Include="Services\Token.cs" />
     <Compile Include="Services\TradeAppService.cs" />
     <Compile Include="Services\TradingAccountAppService.cs" />
     <Compile Include="Services\TradingDayAppService.cs" />
@@ -197,6 +201,12 @@
     <None Include="app.config" />
     <None Include="Files\QtFutures.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\SP500.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\SP500TaxRates.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Files\TOS_AllFutures.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

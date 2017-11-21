@@ -1,0 +1,72 @@
+﻿@(Html.Kendo().Grid<StockDto>()
+    .Name("stocksGrid")
+    .Columns(columns =>
+    {
+        columns.Bound(x => x.Name).Width(200).ClientTemplate("<a href='Stocks/Details/#:Id#' target='_blank'>#:Name#</a>");
+        columns.Bound(x => x.Symbol).Width(100);
+        columns.Bound(x => x.Sector).Width(200).Filterable(ftb => ftb.Multi(true).DataSource(ds => ds.Read(r => r.Action("FilterMenu_Sectors", "Stocks"))));
+        columns.Bound(x => x.TotalScore).Width(100).Filterable(filterable => filterable.Operators(operators => operators
+                .ForNumber(str => str.Clear()
+                    .IsGreaterThanOrEqualTo(">=")
+                    .IsLessThanOrEqualTo("<=")
+                )));
+        columns.Bound(x => x.RecentPerf).Width(100).Title("Rec Perf").Format("{0:P2}");
+        columns.Bound(x => x.PastPerf).Width(100).Title("Past Perf").Format("{0:P2}");
+        columns.Bound(x => x.PastPositivePerf).Width(100).Title("Past Succ Rate").Format("{0:P2}");
+        columns.Bound(x => x.Price).Width(100).Title("Price").Format("{0:C2}");
+        //columns.Bound(x => x.AvgVolume).Width(100).Title("AvgVolume").Format("{0:#,#}");
+        columns.Bound(x => x.ADV).Width(100).Format("{0:C0}");
+
+    })
+    .HtmlAttributes(new { style ="height: 775px;" })
+    //.Editable(editable => editable.Mode(GridEditMode.InLine))
+    .ToolBar(toolbar =>
+    {
+        toolbar.Template("<a class='k-button' href='javascript:void(0);' onclick='GuerillaTrader.Stocks.showGenerateStockReportsModal()'>Generate Reports</a><a class='k-button' href='javascript:void(0);' onclick='GuerillaTrader.Stocks.updatePriceAndDates()'>Update Price and Dates</a>");
+    })
+    .Sortable(sortable => sortable
+        .AllowUnsort(true)
+        .SortMode(GridSortMode.MultipleColumn)
+        .ShowIndexes(true))
+    .Pageable(pageable => pageable
+        .Refresh(true)
+        .ButtonCount(5))
+    .Scrollable()
+    .Filterable()
+    .DataSource(dataSource => dataSource
+        .Ajax()
+        .Sort(sort => sort.Add(x => x.PastPerf).Descending())
+        .PageSize(17)
+        .Read(read =>
+        {
+            read.Action("Stocks_Read", "Stocks").Data("GuerillaTrader.Util.grid_read");
+        }
+        )
+        .Model(model =>
+        {
+            model.Id(ce => ce.Id);
+            model.Field(f => f.IsNew).Editable(false);
+            model.Field(f => f.Id).Editable(false);
+            //model.Field(f => f.PointValue).Editable(false);
+        })
+        .Update(update =>
+        {
+            update.Action("Stock_Update", "Stocks");
+        })
+    )
+)
+
+<script type="text/javascript">
+    function sectorFilter(element) {
+        element.kendoDropDownList({
+            dataSource: {
+                transport: {
+                    read: "@Url.Action("FilterMenu_Sectors")"
+                }
+            },
+            optionLabel: "--Select Sector--",
+            dataTextField: "text",
+            dataValueField: "value"
+        });
+    }
+</script>

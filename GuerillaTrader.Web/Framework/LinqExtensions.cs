@@ -75,9 +75,43 @@ namespace GuerillaTrader.Web.Framework
             return lambda;
         }
 
-        public static void IterateIFilterDescriptors(List<Expression> equalExpressions, ParameterExpression item, IList<IFilterDescriptor> filterDescriptors)
+        public static void IterateIFilterDescriptors(List<Expression> equalExpressions, ParameterExpression item, IList<IFilterDescriptor> filterDescriptors, FilterCompositionLogicalOperator logicalOperator = FilterCompositionLogicalOperator.And)
         {
             Expression expression = null;
+
+            if(filterDescriptors.Any(x => x is CompositeFilterDescriptor) && filterDescriptors.Count > 1)
+            {
+                List<Expression> tempEqualExpressions = filterDescriptors.Select(x => (x as FilterDescriptor).GetEqualityExpression(item)).ToList();
+                Expression compositeExpression = null;
+
+                if (tempEqualExpressions.Count == 2)
+                {
+                    if(logicalOperator == FilterCompositionLogicalOperator.And)
+                        compositeExpression = Expression.And(tempEqualExpressions[0], tempEqualExpressions[1]);
+                    else if (logicalOperator == FilterCompositionLogicalOperator.Or)
+                        compositeExpression = Expression.Or(tempEqualExpressions[0], tempEqualExpressions[1]);
+                }
+                else if (tempEqualExpressions.Count > 2)
+                {
+                    if (logicalOperator == FilterCompositionLogicalOperator.And)
+                        compositeExpression = Expression.And(tempEqualExpressions[0], tempEqualExpressions[1]);
+                    else if (logicalOperator == FilterCompositionLogicalOperator.Or)
+                        compositeExpression = Expression.Or(tempEqualExpressions[0], tempEqualExpressions[1]);
+
+                    for (int i = 2; i < tempEqualExpressions.Count; i++)
+                    {
+                        if (logicalOperator == FilterCompositionLogicalOperator.And)
+                            compositeExpression = Expression.And(compositeExpression, tempEqualExpressions[i]);
+                        else if (logicalOperator == FilterCompositionLogicalOperator.Or)
+                            compositeExpression = Expression.Or(compositeExpression, tempEqualExpressions[i]);
+                    }
+                }
+
+                if (compositeExpression != null)
+                {
+                    equalExpressions.Add(compositeExpression);
+                }
+            }
 
             foreach (IFilterDescriptor iFilterDescriptor in filterDescriptors)
             {
@@ -91,7 +125,7 @@ namespace GuerillaTrader.Web.Framework
                 }
                 else if (iFilterDescriptor is CompositeFilterDescriptor)
                 {
-                    IterateIFilterDescriptors(equalExpressions, item, (iFilterDescriptor as CompositeFilterDescriptor).FilterDescriptors);
+                    IterateIFilterDescriptors(equalExpressions, item, (iFilterDescriptor as CompositeFilterDescriptor).FilterDescriptors, (iFilterDescriptor as CompositeFilterDescriptor).LogicalOperator);
                 }
             }
         }

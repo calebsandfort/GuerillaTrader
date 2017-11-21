@@ -27,6 +27,7 @@
     <TypeScriptToolsVersion>2.1</TypeScriptToolsVersion>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -487,6 +488,7 @@
     <Compile Include="Controllers\MonteCarloSimulationsController.cs" />
     <Compile Include="Controllers\Results\ChallengeResult.cs" />
     <Compile Include="Controllers\ScreenshotsController.cs" />
+    <Compile Include="Controllers\StocksController.cs" />
     <Compile Include="Controllers\TenantsController.cs" />
     <Compile Include="Controllers\TradesController.cs" />
     <Compile Include="Controllers\TradingAccountsController.cs" />
@@ -617,6 +619,15 @@
     <Content Include="Views\Shared\Modals\_SetCountdownModal.cshtml" />
     <Content Include="Views\Shared\Modals\_AddTradeFromPasteModal.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\MyText.cshtml" />
+    <Content Include="Views\Shared\Modals\_TaxRatesModal.cshtml" />
+    <Content Include="Views\Stocks\Index.cshtml" />
+    <Content Include="Views\Stocks\_StocksGrid.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\MyDate.cshtml" />
+    <Content Include="Views\Shared\Modals\_GenerateStockReportsModal.cshtml" />
+    <Content Include="Views\Stocks\_SectorsGrid.cshtml" />
+    <Content Include="Views\Stocks\Details.cshtml" />
+    <Content Include="Views\Stocks\_StockReportLineChart.cshtml" />
+    <Content Include="Views\Stocks\_DetailsField.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -625,6 +636,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\dlinq-helpers\Kendo.DynamicLinq\Kendo.DynamicLinq.csproj">
+      <Project>{2BD75D53-E0EA-4995-8B0F-60AD709945AC}</Project>
+      <Name>Kendo.DynamicLinq</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GuerillaTrader.Application\GuerillaTrader.Application.csproj">
       <Project>{edf5d964-4c0f-4f19-b674-58a38a5e5401}</Project>
       <Name>GuerillaTrader.Application</Name>

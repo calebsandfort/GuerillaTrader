@@ -1,0 +1,44 @@
+﻿@(Html.Kendo().Grid<SectorDto>()
+    .Name("sectorsGrid")
+    .Columns(columns =>
+    {
+        columns.Bound(x => x.Name).Width(200);
+        columns.Bound(x => x.EffectiveTaxRate).Width(100).Title("Tax Rate").Format("{0:P2}");
+        columns.Bound(x => x.RecentPerf).Width(100).Title("Rec Perf").Format("{0:P2}");
+        columns.Bound(x => x.PastPerf).Width(100).Title("Past Perf").Format("{0:P2}");
+        columns.Bound(x => x.PastPositivePerf).Width(100).Title("Past Succ Rate").Format("{0:P2}");
+
+    })
+    .HtmlAttributes(new { style ="height: 775px;" })
+    //.Editable(editable => editable.Mode(GridEditMode.InLine))
+    .ToolBar(toolbar =>
+    {
+        toolbar.Template("<a class='k-button' href='javascript:void(0);' onclick='GuerillaTrader.Stocks.updateSectorProperties()'>Update Properties</a>");
+    })
+    .Sortable(sortable => sortable
+        .AllowUnsort(true)
+        .SortMode(GridSortMode.MultipleColumn)
+        .ShowIndexes(true))
+    .Pageable(pageable => pageable
+        .Refresh(true)
+        .ButtonCount(5))
+    .Scrollable()
+    .Filterable()
+    .DataSource(dataSource => dataSource
+        .Ajax()
+        .Sort(sort => sort.Add(x => x.Name))
+        .PageSize(17)
+        .Read(read =>
+        {
+            read.Action("Sectors_Read", "Stocks").Data("GuerillaTrader.Util.grid_read");
+        }
+        )
+        .Model(model =>
+        {
+            model.Id(ce => ce.Id);
+            model.Field(f => f.IsNew).Editable(false);
+            model.Field(f => f.Id).Editable(false);
+            //model.Field(f => f.PointValue).Editable(false);
+        })
+    )
+)

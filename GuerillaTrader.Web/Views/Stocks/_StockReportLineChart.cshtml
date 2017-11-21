@@ -1,0 +1,37 @@
+﻿@model ViewStockReportDto
+
+@(Html.Kendo().Chart<StockBarDto>()
+        .Name(String.Format("stockReportLineChart_{0}", Model.Id))
+        .Title(Model.ToString())
+        .Legend(legend => legend
+            .Visible(false)
+        )
+        .HtmlAttributes(new { style = "height: 300px;" })
+        .DataSource(source =>
+        {
+            source.Read(read =>
+            {
+                read.Action("GetBars", "Stocks")
+                .Data(String.Format("function(){{ return {{ id: {0} }}; }}", Model.Id));
+            });
+        })
+        .Series(series =>
+        {
+            series.Line(model => model.Close).Color(Model.Perf > 0 ? "#3fb618" : "#ff0039")
+            .Markers(markers => markers.Visible(false));
+        })
+        .CategoryAxis(axis => axis
+            .Categories(model => model.Date).Visible(false)
+            .Labels(labels => labels.Visible(false))
+            .MajorGridLines(lines => lines.Visible(false))
+        )
+        .ValueAxis(axis => axis.Numeric()
+            .Labels(labels => labels.Format("{0:C}"))
+            .NarrowRange(true)
+            .Line(line => line.Visible(false))
+        )
+        .Tooltip(tooltip => tooltip
+            .Visible(true)
+            .Template("#= kendo.format('{0:c2}', dataItem.Close) #")
+        )
+) 

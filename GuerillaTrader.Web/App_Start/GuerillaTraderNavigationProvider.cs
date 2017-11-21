@@ -54,6 +54,14 @@ namespace GuerillaTrader.Web
                         url: "MonteCarloSimulations",
                         icon: "fa fa-cloud"
                         )
+                )
+                .AddItem(
+                    new MenuItemDefinition(
+                        "Stocks",
+                        new LocalizableString("Stocks", GuerillaTraderConsts.LocalizationSourceName),
+                        url: "Stocks",
+                        icon: "fa fa-line-chart"
+                        )
                 ).AddItem(
                     new MenuItemDefinition(
                         "Users",

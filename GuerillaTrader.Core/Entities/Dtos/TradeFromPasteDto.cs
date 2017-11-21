@@ -10,28 +10,32 @@ namespace GuerillaTrader.Entities.Dtos
     public class TradeFromPasteDto
     {
         [UIHint("MyMultiline")]
-        public String Opening { get; set; }
-
-        [UIHint("MyMultiline")]
-        public String Closing { get; set; }
+        public String Trades { get; set; }
 
         public List<TradeDto> ToTradeDto(List<Market> markets)
         {
             List<TradeDto> trades = new List<TradeDto>();
 
-            String[] openingLines = this.Opening.Split(new String[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
-            String[] closingLines = this.Closing.Split(new String[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+            List<String> tradeLines = this.Trades.Split(new String[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).Select(x => x.Replace("tAndroid", String.Empty).Replace("\t", " ")).ToList();
 
-            if (openingLines == null || openingLines.Length == 0) return trades;
+            if (tradeLines == null || tradeLines.Count == 0) return trades;
 
-            for(int i = 0; i < openingLines.Length; i++)
+            int tradeCount = tradeLines.Count / 2;
+
+            while (trades.Count < tradeCount)
             {
+                String openingLine = tradeLines[0];
+                String[] openingParts = openingLine.Split(" ".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+                tradeLines.RemoveAt(0);
+
+                int closingIndex = tradeLines.FindIndex(x => x.Split(" ".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[6] == openingParts[6]);
+                String closingLine = tradeLines[closingIndex];
+                String[] closingParts = closingLine.Split(" ".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+
+                tradeLines.RemoveAt(closingIndex);
+
                 TradeDto tradeDto = new TradeDto();
 
-                openingLines[i] = openingLines[i].Replace("tAndroid", String.Empty).Replace("\t", " ");
-                closingLines[i] = closingLines[i].Replace("tAndroid", String.Empty).Replace("\t", " ");
-
-                String[] openingParts = openingLines[i].Split(" ".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
 
                 tradeDto.EntryDate = DateTime.Parse($"{openingParts[0]} {openingParts[1]}");
                 Market market = markets.First(x => x.Symbol == openingParts[6].Substring(1, 2));
@@ -42,12 +46,11 @@ namespace GuerillaTrader.Entities.Dtos
                 tradeDto.TradeType = openingParts[4] == "BOT" ? TradeTypes.Long : TradeTypes.Short;
                 tradeDto.EntryPrice = Decimal.Parse(openingParts[7].Replace("@", String.Empty).Replace("'", "."));
 
-                String[] closingParts = closingLines[i].Split(" ".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
 
                 tradeDto.ExitDate = DateTime.Parse($"{closingParts[0]} {closingParts[1]}");
                 tradeDto.ExitPrice = Decimal.Parse(closingParts[7].Replace("@", String.Empty).Replace("'", "."));
                 tradeDto.ExitReason = ((tradeDto.TradeType == TradeTypes.Long && tradeDto.EntryPrice < tradeDto.ExitPrice) || (tradeDto.TradeType == TradeTypes.Short && tradeDto.EntryPrice > tradeDto.ExitPrice)) ? TradeExitReasons.TargetHit : TradeExitReasons.StopLossHit;
-                
+
                 if ((tradeDto.TradeType == TradeTypes.Long && tradeDto.EntryPrice < tradeDto.ExitPrice) || (tradeDto.TradeType == TradeTypes.Short && tradeDto.EntryPrice > tradeDto.ExitPrice))
                 {
                     tradeDto.ProfitTakerPrice = tradeDto.ExitPrice;

@@ -1,0 +1,498 @@
+Company Name,Income in $ million,U.S. Tax Rate Paid,Effective Tax Rate
+United States Steel Corp,27,548,296
+SAIC Inc,207,107,104
+Unum Group,257,85,8
+Dr Pepper Snapple Group,925,74,35
+Watson Pharmaceuticals,456,66,43
+Abercrombie & Fitch Co A,186,54,32
+SLM Corp,927,47,35
+Best Buy Co Inc,1043,43,68
+Altria Group Inc,5582,42,39
+Apollo Group Inc,954,37,44
+GameStop Corp A,549,35,38
+Cerner Corp,470,35,35
+NetFlix Inc,360,34,37
+T Rowe Price Group Inc,689,34,37
+Assurant Inc,715,34,24
+Carmax Inc,667,34,38
+Yahoo Inc,574,33,38
+"Bard, C.R. Inc",511,33,36
+Chicago Mercantile Exchange,1937,33,6
+Unitedhealth Group Inc,7959,33,35
+Humana Inc,2235,33,37
+Ross Stores Inc,1053,33,38
+"Smucker, J.M. Co",701,33,34
+Urban Outfitters,289,32,36
+Nordstrom Inc,1119,32,39
+CH Robinson Worldwide Inc,695,32,38
+CVS Caremark Corp.,5746,31,39
+Big Lots Inc,342,31,39
+Sysco Corp,1827,31,37
+Lab Corp of America Hldgs,866,31,38
+Lorillard Inc,1770,31,37
+Dollar Tree Inc,780,31,37
+Quest Diagnostics,856,31,41
+CF Industries Holdings,2646,31,35
+Lowe’s Cos Inc,2906,31,37
+Gap Inc,1369,31,39
+"Schwab, Charles Corp",1392,30,38
+Walgreen Co,4294,30,37
+Bed Bath & Beyond Inc,1569,30,37
+SanDisk Corp,1477,30,33
+AFLAC Inc,2992,30,34
+Paychex Inc,792,30,35
+AutoZone Inc,1324,30,36
+Genuine Parts Co,891,29,37
+Limited Brands Inc,1227,29,31
+WellPoint Inc,3958,29,33
+Chipotle Mexican Grill Inc.,350,29,39
+F5 Networks Inc,361,29,33
+Fastenal Co,575,29,38
+PerkinElmer Inc,64,28,98
+Hormel Foods Corp,719,28,33
+O’Reilly Automotive,816,28,38
+Marathon Petroleum Corp.,3719,28,36
+Equifax Inc,408,28,41
+Intuit Inc,966,28,34
+Intuitive Surgical Inc,710,28,30
+Fiserv Inc,729,28,35
+Sherwin-Williams Co,742,28,40
+Federated Investors Inc B,246,27,37
+Tiffany & Co,665,27,34
+Patterson Cos Inc,330,27,35
+AutoNation Inc,461,27,38
+Kohl’s Corp,1859,27,37
+Stericycle Inc,372,27,36
+Discover Financial Services,3511,27,37
+Coach Inc,1301,27,32
+Hershey Foods Corp,963,26,35
+Total System Services Inc,317,26,32
+Macy’s Inc,1968,26,36
+Nucor Corp,1252,26,31
+Whole Foods Market Inc,552,26,38
+"Grainger, W.W. Inc",1052,26,37
+Reynolds American Inc,2186,26,36
+Baker Hughes Inc,2339,26,25
+Harris Corp,881,26,33
+McGraw-Hill Cos Inc,1347,26,36
+Home Depot Inc,6068,26,36
+Cardinal Health Inc,1518,26,36
+Safeway Inc,882,25,41
+Family Dollar Stores Inc,617,25,37
+Lockheed Martin,3631,25,27
+"CBRE Group, Inc.",430,25,44
+Clorox Co,563,25,49
+Davita Inc,893,24,35
+Visa Inc,5656,24,36
+Perrigo Co,451,24,24
+Target Corp,4456,24,34
+Precision Castparts Corp,1812,24,33
+Kinder Morgan Inc,1015,24,36
+Life Technologies Corp,479,24,21
+United Parcel Service Inc B,5776,24,34
+Allergan Inc,1300,24,28
+Texas Instruments Inc,2955,23,24
+Coventry Health Care Inc,858,23,37
+Automatic Data Processing,1933,23,35
+ACE Limited,2091,23,24
+DeVry Inc,494,23,33
+Titanium Metals Corp,181,23,35
+Walt Disney Co,8043,23,35
+TJX Cos Inc,2411,23,38
+Berkshire Hathaway B,15314,23,30
+M&T Bank Corp,1225,23,30
+Mastercard Inc A,2746,23,31
+Nasdaq OMX Group/The,573,23,33
+Torchmark Corp,756,22,31
+Tyson Foods Inc A,1074,22,32
+Republic Services Inc,906,22,35
+BlackRock Inc,3135,22,25
+CONSOL Energy Inc,788,22,20
+Block H & R Inc,576,22,40
+Deere & Co,4223,22,34
+Franklin Resources Inc,2624,22,31
+Snap On Inc,413,21,32
+Sigma-Aldrich Corp,640,21,29
+Time Warner Inc,4366,21,34
+Brown-Forman Corp B,760,21,33
+Quanta Services Inc,216,21,33
+Intl Game Technology,428,20,32
+Scripps Networks Interactive,883,20,28
+Fidelity National Information,744,20,32
+Roper Industries Inc,605,20,29
+CA Inc,1354,20,31
+KLA-Tencor Corporation,1110,20,28
+FLIR Systems Inc,311,20,28
+Ralph Lauren Corp,1015,20,33
+Jacobs Engineering Group Inc,517,20,Negative
+Illinois Tool Works Inc,2593,20,22
+News Corporation,4177,20,25
+Dun & Bradstreet Corp,368,19,30
+Johnson & Johnson,12361,19,22
+General Dynamics,3718,19,31
+Gilead Sciences Inc,3651,19,24
+Airgas Inc,492,19,36
+Robert Half Intl Inc,250,19,40
+Northrop Grumman Corp,3083,19,32
+The Bank of New York Mellon,3617,19,29
+Starbucks Corp,1811,19,31
+Wal-Mart Stores,24398,19,33
+Darden Restaurants Inc,648,19,26
+Washington Post Co B,218,19,44
+Campbell Soup Co,1168,18,31
+TripAdvisor Inc.,272,18,35
+Intel Corp,17781,18,27
+General Mills Inc,2211,18,32
+Ameriprise Financial Inc,1385,18,26
+Comcast Corp,8207,18,37
+Cintas Corp,393,18,37
+Forest Laboratories,1238,18,21
+St Jude Medical Inc,1019,18,19
+AmerisourceBergen Corp,1131,18,38
+Staples Inc,1459,17,33
+Kroger Co,843,17,29
+Costco Wholesale Corp,2383,17,35
+Sealed Air Corp,216,17,31
+Eastman Chemical Co,964,17,32
+Harley-Davidson Inc,793,17,31
+Valero Energy Corp,3322,17,37
+Cabot Oil & Gas A,235,17,48
+Bemis Co Inc,292,17,36
+VF Corp,1165,17,24
+National Oilwell Varco Inc,2922,17,32
+Goodrich Corp,1165,16,30
+Kellogg Co,1732,16,29
+Union Pacific Corp,5264,16,37
+Cigna Corporation,1968,16,5
+Discovery Communications Inc,1559,16,27
+NetApp Inc,712,16,15
+Medtronic Inc,4145,16,18
+Constellation Brands Inc A,534,16,17
+Moody’s Corp,840,16,31
+DIRECTV Class A,3984,16,34
+Waste Management Inc,1520,16,34
+Expeditors Intl of WA Inc,638,16,39
+Capital One Financial,4587,16,29
+VeriSign Inc,194,16,28
+Noble Corp,436,16,17
+McCormick & Co,491,16,29
+Ecolab Inc,680,15,32
+Linear Technology Corp,724,15,20
+Zimmer Holdings Inc,979,15,22
+The Williams Companies Inc,1202,15,10
+EMC Corp,3249,15,20
+Rockwell Collins,855,15,28
+Autodesk Inc,363,15,21
+Amgen Inc,4150,15,11
+Marriott Intl A,356,15,44
+Norfolk Southern Corp,2918,15,34
+Molex Inc,430,15,30
+Mylan Inc.,655,15,18
+McDonald’s Corp,8012,15,31
+Dover Corp,1095,15,23
+Cincinnati Financial Corp,176,14,6
+Wells Fargo & Co,23656,14,31
+McKesson Corp,1919,14,27
+Google Inc,12326,14,21
+Viacom Inc B,3245,14,33
+JP Morgan Chase & Co,26749,14,29
+Monsanto Co.,2374,14,30
+Raytheon Co,2690,14,29
+American Express Co,6956,14,30
+US Bancorp,6629,14,28
+Dentsply Intl,256,14,4
+Biogen Idec Inc,1711,14,26
+Iron Mountain Inc,353,13,30
+Schlumberger Ltd,6338,13,24
+Fossil Inc,452,13,32
+eBay Inc.,3910,13,17
+Allegheny Technologies Inc,339,13,34
+Thermo Fisher Scientific,1127,13,9
+Akamai Technologies Inc,307,13,35
+Northern Trust Corp (IL),884,13,32
+ConAgra Foods Inc,1225,13,34
+CareFusion Corp.,415,13,30
+Wyndham Worldwide Corp,650,13,36
+BMC Software Inc,530,13,24
+"Lilly, Eli & Co",5350,13,19
+Gannett Co Inc,653,12,23
+Oracle Corp,12962,12,23
+Estee Lauder Cos.,1026,12,31
+Bristol-Myers Squibb,6981,12,25
+CSX Corp,2888,12,37
+Leggett & Platt,206,12,24
+IntercontinentalExchange,759,12,31
+Applied Materials Inc,2378,12,19
+PPG Industries Inc,1597,12,24
+Zions Bancorp (UT),521,12,38
+Procter & Gamble,15189,12,22
+Chubb Corp,2199,12,24
+Fluor Corp,1002,12,30
+Praxair Inc,2323,12,28
+Merck & Co Inc,7334,12,13
+Principal Financial Group,988,12,24
+Cisco Systems Inc,7825,12,17
+Citrix Systems Inc,430,12,17
+Apple Inc.,34205,11,24
+Coca-Cola Enterprises,945,11,21
+Mead Johnson Nutrition Co,722,11,28
+Caterpillar Inc,6725,11,26
+Microsoft Corp,28071,11,18
+"Becton, Dickinson & Co",1716,11,26
+Amazon.com Inc,934,11,31
+Cliffs Natural Resources Inc,2242,11,19
+Public Svc. Enterprise Grp.,2384,11,41
+L-3 Communications Holdings,1328,11,27
+Pfizer Inc,12762,11,32
+Joy Global Inc,896,10,30
+Tesoro Corp,905,10,38
+Cognizant Tech Solutions Corp,1169,10,24
+Edwards Lifesciences Corp,284,10,17
+Omnicom Group,1549,10,33
+NIKE Inc B,2844,10,25
+Hasbro Inc,486,10,21
+Adobe Systems Inc,1035,10,20
+People’s United Financial Inc,296,10,33
+NYSE Euronext,725,10,17
+Ingersoll-Rand Plc,613,10,31
+Mosaic Co,3271,10,23
+Accenture plc,3512,10,27
+Colgate-Palmolive Co,3789,10,33
+Emerson Electric Co,2450,9,28
+SCANA,555,9,30
+"Heinz, H.J. Co",1183,9,21
+Diamond Offshore Drilling,1179,9,18
+Ball Corp,660,9,31
+"DuPont, E.I. de Nemours",4282,9,18
+CBS Corp B,2083,9,36
+Red Hat Inc,208,9,30
+Dell Inc,4240,9,18
+Analog Devices Inc,1061,9,19
+Parker-Hannifin Corp,1414,9,25
+Symantec Corp,1470,8,20
+ConocoPhillips,23001,8,46
+Archer-Daniels-Midland Co,3015,8,33
+Hess Corp,2461,8,32
+Genworth Financial Inc,314,8,17
+Comerica Inc (MI),530,8,26
+Kraft Foods Inc A,4772,8,26
+Peabody Energy Corp,1374,8,26
+Honeywell Intl Inc,2282,7,18
+Flowserve Corp,588,7,27
+Cameron International Corp,651,7,20
+3M Co,6031,7,28
+Celgene Corp,1420,7,7
+Waters Corp,509,7,15
+Boston Scientific Corp,642,7,31
+PepsiCo Inc,8834,7,27
+Lam Research Corp,801,7,10
+KeyCorp,1345,7,27
+Goldman Sachs Group Inc,6169,7,28
+Murphy Oil Corp,1551,6,52
+Amphenol Corp A,717,6,26
+Helmerich & Payne Inc,687,6,37
+Expedia,402,6,19
+Stryker Corp,1686,6,20
+MeadWestvaco Corp,422,6,38
+Rockwell Automation Inc,868,6,20
+Loews Corp,2232,6,24
+Legg Mason Inc,303,6,24
+Nabors Industries Ltd,488,6,29
+United Technologies Corp,7605,6,29
+Eaton Corp,1553,5,13
+Teradata Corp,481,5,27
+EQT Corporation,759,5,37
+Xylem Inc,383,5,27
+General Electric Co,20098,5,29
+BB&T Corp,1628,5,18
+EOG Resources,1910,5,43
+Facebook,1695,5,41
+FMC Technologies Inc,553,5,27
+Yum! Brands Inc,1659,5,20
+PNC Finl Services Group,4069,5,25
+Fifth Third Bancorp (OH),1831,4,29
+Freeport McMoRan Copper & Gold,8818,4,35
+Pall Corp,420,4,25
+Sempra Energy,1721,4,21
+Cummins Inc,2671,4,27
+Hewlett-Packard Co,8982,4,21
+Borgwarner Inc,766,4,25
+Chevron Corp,47634,4,43
+Juniper Networks Inc,572,3,26
+Harman Intl Industries Inc,160,3,15
+Xerox Corp,1565,3,25
+Consolidated Edison,1662,3,36
+QUALCOMM Inc,5687,3,20
+TE Connectivity Ltd.,1629,3,23
+Kimco Realty Corp,80,3,24
+Occidental Petroleum,10459,3,40
+FMC Corp,551,3,25
+Western Union Co,1275,3,9
+Time Warner Cable Inc,2462,3,32
+American Tower Corp A,507,3,25
+Western Digital Corp,780,3,7
+Lincoln National Corp,599,3,50
+Baxter Intl Inc,2809,3,20
+Sara Lee Corp,487,3,31
+Johnson Controls Inc,2111,3,18
+Avery Dennison Corp,233,3,34
+Altera Corp,849,3,9
+DTE Energy,987,3,27
+Coca-Cola Co,11439,3,25
+PPL Corp,2201,2,31
+Pepco Holdings Inc,409,2,36
+Dow Chemical,1644,2,34
+Philip Morris International,12532,2,29
+Exxon Mobil Corp,73257,2,42
+Molson Coors Brewing Co B,774,2,13
+Newfield Exploration Co,840,2,36
+Microchip Technology Inc,380,2,11
+Covidien Plc,2216,2,15
+Kimberly-Clark,2183,2,30
+State Street Corp,2536,2,24
+Verizon Communications,10483,2,3
+Crown Castle Intl Corp,180,2,5
+Teradyne Inc,219,2,Negative
+Lexmark International Inc,414,2,22
+Mattel Inc,971,2,21
+Southern,3487,2,35
+Noble Energy Inc,715,2,37
+Huntington Bancshares (OH),707,1,23
+Allstate Corp,960,1,18
+Prudential Financial Inc,5117,1,31
+Intl Business Machines Corp,21003,1,25
+Regions Financial Corp,161,1,Negative
+Southwest Airlines Co,323,1,45
+Nvidia Corp,663,1,12
+Alcoa Inc,1063,1,24
+Air Products & Chemicals Inc,1661,1,25
+American Electric Power,2367,1,35
+Apache Corp,8093,1,43
+Intl Flavors & Fragrances,374,1,29
+Morgan Stanley,5939,1,22
+Ryder System Inc,279,1,39
+CMS Energy,354,1,17
+Northeast Utilities,571,1,30
+Marsh & McLennan Companies,1404,0,30
+Chesapeake Energy Corp,2880,0,39
+Southwestern Energy Co,1051,0,39
+"Motorola Solutions, Inc",738,0,Negative
+Xcel Energy,1310,0,36
+Spectra Energy Corp,1744,0,28
+Priceline.com Inc,1368,0,23
+Interpublic Group Cos,738,0,26
+PACCAR Inc,1507,0,31
+Exelon Corp,3952,0,37
+Varian Medical Systems Inc,589,0,31
+AES Corp,2179,0,29
+AvalonBay Communities Inc,441,0,0
+Goodyear Tire & Rubber Co,618,0,33
+Leucadia National Corp (NY),681,0,40
+Masco Corp,(472),0,Negative
+Metropcs Communications Inc,480,0,37
+Micron Technology Inc,551,0,37
+Pioneer Natural Resources,656,0,30
+Plum Creek Timber Co,192,0,Negative
+Range Resources Corp,78,0,45
+TECO Energy Inc,427,0,36
+Tenet Healthcare,161,0,38
+Wynn Resorts Ltd,806,0,2
+Dean Foods Co,(2053),0,Negative
+Boston Properties Inc,314,Tax-Free REIT,Tax-Free REIT
+Equity Residential,81,Tax-Free REIT,Tax-Free REIT
+HCP Inc,505,Tax-Free REIT,Tax-Free REIT
+Health Care REIT Inc,156,Tax-Free REIT,Tax-Free REIT
+Public Storage,834,Tax-Free REIT,Tax-Free REIT
+Simon Property Group,1021,Tax-Free REIT,Tax-Free REIT
+Ventas Inc,330,Tax-Free REIT,Tax-Free REIT
+Vornado Realty Trust,619,Tax-Free REIT,Tax-Free REIT
+Carnival Corp,1912,Exempt,Exempt
+Electronic Arts,(18),Refund,Negative
+First Solar Inc,(54),Refund,Negative
+Owens-Illinois Inc,(406),Refund,Negative
+"Penney, J.C. Inc",(229),Refund,Negative
+Salesforce.com,(33),Refund,Negative
+Sears Holdings Corp,(1751),Refund,Negative
+Vulcan Materials Co,(154),Refund,Negative
+WPX Energy Inc.,(417),Refund,Negative
+XL Group Plc,(421),Refund,Negative
+Abbott Laboratories,5199,Refund,9
+AGL Resources,311,Refund,40
+AT&T,6716,Refund,38
+Advanced Micro Devices,(1),Refund,Negative
+Aetna Inc,(403),Refund,Negative
+Agilent Technologies Inc,1032,Refund,2
+Alexion Pharmaceuticals Inc,230,Refund,24
+Alpha Natural Resources,(716),Refund,Negative
+Ameren Corp,836,Refund,37
+American Intl Group Inc,(1065),Refund,Negative
+Anadarko Petroleum Corp,(3424),Refund,Negative
+Aon plc,1384,Refund,27
+Apartment Investment & Mgmt,(149),Refund,Negative
+Avon Products,743,Refund,29
+Bank of America Corp,(230),Refund,Negative
+Beam Inc,169,Refund,21
+Boeing Co,5393,Refund,26
+Broadcom Corp A,956,Refund,3
+Cablevision Systems Co A,423,Refund,26
+CenterPoint Energy,1174,Refund,34
+CenturyLink,948,Refund,40
+Citigroup Inc,14624,Refund,24
+Computer Sciences,(4347),Refund,Negative
+Cooper Industries Plc,757,Refund,16
+Corning Inc,3213,Refund,13
+Danaher Corp,2448,Refund,21
+Denbury Resources Inc,924,Refund,38
+Devon Energy Corp,4290,Refund,50
+Dominion Resources,2171,Refund,34
+"Donnelley, R.R. & Sons",(237),Refund,Negative
+Duke Energy,2465,Refund,31
+E*TRADE Financial Corp,185,Refund,15
+Edison International,(264),Refund,Negative
+Entergy Corp,1654,Refund,17
+FedEx Corp,3141,Refund,35
+First Horizon National Corp,150,Refund,11
+First Energy,1443,Refund,40
+Ford Motor Co,8681,Refund,Negative
+Frontier Communications Corp,246,Refund,36
+Halliburton Co,4449,Refund,32
+Hartford Finl Services Group,230,Refund,Negative
+"Horton, D.R. Inc",12,Refund,Negative
+Host Hotels & Resorts Inc,(13),Refund,Negative
+Hudson City Bancorp,(1255),Refund,Negative
+Integrys Energy Group Inc,365,Refund,37
+Intl Paper Co,1458,Refund,21
+Invesco Ltd,908,Refund,32
+JDS Uniphase Corp,46,Refund,Negative
+Jabil Circuit Inc,481,Refund,20
+LSI Corporation,94,Refund,4
+Lennar Corp,98,Refund,15
+Marathon Oil Corp,4427,Refund,61
+Metlife Inc,10026,Refund,31
+NRG Energy,(646),Refund,Negative
+Newell Rubbermaid Inc,153,Refund,12
+Newmont Mining Corp,1810,Refund,39
+NextEra Energy,2452,Refund,22
+NiSource,467,Refund,35
+ONEOK Inc,984,Refund,23
+PG&E Corp,1298,Refund,34
+Pinnacle West,539,Refund,34
+Pitney Bowes Inc,414,Refund,11
+ProLogis Trust,(243),Refund,Negative
+Progress Energy Inc,910,Refund,35
+Pulte Group Inc,(310),Refund,Negative
+QEP Resources,429,Refund,36
+Rowan Cos Plc,130,Refund,Negative
+Sprint Nextel Corp,(2636),Refund,Negative
+Stanley Black & Decker,780,Refund,11
+Starwood Hotel & Resort World,425,Refund,18
+SunTrust Banks Inc (GA),739,Refund,11
+Sunoco Inc,(2404),Refund,Negative
+Textron Inc,337,Refund,28
+Travelers Cos Inc,1352,Refund,Negative
+Tyco Intl,1893,Refund,17
+Weyerhaeuser Co,257,Refund,24
+Whirlpool Corp,(28),Refund,Negative
+Windstream Corp,274,Refund,37
+Wisconsin Energy Corp,777,Refund,34
+Xilinx Inc,597,Refund,11

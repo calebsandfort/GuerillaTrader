@@ -18,7 +18,12 @@ namespace GuerillaTrader.EntityFramework
         public virtual IDbSet<TradingDirective> TradingDirectives { get; set; }
         public virtual IDbSet<Market> Markets { get; set; }
         public virtual IDbSet<MonteCarloSimulation> MonteCarloSimulations { get; set; }
-        public virtual IDbSet<Screenshot> Screenshots { get; set; }		
+        public virtual IDbSet<Screenshot> Screenshots { get; set; }
+
+        public virtual IDbSet<Stock> Stocks { get; set; }
+        public virtual IDbSet<StockReport> StockReports { get; set; }
+        public virtual IDbSet<StockBar> StockBars { get; set; }
+        public virtual IDbSet<Sector> Sectors { get; set; }
 
         /* NOTE: 
          *   Setting "Default" to base class helps us when working migration commands on Package Manager Console.

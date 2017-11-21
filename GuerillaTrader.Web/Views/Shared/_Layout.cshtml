@@ -59,13 +59,15 @@
     <div id="addLogEntryModalWrapper"></div>
     <div id="tradeModalWrapper"></div>
     <div id="monteCarloSimulationModalWrapper"></div>
+    <div id="generateStockReportsModalWrapper"></div>
     @Html.Partial("Modals/_TodoModal")
     @Html.Partial("Modals/_TradingDirectivesModal")
     @Html.Partial("Modals/_ExpandScreenshotModal")
     @Html.Partial("Modals/_MarketsModal")
     @Html.Partial("Modals/_ConsoleModal")
     @Html.Partial("Modals/_SetCountdownModal")
-    @Html.Partial("Modals/_AddTradeFromPasteModal")
+    @Html.Partial("Modals/_AddTradeFromPasteModal", new TradeFromPasteDto())
+    @Html.Partial("Modals/_TaxRatesModal")
 
     @Scripts.Render("~/Bundles/vendor/js/bottom")
     @Scripts.Render("~/Bundles/js")

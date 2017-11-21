@@ -1,0 +1,24 @@
+﻿@model GenerateStockReportsInput
+
+<div class="modal fade" id="generateStockReportsModal" tabindex="-1" role="dialog" aria-labelledby="generateStockReportsModal-label">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form id="generateStockReportsForm" class="form-horizontal">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="generateStockReportsModal-label">Generate Stock Reports</h4>
+                </div>
+                <div class="modal-body">
+                    @Html.EditorFor(x => x.StartDate)
+                    @Html.EditorFor(x => x.EndDate)
+                    @Html.EditorFor(x => x.Lookback)
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

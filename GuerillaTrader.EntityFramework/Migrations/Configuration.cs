@@ -29,6 +29,7 @@ namespace GuerillaTrader.Migrations
                 new DefaultTenantCreator(context).Create();
                 new TenantRoleAndUserBuilder(context, 1).Create();
                 new MarketsCreator(context).Create();
+                new SectorsCreator(context).Create();
                 //new TradingDirectivesCreator(context).Create();
             }
             else

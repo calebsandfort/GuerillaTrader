@@ -1,0 +1,8 @@
+﻿@model List<String>
+
+<div class="form-group" style="margin-bottom: 5px;">
+    <label class="col-xs-5 control-label">@Model[0]</label>
+    <div class="col-xs-7">
+        <p class='form-control-static @(Model.Count > 2 ? Model[2] : String.Empty)'>@Html.Raw(Model[1])</p>
+    </div>
+</div>

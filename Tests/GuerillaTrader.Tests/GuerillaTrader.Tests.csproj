@@ -201,6 +201,7 @@
     <Compile Include="Screenshots\ScreenshotTests.cs" />
     <Compile Include="GuerillaTraderTestBase.cs" />
     <Compile Include="Shared\SharedTests.cs" />
+    <Compile Include="Stocks\StockTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

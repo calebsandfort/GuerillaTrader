@@ -1,0 +1,70 @@
+﻿@model ViewStockDto
+
+@{
+    ViewBag.ActiveMenu = "Stocks";
+    ViewBag.Title = String.Format("{0} ({1})", Model.Name, Model.Symbol); //The menu item will be active for this page.
+    ViewBag.FluidContainer = true;
+    int reportsCount = Model.StockReports.Count;
+    int perRow = 3;
+    int col = 12/ perRow;
+    int rowCount = (int)Math.Ceiling((double)reportsCount / (double)perRow);
+    List<ViewStockReportDto> reports = Model.StockReports.OrderByDescending(x => x.StartDate).ToList();
+}
+
+<div class="row">
+    <div class="col-xs-9">
+        @for(int i = 0; i < rowCount; i++)
+        {
+            for(int j = 0; j < perRow; j++)
+            {
+                int index = (i * perRow) + j;
+                if(index < reportsCount)
+                {
+                    <div class="col-xs-@col">
+                        @Html.Partial("_StockReportLineChart", reports[index])
+                    </div>
+                }
+            }
+        }
+    </div>
+    <div class="col-xs-3">
+        <form class="form-horizontal">
+            @Html.Partial("_DetailsField", new List<String>() { "Name", String.Format("<a href='https://finance.yahoo.com/quote/{0}' target='_blank'>{1}</a>", Model.Symbol, Model.Name) })
+            @Html.Partial("_DetailsField", new List<String>() { "Symbol", Model.Symbol })
+            @Html.Partial("_DetailsField", new List<String>() { "Sector", Model.Sector })
+            @if (Model.TargetPrice.HasValue)
+            {
+                @Html.Partial("_DetailsField", new List<String>() { "Avg Volume", Model.AvgVolume.Value.ToString("#,#") })
+            }
+            @Html.Partial("_DetailsField", new List<String>() { "Total Score", Model.TotalScore.ToString() })
+            @Html.Partial("_DetailsField", new List<String>() { "Rec Perf", Model.RecentPerf.ToString("P2"), Model.RecentPerf > 0 ? "text-success" : "text-danger" })
+            @Html.Partial("_DetailsField", new List<String>() { "Past Perf", Model.PastPerf.ToString("P2"), Model.PastPerf > 0 ? "text-success" : "text-danger" })
+            @Html.Partial("_DetailsField", new List<String>() { "Pass Succ Rate", Model.PastPositivePerf.ToString("P2"), Model.PastPositivePerf > .5m ? "text-success" : "text-danger" })
+
+            <hr style="margin-top: 10px; margin-bottom: 5px;" />
+
+            @Html.Partial("_DetailsField", new List<String>() { "Price", Model.Price.ToString("C2") })
+            @Html.Partial("_DetailsField", new List<String>() { "Past Projected", Model.PastProjected.ToString("C2") })
+            @if (Model.TargetPrice.HasValue)
+            {
+                @Html.Partial("_DetailsField", new List<String>() { "Target", Model.TargetPrice.Value.ToString("C2") })
+            }
+            @if (Model.NextEarningsDate.HasValue)
+            {
+                @Html.Partial("_DetailsField", new List<String>() { "Earnings", Model.NextEarningsDate.Value.ToString("M/d/y") })
+            }
+            @if (Model.ExDividendDate.HasValue)
+            {
+                @Html.Partial("_DetailsField", new List<String>() { "ExDividend", Model.ExDividendDate.Value.ToString("M/d/y") })
+            }
+
+            <hr style="margin-top: 10px; margin-bottom: 5px;" />
+
+            @foreach (ViewStockReportDto report in reports)
+            {
+                @Html.Partial("_DetailsField", new List<String>() { report.DatesOnlyToString(), report.Perf.ToString("P2"), report.Perf > 0 ? "text-success" : "text-danger" })
+            }
+        </form>
+    </div>
+</div>
+

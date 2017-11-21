@@ -6,6 +6,7 @@ if (!GuerillaTrader) GuerillaTrader = {
     TradingAccount: {},
     Trade: {},
     Screenshot: {},
+    Stocks: {},
     MonteCarloSimulation: {},
     Countdown: {},
     Market: {
@@ -96,6 +97,18 @@ $(function () {
         }
     });
 
+    $('#stockTabs a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+        var stocksGrid = $("#stocksGrid");
+        if (stocksGrid.is(":visible")) {
+            stocksGrid.data("kendoGrid").refresh();
+        }
+
+        var sectorsGrid = $("#sectorsGrid");
+        if (sectorsGrid.is(":visible")) {
+            sectorsGrid.data("kendoGrid").refresh();
+        }
+    });
+
     GuerillaTrader.Util.initForm("addTradeFromPasteForm", GuerillaTrader.Trade.addTradeFromPaste);
 });
 
@@ -121,7 +134,7 @@ GuerillaTrader.Util.expandScreenshotClick = function () {
     expandScreenshotModal.modal("show");
 }
 
-GuerillaTrader.Util.initForm = function (id, submitFunc) {
+GuerillaTrader.Util.initForm = function (id, submitFunc, showBusy) {
     var _$form = $('#' + id);
 
     _$form.validate({
@@ -150,7 +163,8 @@ GuerillaTrader.Util.initForm = function (id, submitFunc) {
                 }
             });
 
-            abp.ui.setBusy('#' + id);
+            if (typeof (showBusy) != "undefined" && showBusy)
+                abp.ui.setBusy('#' + id);
 
             submitFunc(input);
         });
@@ -173,9 +187,10 @@ GuerillaTrader.Util.showModalForm = function (id, clearForm) {
     }
 }
 
-GuerillaTrader.Util.hideModalForm = function (id) {
+GuerillaTrader.Util.hideModalForm = function (id, showBusy) {
     var _$modal = $('#' + id);
-    abp.ui.clearBusy(_$modal.find("form"));
+    if (typeof (showBusy) != "undefined" && showBusy)
+        abp.ui.clearBusy(_$modal.find("form"));
     _$modal.modal("hide");
 }
 
@@ -448,12 +463,12 @@ GuerillaTrader.Trade.showAddTradeFromPasterModal = function (id) {
 }
 
 GuerillaTrader.Trade.addTradeFromPaste = function (input) {
+    abp.ui.clearBusy('#addTradeFromPasteModal');
     abp.services.app.trade.addTradeFromPaste(input).done(function () {
         GuerillaTrader.Trade.refresh();
         GuerillaTrader.Log.refresh();
         $("#Opening").val("");
         $("#Closing").val("");
-        abp.ui.clearBusy('#addTradeFromPasteModal');
 
         abp.services.app.tradingAccount.reconcile().done(function () {
             GuerillaTrader.TradingAccount.refreshDetails();
@@ -630,4 +645,54 @@ GuerillaTrader.Countdown.startClick = function () {
     }, 1000);
 
     $("#setCountDownModal").modal("hide");
+}
+
+GuerillaTrader.Util.grid_read = function (options) {
+    return { realRequest: options };
+}
+
+GuerillaTrader.Stocks.showGenerateStockReportsModal = function () {
+    $.ajax({
+        type: "GET",
+        url: abp.appPath + 'Stocks/GenerateStockReportsModal?id=',
+        success: function (r) {
+            $("#generateStockReportsModalWrapper").html(r);
+            GuerillaTrader.Util.initForm("generateStockReportsForm", GuerillaTrader.Stocks.saveGenerateStockReports, false);
+            GuerillaTrader.Util.showModalForm("generateStockReportsModal", false);
+            
+        },
+        contentType: "application/json"
+    });
+}
+
+GuerillaTrader.Stocks.saveGenerateStockReports = function (input) {
+    GuerillaTrader.Util.hideModalForm("generateStockReportsModal", false);
+    $("#consoleModal").modal("show");
+
+    abp.services.app.stock.deleteReports().done(function () {
+        abp.services.app.stock.generateReports(input).done(function () {
+            GuerillaTrader.Util.hideModalForm("generateStockReportsModal", false);
+            GuerillaTrader.Stocks.refresh();
+            GuerillaTrader.Stocks.updateSectorProperties()
+        });
+    });
+}
+
+GuerillaTrader.Stocks.refresh = function (input) {
+    $("#stocksGrid").data("kendoGrid").dataSource.read();
+}
+
+GuerillaTrader.Stocks.updateSectorProperties = function () {
+    abp.ui.setBusy('#sectorsGrid');
+    abp.services.app.stock.updateSectorProperties().done(function () {
+        $("#sectorsGrid").data("kendoGrid").dataSource.read();
+        abp.ui.clearBusy('#sectorsGrid');
+    });
+}
+
+GuerillaTrader.Stocks.updatePriceAndDates = function () {
+    $("#consoleModal").modal("show");
+    abp.services.app.stock.updatePriceAndDates().done(function () {
+        GuerillaTrader.Stocks.refresh();
+    });
 }

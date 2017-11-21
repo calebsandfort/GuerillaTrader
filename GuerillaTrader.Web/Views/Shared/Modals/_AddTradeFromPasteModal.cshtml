@@ -9,8 +9,7 @@
                     <h4 class="modal-title" id="addTradeFromPasteModal-label">Paste Trade</h4>
                 </div>
                 <div class="modal-body">
-                    @Html.EditorFor(x => x.Opening, new { rows = 7, cols = 1 })
-                    @Html.EditorFor(x => x.Closing, new { rows = 7, cols = 1 })
+                    @Html.EditorFor(x => x.Trades, new { rows = 20, cols = 1 })
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

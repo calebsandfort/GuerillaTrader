@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.ActiveMenu = "Stocks"; //The menu item will be active for this page.
+    ViewBag.FluidContainer = true;
+}
+
+<div>
+    <ul id="stockTabs" class="nav nav-tabs">
+        <li role="presentation" class="active"><a href="#stocksGridTab" aria-controls="stocksGridTab" role="tab" data-toggle="tab">Stocks</a></li>
+        <li role="presentation"><a href="#sectorsGridTab" aria-controls="sectorsGridTab" role="tab" data-toggle="tab">Sectors</a></li>
+    </ul>
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" style="padding-top: 10px;" id="stocksGridTab">
+            @Html.Partial("_StocksGrid")
+        </div>
+        <div role="tabpanel" class="tab-pane" style="padding-top: 10px;" id="sectorsGridTab">
+            @Html.Partial("_SectorsGrid")
+        </div>
+    </div>
+</div>
