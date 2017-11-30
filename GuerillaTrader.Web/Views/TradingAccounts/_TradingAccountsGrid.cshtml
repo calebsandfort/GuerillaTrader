@@ -2,11 +2,15 @@
     .Name("tradingAccountsGrid")
     .Columns(columns =>
     {
-        columns.Bound(x => x.Name).Width(250);
+        columns.Bound(x => x.Name).Width(250).ClientTemplate("<a href='TradingAccounts/Details/#:Id#' target='_blank'>#:Name#</a>");
+        columns.Bound(x => x.InceptionDate).Width(125).Format("{0:M/d/yy}").Title("Inception");
         columns.Bound(x => x.InitialCapital).Width(100);
         columns.Bound(x => x.CurrentCapital).Width(100);
         columns.Bound(x => x.Commissions).Width(100);
-        columns.Bound(x => x.ProfitLoss).Width(100);
+        columns.Bound(x => x.ProfitLoss).Width(100).Title("P/L");
+        columns.Bound(x => x.AdjProfitLoss).Width(100).Title("Adj P/L");
+        columns.Bound(x => x.TotalReturn).Width(100).Format("{0:P2}");
+        columns.Bound(x => x.CAGR).Width(100).Format("{0:P2}");
         columns.Bound(x => x.Active).Width(100).ClientTemplate("#= Active ? 'Yes' : 'No' #");
         //columns.Bound(x => x.PPT).Width(75).Format("{0:N2}");
         columns.Command(command => { command.Edit(); command.Destroy(); }).Width(200);

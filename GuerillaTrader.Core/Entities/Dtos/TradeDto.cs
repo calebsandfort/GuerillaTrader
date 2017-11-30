@@ -18,15 +18,87 @@ namespace GuerillaTrader.Entities.Dtos
         public String Market { get; set; }
         [UIHint("Market")]
         [Display(Name = "Market")]
-        public int MarketId { get; set; }
+        public int? MarketId { get; set; }
+
+        public virtual MinimalStockDto Stock { get; set; }
+        [UIHint("Stock")]
+        [Display(Name = "Stock")]
+        public int? StockId { get; set; }
+
+        public String Security
+        {
+            get
+            {
+                String security = String.Empty;
+
+                switch (this.TradeType)
+                {
+                    case TradeTypes.LongFuture:
+                    case TradeTypes.ShortFuture:
+                        security = this.Market;
+                        break;
+                    case TradeTypes.CoveredCall:
+                        security = $"{this.Stock.Symbol} {this.CoveredCallOption.Name}";
+                        break;
+                    case TradeTypes.BullPutSpread:
+                        security = $"{this.Stock.Symbol} {this.BullPutSpreadShortOption.Name}";
+                        break;
+                }
+
+                return security;
+            }
+        }
+
+        public Decimal Underlying
+        {
+            get
+            {
+                Decimal underlying = 0m;
+
+                switch (this.TradeType)
+                {
+                    case TradeTypes.LongFuture:
+                    case TradeTypes.ShortFuture:
+                        underlying = this.Mark;
+                        break;
+                    case TradeTypes.CoveredCall:
+                    case TradeTypes.BullPutSpread:
+                        underlying = this.Stock.Price;
+                        break;
+                }
+
+                return underlying;
+            }
+        }
+
+        public virtual OptionDto CoveredCallOption { get; set; }
+        [UIHint("Option")]
+        [Display(Name = "Covered Call Option")]
+        public int? CoveredCallOptionId { get; set; }
+
+        public virtual OptionDto BullPutSpreadShortOption { get; set; }
+        [UIHint("Option")]
+        [Display(Name = "Bull Put Spread Short Option")]
+        public int? BullPutSpreadShortOptionId { get; set; }
+
+        public virtual OptionDto BullPutSpreadLongOption { get; set; }
+        [UIHint("Option")]
+        [Display(Name = "Bull Put Spread Long Option")]
+        public int? BullPutSpreadLongOptionId { get; set; }
 
         [UIHint("MyInt")]
         [Display(Name = "TF")]
         public int Timeframe { get; set; }
 
         [UIHint("TradeTypes")]
-        [Display(Name = "Dir")]
+        [Display(Name = "Type")]
         public TradeTypes TradeType { get; set; }
+        public String TradeTypeDisplay {
+            get
+            {
+                return this.TradeType.GetDisplay();
+            }
+        }
 
         [DataType(DataType.DateTime)]
         [UIHint("MyDateTime")]
@@ -78,6 +150,9 @@ namespace GuerillaTrader.Entities.Dtos
 
         //[DataType(DataType.Currency)]
         //public Decimal MFA { get; set; }
+
+        [DataType(DataType.Currency)]
+        public Decimal Mark { get; set; }
 
         [DataType(DataType.Currency)]
         [UIHint("MyCurrency")]
@@ -143,10 +218,8 @@ namespace GuerillaTrader.Entities.Dtos
         [DataType(DataType.Currency)]
         [Display(Name = "Profit/Loss Per Contract")]
         public Decimal ProfitLossPerContract { get; set; }
-
-        public String TradingAccount { get; set; }
+        
         public int TradingAccountId { get; set; }
-
         public int TradingDayId { get; set; }
 
         [UIHint("Screenshot")]

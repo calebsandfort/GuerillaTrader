@@ -66,7 +66,9 @@
     @Html.Partial("Modals/_MarketsModal")
     @Html.Partial("Modals/_ConsoleModal")
     @Html.Partial("Modals/_SetCountdownModal")
-    @Html.Partial("Modals/_AddTradeFromPasteModal", new TradeFromPasteDto())
+    @Html.Partial("Modals/_AddTradeFromPasteModal", new TradeFromPasteDto() { Date = DateTime.Now } )
+    @*@Html.Partial("Modals/_OpenCoveredStockPositionsModal", new TradeFromPasteDto() { Date = DateTime.Now })
+    @Html.Partial("Modals/_UpdateCoveredStockPositionsModal", new TradeFromPasteDto() { Date = DateTime.Now })*@
     @Html.Partial("Modals/_TaxRatesModal")
 
     @Scripts.Render("~/Bundles/vendor/js/bottom")

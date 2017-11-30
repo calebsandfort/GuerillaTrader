@@ -1,0 +1,21 @@
+﻿@model TradingAccountDetailsModel
+
+<div class="row">
+    <div class="col-xs-4">
+        @Html.Partial("_SnapshotColumnChart", new SnapshotChartModel { Title = "Net Liq", CategoryField = "Date", ValueField = "CurrentCapital", Snapshots = Model.Snapshots, Format = "C", ValueComp = Model.TradingAccount.InitialCapital })
+    </div>
+    <div class="col-xs-4">
+        @Html.Partial("_SnapshotColumnChart", new SnapshotChartModel { Title = "P/L", CategoryField = "Date", ValueField = "ProfitLoss", Snapshots = Model.Snapshots, Format = "C", ValueComp = 0m })
+    </div>
+    <div class="col-xs-4">
+        @Html.Partial("_SnapshotColumnChart", new SnapshotChartModel { Title = "Commissions", CategoryField = "Date", ValueField = "Commissions", Snapshots = Model.Snapshots, Format = "C", ValueComp = -1000000m })
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-6">
+        @Html.Partial("_SnapshotColumnChart", new SnapshotChartModel { Title = "Total Return", CategoryField = "Date", ValueField = "TotalReturn", Snapshots = Model.Snapshots, Format = "P2", ValueComp = 0m })
+    </div>
+    <div class="col-xs-6">
+        @Html.Partial("_SnapshotColumnChart", new SnapshotChartModel { Title = "CAGR", CategoryField = "Date", ValueField = "CAGR", Snapshots = Model.Snapshots, Format = "P2", ValueComp = 0m })
+    </div>
+</div>

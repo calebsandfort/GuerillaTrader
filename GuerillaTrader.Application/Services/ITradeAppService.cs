@@ -15,5 +15,10 @@ namespace GuerillaTrader.Services
         List<TradeDto> GetAll();
         void Purge();
         void AddTradeFromPaste(TradeFromPasteDto dto);
+        void OpenCoveredStockPositions(TradeFromPasteDto dto);
+        void UpdateCoveredStockPositions(TradeFromPasteDto dto);
+        void OpenBullPutSpreadPositions(TradeFromPasteDto dto);
+        void UpdateBullPutSpreadPositions(TradeFromPasteDto dto);
+        void SaveOptionTrade(TradeDto dto, DateTime date);
     }
 }

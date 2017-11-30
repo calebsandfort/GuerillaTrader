@@ -1,0 +1,34 @@
+﻿@model SnapshotChartModel
+
+@(Html.Kendo().Chart<TradingAccountSnapshotDto>(Model.Snapshots)
+        .Name(String.Format("snapshotLineChart_{0}", Guid.NewGuid()))
+        .Title(Model.Title)
+        .Legend(legend => legend
+            .Visible(false)
+        )
+        .HtmlAttributes(new { style = "height: 300px;" })
+        .Series(series =>
+        {
+            series.Column(Model.ValueField).Gap(0).Spacing(0).Overlay(ChartBarSeriesOverlay.None)
+                .ColorHandler(Model.ValueComp == -1000000m ? "function(e){ return '#007fff'; }" : "function(e){ return e.value >= " + Model.ValueComp + " ? '#3fb618' : '#ff0039' }");
+
+            //series.Line(Model.ValueField)
+            //    .ColorHandler(Model.ValueComp == -1000000m ? "function(e){ return '#007fff'; }" : "function(e){ return e.value >= " + Model.ValueComp + " ? '#3fb618' : '#ff0039' }")
+            //.Markers(markers => markers.Visible(false));
+        })
+        .CategoryAxis(axis => axis
+            .Categories(Model.CategoryField).Visible(false)
+            .Labels(labels => labels.Visible(false))
+            .MajorGridLines(lines => lines.Visible(false))
+        )
+        .ValueAxis(axis => axis.Numeric()
+            .Labels(labels => labels.Format("{0:" + Model.Format + "}"))
+            .NarrowRange(true)
+            .Line(line => line.Visible(false))
+        )
+        .Tooltip(tooltip => tooltip
+            .Visible(true)
+            .Template("#= kendo.format('{0:" + Model.Format + "}', dataItem." + Model.ValueField + ") #")
+        )
+)
+ 

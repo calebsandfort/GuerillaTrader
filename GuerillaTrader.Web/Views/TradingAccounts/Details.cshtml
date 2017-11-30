@@ -1,0 +1,30 @@
+﻿@model TradingAccountDetailsModel
+
+@{
+    ViewBag.ActiveMenu = "TradingAccounts";
+    ViewBag.Title = String.Format("{0}", Model.TradingAccount.Name); //The menu item will be active for this page.
+    ViewBag.FluidContainer = true;
+    //int reportsCount = Model.StockReports.Count;
+    //int perRow = 3;
+    //int col = 12 / perRow;
+    //int rowCount = (int)Math.Ceiling((double)reportsCount / (double)perRow);
+    //List<ViewStockReportDto> reports = Model.StockReports.OrderByDescending(x => x.StartDate).ToList();
+}
+
+<div class="row">
+    <div class="col-xs-9">
+        @Html.Partial("_ChartCollection", Model)
+    </div>
+    <div class="col-xs-3">
+        <form class="form-horizontal">
+            @Html.Partial("_DetailsField", new List<String>() { "Name", Model.TradingAccount.Name })
+            @Html.Partial("_DetailsField", new List<String>() { "Initial", Model.TradingAccount.InitialCapital.ToString("C2") })
+            @Html.Partial("_DetailsField", new List<String>() { "Net Liq", Model.TradingAccount.CurrentCapital.ToString("C2"), Model.TradingAccount.CurrentCapital >= Model.TradingAccount.InitialCapital ? "text-success" : "text-danger" })
+            @Html.Partial("_DetailsField", new List<String>() { "P/L", Model.TradingAccount.ProfitLoss.ToString("C2"), Model.TradingAccount.ProfitLoss > 0m ? "text-success" : "text-danger" })
+            @Html.Partial("_DetailsField", new List<String>() { "Commissions", Model.TradingAccount.Commissions.ToString("C2") })
+            @Html.Partial("_DetailsField", new List<String>() { "Adj P/L", Model.TradingAccount.AdjProfitLoss.ToString("C2"), Model.TradingAccount.AdjProfitLoss > 0m ? "text-success" : "text-danger" })
+            @Html.Partial("_DetailsField", new List<String>() { "Total Return", Model.TradingAccount.TotalReturn.ToString("C2"), Model.TradingAccount.TotalReturn > 0m ? "text-success" : "text-danger" })
+            @Html.Partial("_DetailsField", new List<String>() { "CAGR", Model.TradingAccount.CAGR.ToString("C2"), Model.TradingAccount.CAGR > 0m ? "text-success" : "text-danger" })
+        </form>
+    </div>
+</div>

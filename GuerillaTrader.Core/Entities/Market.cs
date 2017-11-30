@@ -10,15 +10,9 @@ using System.Threading.Tasks;
 namespace GuerillaTrader.Entities
 {
     [Table("Markets")]
-    public class Market : EntityBase
+    public class Market : Security
     {
-        public String Name { get; set; }
-        public String Symbol { get; set; }
         public String QtSymbol { get; set; }
-
-        [DataType(DataType.Currency)]
-        public Decimal TickValue { get; set; }
-        public Decimal TickSize { get; set; }
 
         [DataType(DataType.Currency)]
         public Decimal InitialMargin { get; set; }

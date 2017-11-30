@@ -9,19 +9,15 @@ using GuerillaTrader.Framework;
 namespace GuerillaTrader.Entities.Dtos
 {
     [AutoMap(typeof(Stock))]
-    public class ViewStockDto : EntityDtoBase
+    public class ViewStockDto : SecurityDto
     {
-        public String Name { get; set; }
-        public String Symbol { get; set; }
         public Decimal Yield { get; set; }
 
         public int DividendYieldScore { get; set; }
         public int CashFlowScore { get; set; }
         public int RelativeValueScore { get; set; }
         public int TotalScore { get; set; }
-
-        [DataType(DataType.Currency)]
-        public Decimal Price { get; set; }
+        
         [DataType(DataType.Currency)]
         public Decimal IdealValue { get; set; }
 

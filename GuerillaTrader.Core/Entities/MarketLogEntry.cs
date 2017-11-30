@@ -30,7 +30,11 @@ namespace GuerillaTrader.Entities
 
         [ForeignKey("MarketId")]
         public virtual Market Market { get; set; }
-        public virtual int MarketId { get; set; }
+        public virtual int? MarketId { get; set; }
+
+        [ForeignKey("StockId")]
+        public virtual Stock Stock { get; set; }
+        public virtual int? StockId { get; set; }
 
         [ForeignKey("ScreenshotDbId")]
         [InverseProperty("MarketLogEntries")]

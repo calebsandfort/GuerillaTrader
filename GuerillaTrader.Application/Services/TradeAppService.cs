@@ -24,17 +24,19 @@ namespace GuerillaTrader.Services
     {
         public readonly IRepository<Trade> _repository;
         public readonly IRepository<Market> _marketRepository;
+        public readonly IRepository<Stock> _stockRepository;
         public readonly ITradingAccountAppService _tradingAccountAppService;
         public readonly ITradingDayAppService _tradingDayAppService;
         readonly IRepository<MarketLogEntry> _marketLogEntryRepository;
 
         public TradeAppService(ISqlExecuter sqlExecuter, IConsoleHubProxy consoleHubProxy, IBackgroundJobManager backgroundJobManager, IObjectMapper objectMapper, IRepository<Trade> repository,
-            IRepository<Market> marketRepository, ITradingAccountAppService tradingAccountAppService,
+            IRepository<Market> marketRepository, IRepository<Stock> stockRepository, ITradingAccountAppService tradingAccountAppService,
             ITradingDayAppService tradingDayAppService, IRepository<MarketLogEntry> marketLogEntryRepository)
             : base(sqlExecuter, consoleHubProxy, backgroundJobManager, objectMapper)
         {
             this._repository = repository;
             this._marketRepository = marketRepository;
+            this._stockRepository = stockRepository;
             this._tradingAccountAppService = tradingAccountAppService;
             this._tradingDayAppService = tradingDayAppService;
             this._marketLogEntryRepository = marketLogEntryRepository;
@@ -45,7 +47,7 @@ namespace GuerillaTrader.Services
         {
             try
             {
-                foreach (TradeDto trade in dto.ToTradeDto(_marketRepository.GetAllList()))
+                foreach (TradeDto trade in dto.ToFutureTradeDto(_marketRepository.GetAllList()))
                 {
                     using (var unitOfWork = this.UnitOfWorkManager.Begin())
                     {
@@ -60,6 +62,137 @@ namespace GuerillaTrader.Services
             }
         }
 
+        [UnitOfWork(IsDisabled = true)]
+        public void OpenCoveredStockPositions(TradeFromPasteDto dto)
+        {
+            try
+            {
+                foreach (TradeDto trade in dto.ToOpenCoveredCalls(_stockRepository.GetAllList()))
+                {
+                    using (var unitOfWork = this.UnitOfWorkManager.Begin())
+                    {
+                        SaveOptionTrade(trade, dto.Date);
+                        unitOfWork.Complete();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                this._consoleHubProxy.WriteLine(ConsoleWriteLineInput.Create($"Exception: {ex.Message} {Environment.NewLine} Stacktrace: {ex.StackTrace}"));
+            }
+        }
+
+        [UnitOfWork(IsDisabled = true)]
+        public void UpdateCoveredStockPositions(TradeFromPasteDto dto)
+        {
+            try
+            {
+                List<TradeDto> trades;
+
+                using (var unitOfWork = this.UnitOfWorkManager.Begin())
+                {
+                    trades = _objectMapper.Map<List<TradeDto>>(_repository.GetAllIncluding(x => x.CoveredCallOption, x => x.Stock).Where(x => x.TradingAccountId == dto.TradingAccountId
+                    && x.ExitReason == TradeExitReasons.None && x.CoveredCallOptionId.HasValue).ToList());
+                    unitOfWork.Complete();
+                }
+
+                dto.ToUpdateCoveredCalls(trades);
+
+                foreach (TradeDto trade in trades)
+                {
+                    using (var unitOfWork = this.UnitOfWorkManager.Begin())
+                    {
+                        SaveOptionTrade(trade, dto.Date);
+                        unitOfWork.Complete();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                this._consoleHubProxy.WriteLine(ConsoleWriteLineInput.Create($"Exception: {ex.Message} {Environment.NewLine} Stacktrace: {ex.StackTrace}"));
+            }
+        }
+
+        [UnitOfWork(IsDisabled = true)]
+        public void OpenBullPutSpreadPositions(TradeFromPasteDto dto)
+        {
+            try
+            {
+                foreach (TradeDto trade in dto.ToOpenBullPutSpreads(_stockRepository.GetAllList()))
+                {
+                    using (var unitOfWork = this.UnitOfWorkManager.Begin())
+                    {
+                        SaveOptionTrade(trade, dto.Date);
+                        unitOfWork.Complete();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                this._consoleHubProxy.WriteLine(ConsoleWriteLineInput.Create($"Exception: {ex.Message} {Environment.NewLine} Stacktrace: {ex.StackTrace}"));
+            }
+        }
+
+        [UnitOfWork(IsDisabled = true)]
+        public void UpdateBullPutSpreadPositions(TradeFromPasteDto dto)
+        {
+            try
+            {
+                List<TradeDto> trades;
+
+                using (var unitOfWork = this.UnitOfWorkManager.Begin())
+                {
+                    trades = _objectMapper.Map<List<TradeDto>>(_repository.GetAllIncluding(x => x.BullPutSpreadLongOption, x=> x.BullPutSpreadShortOption, x => x.Stock).Where(x => x.TradingAccountId == dto.TradingAccountId
+                    && x.ExitReason == TradeExitReasons.None && x.BullPutSpreadLongOptionId.HasValue && x.BullPutSpreadShortOptionId.HasValue).ToList());
+                    unitOfWork.Complete();
+                }
+
+                dto.ToUpdateBullPutSpreads(trades);
+
+                foreach (TradeDto trade in trades)
+                {
+                    using (var unitOfWork = this.UnitOfWorkManager.Begin())
+                    {
+                        SaveOptionTrade(trade, dto.Date);
+                        unitOfWork.Complete();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                this._consoleHubProxy.WriteLine(ConsoleWriteLineInput.Create($"Exception: {ex.Message} {Environment.NewLine} Stacktrace: {ex.StackTrace}"));
+            }
+        }
+
+        public void SaveOptionTrade(TradeDto dto, DateTime date)
+        {
+            Trade trade = new Trade();
+
+            if (dto.IsNew)
+            {
+                trade = dto.MapTo<Trade>();
+                trade.TradingDayId = this._tradingDayAppService.Get(trade.EntryDate).Id;
+            }
+            else
+            {
+                trade = this._repository.Get(dto.Id);
+                bool exitReasonChanged = dto.ExitReason != trade.ExitReason && dto.ExitReason != TradeExitReasons.None;
+                dto.MapTo(trade);
+
+                if (exitReasonChanged)
+                {
+                    trade.ExitDate = date;
+                }
+            }
+
+            trade.Reconcile();
+
+            if (dto.IsNew)
+            {
+                this._repository.Insert(trade);
+            }
+        }
+
         public bool Save(TradeDto dto)
         {
             bool reconcileTradingAccount = false;
@@ -68,14 +201,13 @@ namespace GuerillaTrader.Services
             if (dto.IsNew)
             {
                 trade = dto.MapTo<Trade>();
-                trade.TradingAccountId = this._tradingAccountAppService.GetActive().Id;
                 trade.TradingDayId = this._tradingDayAppService.Get(trade.EntryDate).Id;
 
                 MarketLogEntry tradeEnterLogEntry = new MarketLogEntry();
                 tradeEnterLogEntry.MarketId = trade.MarketId;
                 tradeEnterLogEntry.MarketLogEntryType = MarketLogEntryTypes.TradeEnter;
                 if (trade.EntryScreenshotDbId.HasValue) tradeEnterLogEntry.ScreenshotDbId = trade.EntryScreenshotDbId;
-                tradeEnterLogEntry.Text = String.Format("{0} {1} @ {2:C5}<br/>{3}", trade.TradeType == TradeTypes.Long ? "Buy" : "Sell", trade.Size, trade.EntryPrice, trade.EntryRemarks);
+                tradeEnterLogEntry.Text = String.Format("{0} {1} @ {2:C5}<br/>{3}", trade.TradeType == TradeTypes.LongFuture ? "Buy" : "Sell", trade.Size, trade.EntryPrice, trade.EntryRemarks);
                 tradeEnterLogEntry.TimeStamp = trade.EntryDate;
                 tradeEnterLogEntry.TradingAccountId = trade.TradingAccountId;
                 tradeEnterLogEntry.TradingDayId = trade.TradingDayId;
@@ -84,7 +216,7 @@ namespace GuerillaTrader.Services
 
                 if (trade.ExitReason != TradeExitReasons.None)
                 {
-                    trade.Market = this._marketRepository.Get(trade.MarketId);
+                    if(trade.MarketId.HasValue) trade.Market = this._marketRepository.Get(trade.MarketId.Value);
                     trade.Reconcile();
                     reconcileTradingAccount = true;
                 }
@@ -97,7 +229,7 @@ namespace GuerillaTrader.Services
 
                 if (exitReasonChanged)
                 {
-                    trade.Market = this._marketRepository.Get(trade.MarketId);
+                    if (trade.MarketId.HasValue) trade.Market = this._marketRepository.Get(trade.MarketId.Value);
                     trade.Reconcile();
                     reconcileTradingAccount = true;
                 }
@@ -109,7 +241,7 @@ namespace GuerillaTrader.Services
                 tradeExitLogEntry.MarketId = trade.MarketId;
                 tradeExitLogEntry.MarketLogEntryType = MarketLogEntryTypes.TradeExit;
                 if (trade.ExitScreenshotDbId.HasValue) tradeExitLogEntry.ScreenshotDbId = trade.ExitScreenshotDbId;
-                tradeExitLogEntry.Text = String.Format("{0}: {1} {2} @ {3:C5}, P/L: {4:C5}<br/>{5}", trade.ExitReason.GetDisplay(), trade.TradeType == TradeTypes.Long ? "Sell" : "Buy", trade.Size, trade.ExitPrice, trade.ProfitLoss, trade.ExitRemarks);
+                tradeExitLogEntry.Text = String.Format("{0}: {1} {2} @ {3:C5}, P/L: {4:C5}<br/>{5}", trade.ExitReason.GetDisplay(), trade.TradeType == TradeTypes.LongFuture ? "Sell" : "Buy", trade.Size, trade.ExitPrice, trade.ProfitLoss, trade.ExitRemarks);
                 tradeExitLogEntry.TimeStamp = trade.ExitDate.Value;
                 tradeExitLogEntry.TradingAccountId = trade.TradingAccountId;
                 tradeExitLogEntry.TradingDayId = trade.TradingDayId;

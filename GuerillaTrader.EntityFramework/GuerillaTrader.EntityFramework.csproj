@@ -263,6 +263,34 @@
     <Compile Include="Migrations\201711171614360_AddADV2.Designer.cs">
       <DependentUpon>201711171614360_AddADV2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711212247152_AddSecurity1.cs" />
+    <Compile Include="Migrations\201711212247152_AddSecurity1.Designer.cs">
+      <DependentUpon>201711212247152_AddSecurity1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711220010519_AddOptions1.cs" />
+    <Compile Include="Migrations\201711220010519_AddOptions1.Designer.cs">
+      <DependentUpon>201711220010519_AddOptions1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711222000008_AddOptionPropertiesToTrade.cs" />
+    <Compile Include="Migrations\201711222000008_AddOptionPropertiesToTrade.Designer.cs">
+      <DependentUpon>201711222000008_AddOptionPropertiesToTrade.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711271606054_AddPerfFieldsToTradingAccount.cs" />
+    <Compile Include="Migrations\201711271606054_AddPerfFieldsToTradingAccount.Designer.cs">
+      <DependentUpon>201711271606054_AddPerfFieldsToTradingAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711271613284_AddInceptionDateToTradingAccount.cs" />
+    <Compile Include="Migrations\201711271613284_AddInceptionDateToTradingAccount.Designer.cs">
+      <DependentUpon>201711271613284_AddInceptionDateToTradingAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711271653123_AddTradingAccountSnapshotEntity.cs" />
+    <Compile Include="Migrations\201711271653123_AddTradingAccountSnapshotEntity.Designer.cs">
+      <DependentUpon>201711271653123_AddTradingAccountSnapshotEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711271717297_AddTradingAccountSnapshotEntity2.cs" />
+    <Compile Include="Migrations\201711271717297_AddTradingAccountSnapshotEntity2.Designer.cs">
+      <DependentUpon>201711271717297_AddTradingAccountSnapshotEntity2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="GuerillaTraderDataModule.cs" />
@@ -367,6 +395,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711171614360_AddADV2.resx">
       <DependentUpon>201711171614360_AddADV2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711212247152_AddSecurity1.resx">
+      <DependentUpon>201711212247152_AddSecurity1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711220010519_AddOptions1.resx">
+      <DependentUpon>201711220010519_AddOptions1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711222000008_AddOptionPropertiesToTrade.resx">
+      <DependentUpon>201711222000008_AddOptionPropertiesToTrade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711271606054_AddPerfFieldsToTradingAccount.resx">
+      <DependentUpon>201711271606054_AddPerfFieldsToTradingAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711271613284_AddInceptionDateToTradingAccount.resx">
+      <DependentUpon>201711271613284_AddInceptionDateToTradingAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711271653123_AddTradingAccountSnapshotEntity.resx">
+      <DependentUpon>201711271653123_AddTradingAccountSnapshotEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711271717297_AddTradingAccountSnapshotEntity2.resx">
+      <DependentUpon>201711271717297_AddTradingAccountSnapshotEntity2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

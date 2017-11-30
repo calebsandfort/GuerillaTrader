@@ -24,7 +24,7 @@ namespace GuerillaTrader.Web.Models
         {
             if(priceStrings != null && priceStrings.Length > 0)
             {
-                if(tradeType == TradeTypes.Long)
+                if(tradeType == TradeTypes.LongFuture)
                 {
                     this.EntryPrice = ExtractPrice(priceStrings, "Upper Step", "Upper Stop", "Upper smp", "Upper Slop");
                     this.StopLossPrice = ExtractPrice(priceStrings, "Lower Step", "Lower Stop", "Lower smp", "Lower Slop");

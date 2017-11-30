@@ -1,0 +1,24 @@
+﻿@model TradeFromPasteDto
+
+<div class="modal fade" id="updateCoveredStockPositionsModal" tabindex="-1" role="dialog" aria-labelledby="updateCoveredStockPositionsModal-label">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <form id="updateCoveredStockPositionsForm" class="form-horizontal">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="updateCoveredStockPositionsModal-label">Update Covered Stock Positions</h4>
+                </div>
+                <div class="modal-body">
+                    @Html.EditorFor(x => x.TradingAccountId, new { cols = 1 })
+                    @Html.EditorFor(x => x.Date, new { cols = 1 })
+                    @Html.EditorFor(x => x.Trades, new { rows = 20, cols = 1 })
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

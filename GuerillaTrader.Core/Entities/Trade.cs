@@ -19,7 +19,26 @@ namespace GuerillaTrader.Entities
 
         [ForeignKey("MarketId")]
         public virtual Market Market { get; set; }
-        public virtual int MarketId { get; set; }
+        public virtual int? MarketId { get; set; }
+
+        [ForeignKey("StockId")]
+        public virtual Stock Stock { get; set; }
+        public virtual int? StockId { get; set; }
+
+        [ForeignKey("CoveredCallOptionId")]
+        [InverseProperty("CoveredCallTrades")]
+        public virtual Option CoveredCallOption { get; set; }
+        public virtual int? CoveredCallOptionId { get; set; }
+
+        [ForeignKey("BullPutSpreadShortOptionId")]
+        [InverseProperty("BullPutSpreadShortTrades")]
+        public virtual Option BullPutSpreadShortOption { get; set; }
+        public virtual int? BullPutSpreadShortOptionId { get; set; }
+
+        [ForeignKey("BullPutSpreadLongOptionId")]
+        [InverseProperty("BullPutSpreadLongTrades")]
+        public virtual Option BullPutSpreadLongOption { get; set; }
+        public virtual int? BullPutSpreadLongOptionId { get; set; }
 
         public int Timeframe { get; set; }
         public TradeTypes TradeType { get; set; }
@@ -37,6 +56,9 @@ namespace GuerillaTrader.Entities
 
         //[DataType(DataType.Currency)]
         //public Decimal MFA { get; set; }
+
+        [DataType(DataType.Currency)]
+        public Decimal Mark { get; set; }
 
         [DataType(DataType.Currency)]
         public Decimal StopLossPrice { get; set; }
@@ -101,6 +123,22 @@ namespace GuerillaTrader.Entities
         }
 
         [NotMapped]
+        public Decimal AdjMark
+        {
+            get
+            {
+                Decimal adjMarkPrice = this.Mark;
+
+                if (this.Market.Demoninator > 0)
+                {
+                    adjMarkPrice = this.Mark.FromFraction(this.Market.Demoninator);
+                }
+
+                return adjMarkPrice;
+            }
+        }
+
+        [NotMapped]
         public Decimal AdjExitPrice
         {
             get
@@ -119,17 +157,43 @@ namespace GuerillaTrader.Entities
         public void Reconcile()
         {
             if(this.Commissions == 0m) this.Commissions = this.Size * 6.15m;
-            this.ProfitLoss = this.Size * ((((this.TradeType == TradeTypes.Long ? this.AdjExitPrice - this.AdjEntryPrice : this.AdjEntryPrice - this.AdjExitPrice) /this.Market.TickSize) * this.Market.TickValue)) - this.Commissions;
-            this.ProfitLossPerContract = this.ProfitLoss / this.Size;
-        }
 
-        public class TradeMapping : EntityTypeConfiguration<Trade>
-        {
-            public TradeMapping()
+            switch (this.TradeType)
             {
-                HasRequired(m => m.EntryScreenshotDb).WithMany(m => m.EntryTrades);
-                HasRequired(m => m.ExitScreenshotDb).WithMany(m => m.ExitTrades);
+                case TradeTypes.LongFuture:
+                    this.ProfitLoss = this.Size * ((((this.AdjExitPrice - this.AdjEntryPrice) / this.Market.TickSize) * this.Market.TickValue));
+                    this.ProfitLossPerContract = this.ProfitLoss / this.Size;
+                    break;
+                case TradeTypes.ShortFuture:
+                    this.ProfitLoss = this.Size * ((((this.AdjEntryPrice - this.AdjExitPrice) / this.Market.TickSize) * this.Market.TickValue));
+                    this.ProfitLossPerContract = this.ProfitLoss / this.Size;
+                    break;
+                case TradeTypes.CoveredCall:
+                    if (this.IsNew)
+                    {
+                        this.ProfitLoss = 0;
+                    }
+                    else
+                    {
+                        this.ProfitLoss = this.Size * (this.Mark - this.EntryPrice);
+                    }
+
+                    this.ProfitLossPerContract = this.ProfitLoss / (this.Size / 100);
+                    break;
+                case TradeTypes.BullPutSpread:
+                    if (this.IsNew)
+                    {
+                        this.ProfitLoss = 0;
+                    }
+                    else
+                    {
+                        this.ProfitLoss = this.Size * 100 * (this.EntryPrice - this.Mark);
+                    }
+
+                    this.ProfitLossPerContract = this.ProfitLoss / this.Size;
+                    break;
             }
+            
         }
     }
 }

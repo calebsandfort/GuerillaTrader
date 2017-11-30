@@ -28,6 +28,23 @@ namespace GuerillaTrader.Entities.Dtos
         [DataType(DataType.Currency)]
         public Decimal ProfitLoss { get; set; }
 
+        [DataType(DataType.Currency)]
+        public Decimal AdjProfitLoss
+        {
+            get
+            {
+                return this.ProfitLoss - this.Commissions;
+            }
+        }
+
+        public Decimal TotalReturn { get; set; }
+
+        public Decimal CAGR { get; set; }
+
+        [DataType(DataType.Date)]
+        [UIHint("MyDate")]
+        public DateTime InceptionDate { get; set; }
+
         public bool Active { get; set; }
     }
 }

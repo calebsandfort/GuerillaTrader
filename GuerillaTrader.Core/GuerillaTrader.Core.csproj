@@ -157,10 +157,14 @@
   <ItemGroup>
     <Compile Include="Entities\Dtos\EntityDtoBase.cs" />
     <Compile Include="Entities\Dtos\GenerateStockReportsInput.cs" />
+    <Compile Include="Entities\Dtos\MinimalStockDto.cs" />
+    <Compile Include="Entities\Dtos\OptionDto.cs" />
     <Compile Include="Entities\Dtos\MarketDto.cs" />
     <Compile Include="Entities\Dtos\MarketLogEntryDto.cs" />
     <Compile Include="Entities\Dtos\MonteCarloSimulationDto.cs" />
+    <Compile Include="Entities\Dtos\SecurityDto.cs" />
     <Compile Include="Entities\Dtos\StockUpdatePriceAndDatesDto.cs" />
+    <Compile Include="Entities\Dtos\TradingAccountSnapshotDto.cs" />
     <Compile Include="Entities\Dtos\ViewStockDto.cs" />
     <Compile Include="Entities\Dtos\TaxRateStockDto.cs" />
     <Compile Include="Entities\Dtos\StockDtos.cs" />
@@ -176,6 +180,7 @@
     <Compile Include="Entities\Enums\MarketLogEntryTypes.cs" />
     <Compile Include="Entities\Enums\TradeClassifications.cs" />
     <Compile Include="Entities\Enums\TradeExitReasons.cs" />
+    <Compile Include="Entities\Enums\OptionTypes.cs" />
     <Compile Include="Entities\Enums\TradeTypes.cs" />
     <Compile Include="Entities\Enums\TradingDirectiveTypes.cs" />
     <Compile Include="Entities\Enums\TradingSetups.cs" />
@@ -183,9 +188,12 @@
     <Compile Include="Entities\Market.cs" />
     <Compile Include="Entities\MarketLogEntry.cs" />
     <Compile Include="Entities\MonteCarloSimulation.cs" />
+    <Compile Include="Entities\Option.cs" />
     <Compile Include="Entities\Screenshot.cs" />
+    <Compile Include="Entities\Security.cs" />
     <Compile Include="Entities\StockClasses.cs" />
     <Compile Include="Entities\Trade.cs" />
+    <Compile Include="Entities\TradingAccountSnapshot.cs" />
     <Compile Include="Entities\TradingAccount.cs" />
     <Compile Include="Entities\TradingDay.cs" />
     <Compile Include="Entities\TradingDirective.cs" />

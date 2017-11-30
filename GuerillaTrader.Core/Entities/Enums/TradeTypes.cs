@@ -10,9 +10,13 @@ namespace GuerillaTrader.Entities
     public enum TradeTypes
     {
         None,
-        [EnumDisplay("Long")]
-        Long,
-        [EnumDisplay("Short")]
-        Short
+        [EnumDisplay("Long Future")]
+        LongFuture,
+        [EnumDisplay("Short Future")]
+        ShortFuture,
+        [EnumDisplay("Covered Call")]
+        CoveredCall,
+        [EnumDisplay("Bull Put Spread")]
+        BullPutSpread
     }
 }

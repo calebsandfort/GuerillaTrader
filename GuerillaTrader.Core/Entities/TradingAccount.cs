@@ -25,6 +25,13 @@ namespace GuerillaTrader.Entities
         [DataType(DataType.Currency)]
         public Decimal ProfitLoss { get; set; }
 
+        public Decimal TotalReturn { get; set; }
+
+        public Decimal CAGR { get; set; }
+
+        [DataType(DataType.Date)]
+        public DateTime InceptionDate { get; set; }
+
         public bool Active { get; set; }
 
         [ForeignKey("TradingAccountId")]
@@ -35,5 +42,8 @@ namespace GuerillaTrader.Entities
 
         [ForeignKey("TradingAccountId")]
         public virtual ICollection<MonteCarloSimulation> MonteCarloSimulations { get; set; }
+
+        [ForeignKey("TradingAccountId")]
+        public virtual ICollection<TradingAccountSnapshot> Snapshots { get; set; }
     }
 }

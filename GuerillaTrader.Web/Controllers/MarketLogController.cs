@@ -61,7 +61,7 @@ namespace GuerillaTrader.Web.Controllers
                 MarketLogEntry lastEntry = this._marketLogEntryRepository.GetAll().Where(x => x.TradingAccount.Active).OrderByDescending(x => x.TimeStamp).First();
 
                 model.Date = lastEntry.TimeStamp;
-                model.MarketId = lastEntry.MarketId;
+                if(lastEntry.MarketId.HasValue) model.MarketId = lastEntry.MarketId.Value;
             }
 
             return PartialView("Modals/_AddLogEntryModal", model);

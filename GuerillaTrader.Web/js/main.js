@@ -24,7 +24,14 @@ if (!GuerillaTrader) GuerillaTrader = {
         { Value: 2, Display: "Stop Loss Hit", ExitPriceField: "StopLossPrice" },
         { Value: 3, Display: "Reversal Signal", ExitPriceField: "EntryPrice" },
         { Value: 4, Display: "End of Day", ExitPriceField: "EntryPrice" }
-    ]
+    ],
+    PasteTradeTypes: {
+        AddTradeFromPaste: 0,
+        OpenCoveredStockPositions: 1,
+        UpdateCoveredStockPositions: 2,
+        OpenBullPutSpreadPositions: 3,
+        UpdateBullPutSpreadPositions: 4
+    }
 };
 
 //[EnumDisplay("None")]
@@ -110,6 +117,8 @@ $(function () {
     });
 
     GuerillaTrader.Util.initForm("addTradeFromPasteForm", GuerillaTrader.Trade.addTradeFromPaste);
+    //GuerillaTrader.Util.initForm("openCoveredStockPositionsForm", GuerillaTrader.Trade.openCoveredStockPositions);
+    //GuerillaTrader.Util.initForm("updateCoveredStockPositionsForm", GuerillaTrader.Trade.updateCoveredStockPositions);
 });
 
 $(document).ready(function () {
@@ -414,6 +423,9 @@ GuerillaTrader.TradingAccount.setActive = function (id, name) {
         if (logListView.size() > 0) {
             logListView.data("kendoListView").dataSource.read();
         }
+
+        GuerillaTrader.Trade.refresh();
+        GuerillaTrader.TradingAccount.refreshDetails();
     });
 }
 
@@ -458,22 +470,92 @@ GuerillaTrader.Trade.showTradeModal = function (id) {
     });
 }
 
-GuerillaTrader.Trade.showAddTradeFromPasterModal = function (id) {
+GuerillaTrader.Trade.showAddTradeFromPasteModal = function (id) {
+    GuerillaTrader.Trade.openPasteModal(GuerillaTrader.PasteTradeTypes.AddTradeFromPaste);
+}
+
+GuerillaTrader.Trade.showOpenCoveredStockPositionsModal = function () {
+    GuerillaTrader.Trade.openPasteModal(GuerillaTrader.PasteTradeTypes.OpenCoveredStockPositions);
+}
+
+GuerillaTrader.Trade.showUpdateCoveredStockPositionsModal = function () {
+    GuerillaTrader.Trade.openPasteModal(GuerillaTrader.PasteTradeTypes.UpdateCoveredStockPositions);
+}
+
+GuerillaTrader.Trade.showOpenBullPutSpreadPositionsModal = function () {
+    GuerillaTrader.Trade.openPasteModal(GuerillaTrader.PasteTradeTypes.OpenBullPutSpreadPositions);
+}
+
+GuerillaTrader.Trade.showUpdateBullPutSpreadPositionsModal = function () {
+    GuerillaTrader.Trade.openPasteModal(GuerillaTrader.PasteTradeTypes.UpdateBullPutSpreadPositions);
+}
+
+GuerillaTrader.Trade.openPasteModal = function (pasteTradeType) {
+    $("#TradingAccountId").data("kendoComboBox").value($("#activeTradingAccount").data("id"));
+    $("#addTradeFromPasteModal").data("tradeType", pasteTradeType);
     GuerillaTrader.Util.showModalForm("addTradeFromPasteModal", false);
 }
 
 GuerillaTrader.Trade.addTradeFromPaste = function (input) {
     abp.ui.clearBusy('#addTradeFromPasteModal');
-    abp.services.app.trade.addTradeFromPaste(input).done(function () {
-        GuerillaTrader.Trade.refresh();
-        GuerillaTrader.Log.refresh();
-        $("#Opening").val("");
-        $("#Closing").val("");
 
-        abp.services.app.tradingAccount.reconcile().done(function () {
-            GuerillaTrader.TradingAccount.refreshDetails();
-        });
-    });
+    switch ($("#addTradeFromPasteModal").data("tradeType")) {
+        case GuerillaTrader.PasteTradeTypes.AddTradeFromPaste:
+            abp.services.app.trade.addTradeFromPaste(input).done(function () {
+                GuerillaTrader.Trade.refresh();
+                GuerillaTrader.Log.refresh();
+                $("#addTradeFromPasteModal #Trades").val("");
+
+                abp.services.app.tradingAccount.reconcile(input.TradingAccountId, input.Date).done(function () {
+                    GuerillaTrader.TradingAccount.refreshDetails();
+                });
+            });
+            break;
+        case GuerillaTrader.PasteTradeTypes.OpenCoveredStockPositions:
+            abp.services.app.trade.openCoveredStockPositions(input).done(function () {
+                GuerillaTrader.Trade.refresh();
+                GuerillaTrader.Log.refresh();
+                $("#addTradeFromPasteModal #Trades").val("");
+
+                abp.services.app.tradingAccount.reconcile(input.TradingAccountId, input.Date).done(function () {
+                    GuerillaTrader.TradingAccount.refreshDetails();
+                });
+            });
+            break;
+        case GuerillaTrader.PasteTradeTypes.UpdateCoveredStockPositions:
+            abp.services.app.trade.updateCoveredStockPositions(input).done(function () {
+                GuerillaTrader.Trade.refresh();
+                GuerillaTrader.Log.refresh();
+                $("#addTradeFromPasteModal #Trades").val("");
+
+                abp.services.app.tradingAccount.reconcile(input.TradingAccountId, input.Date).done(function () {
+                    GuerillaTrader.TradingAccount.refreshDetails();
+                });
+            });
+            break;
+        case GuerillaTrader.PasteTradeTypes.OpenBullPutSpreadPositions:
+            abp.services.app.trade.openBullPutSpreadPositions(input).done(function () {
+                GuerillaTrader.Trade.refresh();
+                GuerillaTrader.Log.refresh();
+                $("#addTradeFromPasteModal #Trades").val("");
+
+                abp.services.app.tradingAccount.reconcile(input.TradingAccountId, input.Date).done(function () {
+                    GuerillaTrader.TradingAccount.refreshDetails();
+                });
+            });
+            break;
+        case GuerillaTrader.PasteTradeTypes.UpdateBullPutSpreadPositions:
+            abp.services.app.trade.updateBullPutSpreadPositions(input).done(function () {
+                GuerillaTrader.Trade.refresh();
+                GuerillaTrader.Log.refresh();
+                $("#addTradeFromPasteModal #Trades").val("");
+
+                abp.services.app.tradingAccount.reconcile(input.TradingAccountId, input.Date).done(function () {
+                    GuerillaTrader.TradingAccount.refreshDetails();
+                });
+            });
+            break;
+    }   
 }
 
 GuerillaTrader.Trade.exitReasonSelect = function (e) {
@@ -695,4 +777,33 @@ GuerillaTrader.Stocks.updatePriceAndDates = function () {
     abp.services.app.stock.updatePriceAndDates().done(function () {
         GuerillaTrader.Stocks.refresh();
     });
+}
+
+function tradesGridActionsMenu_Select(e) {
+    var funcId = $(e.item).attr("funcId");
+    if (typeof (funcId) != "undefined") {
+        switch (parseInt(funcId)) {
+            case 0:
+                GuerillaTrader.Trade.showTradeModal(0)
+                break;
+            case 1:
+                GuerillaTrader.Trade.showAddTradeFromPasteModal(0)
+                break;
+            case 2:
+                GuerillaTrader.Trade.showOpenCoveredStockPositionsModal(0)
+                break;
+            case 3:
+                GuerillaTrader.Trade.purge()
+                break;
+            case 4:
+                GuerillaTrader.Trade.showUpdateCoveredStockPositionsModal(0)
+                break;
+            case 5:
+                GuerillaTrader.Trade.showOpenBullPutSpreadPositionsModal(0)
+                break;
+            case 6:
+                GuerillaTrader.Trade.showUpdateBullPutSpreadPositionsModal(0)
+                break;
+        }
+    }
 }

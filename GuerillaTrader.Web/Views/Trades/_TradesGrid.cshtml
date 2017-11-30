@@ -2,18 +2,21 @@
     .Name("tradesGrid")
     .Columns(columns =>
     {
-        columns.Bound(x => x.EntryDate).Width(150).Format("{0:M/d/yyyy h:mm tt}").ClientTemplate("<a href='javascript:void(0);' onclick='GuerillaTrader.Trade.showTradeModal(#:Id#)'>#:kendo.toString(EntryDate, 'M/d/yyyy h:mm tt')#</a>");
-        columns.Bound(x => x.Market).Width(75).Title("Mkt");
+        columns.Bound(x => x.EntryDate).Width(140).Format("{0:M/d/yy h:mm tt}").ClientTemplate("<a href='javascript:void(0);' onclick='GuerillaTrader.Trade.showTradeModal(#:Id#)'>#:kendo.toString(EntryDate, 'M/d/yyyy h:mm tt')#</a>");
+        columns.Bound(x => x.Security).Width(150).Title("Desc").Sortable(false);
         columns.Bound(x => x.Size).Width(75).Title("Qty");
-        columns.Bound(x => x.TradeType).Width(75);
-        columns.Bound(x => x.EntryPrice).Width(100).Format("{0:c5}");
-        columns.Bound(x => x.StopLossPrice).Width(100).Format("{0:c5}");
-        columns.Bound(x => x.ProfitTakerPrice).Width(100).Format("{0:c5}");
-        columns.Bound(x => x.ExitDate).Width(100).Format("{0:h:mm tt}").Title("Exit Time");
+        columns.Bound(x => x.TradeType).Width(100).ClientTemplate("#: TradeTypeDisplay #");
+        columns.Bound(x => x.EntryPrice).Width(100).Format("{0:c2}");
+        columns.Bound(x => x.Mark).Width(100).Format("{0:c2}");
+        columns.Bound(x => x.Underlying).Width(100).Format("{0:c2}");
+        //columns.Bound(x => x.StopLossPrice).Width(100).Format("{0:c5}");
+        //columns.Bound(x => x.ProfitTakerPrice).Width(100).Format("{0:c5}");
+        columns.Bound(x => x.ExitDate).Width(125).Format("{0:M/d/yy h:mm tt}").Title("Exit Date");
         columns.Bound(x => x.ProfitLoss).Width(100).Title("P/L");
+        columns.Bound(x => x.Commissions).Width(100).Title("Comm");
         //columns.Bound(x => x.Active).Width(100).ClientTemplate("#= Active ? 'Yes' : 'No' #");
         //columns.Bound(x => x.PPT).Width(75).Format("{0:N2}");
-        columns.Command(command => { command.Destroy(); }).Width(200);
+        columns.Command(command => { command.Destroy(); }).Width(100);
 
     })
     .HtmlAttributes(new { style ="height: 730px;" })
@@ -21,7 +24,38 @@
     .ToolBar(toolbar =>
     {
         //toolbar.Create().Text("Add");
-        toolbar.Template("<a class='k-button' href='javascript:void(0);' onclick='GuerillaTrader.Trade.showTradeModal(0)'>Add</a><a class='k-button' href='javascript:void(0);' onclick='GuerillaTrader.Trade.showAddTradeFromPasterModal(0)'>Paste</a><a class='k-button' href='javascript:void(0);' onclick='GuerillaTrader.Trade.purge()'>Purge</a>");
+        //toolbar.Template("<a class='k-button' href='javascript:void(0);' onclick='GuerillaTrader.Trade.purge()'>Purge</a>");
+        toolbar.Template(@<text>
+                @(Html.Kendo().Menu()
+                    .Name("tradesGridActionsMenu")
+                    .Items(items =>
+                    {
+                        items.Add()
+                            .Text("Add").LinkHtmlAttributes(new { style = "padding: 10px;" })
+                            .Items(children =>
+                            {
+                                children.Add().Text("Manual Entry").HtmlAttributes(new { funcId = "0" });
+                                children.Add().Text("Paste Futures Day Trades").HtmlAttributes(new { funcId = "1" });
+                                children.Add().Text("Paste Open Covered Stock Positions").HtmlAttributes(new { funcId = "2" });
+                                children.Add().Text("Paste Open Bull Put Spread Positions").HtmlAttributes(new { funcId = "5" });
+                            });
+                        items.Add()
+                        .Text("Update").LinkHtmlAttributes(new { style = "padding: 10px;" })
+                            .Items(children =>
+                            {
+                                children.Add().Text("Paste Update Covered Stock Positions").HtmlAttributes(new { funcId = "4" });
+                                children.Add().Text("Paste Update Bull Put Spread Positions").HtmlAttributes(new { funcId = "6" });
+                            });
+                        items.Add()
+                        .Text("Maintenance").LinkHtmlAttributes(new { style = "padding: 10px;" })
+                            .Items(children =>
+                            {
+                                children.Add().Text("Purge").HtmlAttributes(new { funcId = "3" });
+                            });
+                    })
+                    .Events(e => e.Select("tradesGridActionsMenu_Select"))
+                )
+            </text>);
     })
     //.Editable(editable => editable.Mode(GridEditMode.PopUp))
     .Sortable(sortable => sortable

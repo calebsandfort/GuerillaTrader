@@ -30,7 +30,10 @@ namespace GuerillaTrader
                 #region Trade
                 config.CreateMap<Trade, TradeDto>()
                               .ForMember(u => u.Market, options => options.MapFrom(input => input.Market.Symbol))
-                              .ForMember(u => u.TradingAccount, options => options.MapFrom(input => input.TradingAccount.Name))
+                              //.ForMember(u => u.Stock, options => options.MapFrom(input => input.Stock.Symbol))
+                              //.ForMember(u => u.CoveredCallOption, options => options.MapFrom(input => input.CoveredCallOption.Name))
+                              //.ForMember(u => u.BullPutSpreadShortOption, options => options.MapFrom(input => input.BullPutSpreadShortOption.Name))
+                              //.ForMember(u => u.BullPutSpreadLongOption, options => options.MapFrom(input => input.BullPutSpreadLongOption.Name))
                               .ForMember(u => u.EntrySetups, options => options.MapFrom(input => EnumExtensions.FlaggedEnumToList<TradingSetups>(input.EntrySetups)))
                               .ForMember(u => u.EntryScreenshotDbId, options => options.MapFrom(input => input.EntryScreenshotDbId.HasValue ? input.EntryScreenshotDbId.Value : 0))
                               .ForMember(u => u.ExitScreenshotDbId, options => options.MapFrom(input => input.ExitScreenshotDbId.HasValue ? input.ExitScreenshotDbId.Value : 0));

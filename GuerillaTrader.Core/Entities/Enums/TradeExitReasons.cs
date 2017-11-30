@@ -18,6 +18,8 @@ namespace GuerillaTrader.Entities
         [EnumDisplay("Reversal Signal")]
         ReversalSignal,
         [EnumDisplay("End of Day")]
-        EndOfDay
+        EndOfDay,
+        [EnumDisplay("Expired")]
+        Expired
     }
 }

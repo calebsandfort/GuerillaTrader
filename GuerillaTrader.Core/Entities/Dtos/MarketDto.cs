@@ -12,15 +12,9 @@ using GuerillaTrader.Entities.Dtos;
 namespace GuerillaTrader.Entities.Dtos
 {
     [AutoMap(typeof(Market))]
-    public class MarketDto : EntityDtoBase
+    public class MarketDto : SecurityDto
     {
-        public String Name { get; set; }
-        public String Symbol { get; set; }
         public String QtSymbol { get; set; }
-
-        [DataType(DataType.Currency)]
-        public Decimal TickValue { get; set; }
-        public Decimal TickSize { get; set; }
 
         [DataType(DataType.Currency)]
         public Decimal InitialMargin { get; set; }

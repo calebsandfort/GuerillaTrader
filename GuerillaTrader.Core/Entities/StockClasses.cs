@@ -19,10 +19,8 @@ namespace GuerillaTrader.Entities
     }
 
     [Table("Stocks")]
-    public class Stock : EntityBase
+    public class Stock : Security
     {
-        public String Name { get; set; }
-        public String Symbol { get; set; }
         public Decimal Yield { get; set; }
 
         public int DividendYieldScore { get; set; }
@@ -30,8 +28,6 @@ namespace GuerillaTrader.Entities
         public int RelativeValueScore { get; set; }
         public int TotalScore { get; set; }
 
-        [DataType(DataType.Currency)]
-        public Decimal Price { get; set; }
         [DataType(DataType.Currency)]
         public Decimal IdealValue { get; set; }
 

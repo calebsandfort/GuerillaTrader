@@ -6,14 +6,17 @@
             <form id="addTradeFromPasteForm" class="form-horizontal">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="addTradeFromPasteModal-label">Paste Trade</h4>
+                    <h4 class="modal-title" id="addTradeFromPasteModal-label">Paste Day Trades</h4>
                 </div>
                 <div class="modal-body">
-                    @Html.EditorFor(x => x.Trades, new { rows = 20, cols = 1 })
+                    @Html.EditorFor(x => x.TradingAccountId, new { cols = 2 })
+                    @Html.EditorFor(x => x.Date, new { cols = 2 })
+                    @Html.EditorFor(x => x.ExitReason, new { cols = 2 })
+                    @Html.EditorFor(x => x.Trades, new { rows = 20, cols = 2 })
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Add</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
             </form>
         </div>

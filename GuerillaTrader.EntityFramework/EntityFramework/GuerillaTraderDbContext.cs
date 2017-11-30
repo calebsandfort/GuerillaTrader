@@ -13,6 +13,7 @@ namespace GuerillaTrader.EntityFramework
         //TODO: Define an IDbSet for your Entities...
 		public virtual IDbSet<Trade> Trades { get; set; }
         public virtual IDbSet<TradingAccount> TradingAccounts { get; set; }
+        public virtual IDbSet<TradingAccountSnapshot> TradingAccountSnapshots { get; set; }
         public virtual IDbSet<TradingDay> TradingDays { get; set; }
         public virtual IDbSet<MarketLogEntry> MarketLogEntries { get; set; }
         public virtual IDbSet<TradingDirective> TradingDirectives { get; set; }
@@ -24,6 +25,7 @@ namespace GuerillaTrader.EntityFramework
         public virtual IDbSet<StockReport> StockReports { get; set; }
         public virtual IDbSet<StockBar> StockBars { get; set; }
         public virtual IDbSet<Sector> Sectors { get; set; }
+        public virtual IDbSet<Option> Options { get; set; }
 
         /* NOTE: 
          *   Setting "Default" to base class helps us when working migration commands on Package Manager Console.
@@ -67,6 +69,16 @@ namespace GuerillaTrader.EntityFramework
                                  .WithMany(m => m.EntryTrades).HasForeignKey(m => m.EntryScreenshotDbId);
             modelBuilder.Entity<Trade>().HasOptional(m => m.ExitScreenshotDb)
                                  .WithMany(m => m.ExitTrades).HasForeignKey(m => m.ExitScreenshotDbId);
+
+            modelBuilder.Entity<Trade>().HasOptional(m => m.CoveredCallOption)
+                                 .WithMany(m => m.CoveredCallTrades).HasForeignKey(m => m.CoveredCallOptionId);
+
+            modelBuilder.Entity<Trade>().HasOptional(m => m.BullPutSpreadShortOption)
+                                 .WithMany(m => m.BullPutSpreadShortTrades).HasForeignKey(m => m.BullPutSpreadShortOptionId);
+
+            modelBuilder.Entity<Trade>().HasOptional(m => m.BullPutSpreadLongOption)
+                                 .WithMany(m => m.BullPutSpreadLongTrades).HasForeignKey(m => m.BullPutSpreadLongOptionId);
+
             modelBuilder.Entity<MarketLogEntry>().HasOptional(m => m.ScreenshotDb)
                                  .WithMany(m => m.MarketLogEntries).HasForeignKey(m => m.ScreenshotDbId);
 

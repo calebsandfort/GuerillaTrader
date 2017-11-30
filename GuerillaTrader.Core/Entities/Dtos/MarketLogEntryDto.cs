@@ -34,6 +34,9 @@ namespace GuerillaTrader.Entities.Dtos
         public String Market { get; set; }
         public virtual int? MarketId { get; set; }
 
+        public String Stock { get; set; }
+        public virtual int? StockId { get; set; }
+
         public virtual int? ScreenshotDbId { get; set; }
 
     }

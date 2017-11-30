@@ -8,6 +8,8 @@
     attributes.Add("style", "width:100%;");
     attributes.Add("class", "includeHidden");
 
+    int cols = ViewData["cols"] == null ? 3 : (int)ViewData["cols"];
+
     if (required)
     {
         attributes.Add("required", "");
@@ -15,8 +17,8 @@
 }
 
 <div class="form-group">
-    @Html.LabelFor(m => m, new { @class = "col-sm-3 control-label" })
-    <div class="col-sm-9">
+    @Html.LabelFor(m => m, new { @class = String.Format("col-sm-{0} control-label", cols) })
+    <div class='@String.Format("col-sm-{0}", 12 - cols)'>
         @(Html.Kendo().DatePickerFor(m => m)
             .Events(events =>
             {
