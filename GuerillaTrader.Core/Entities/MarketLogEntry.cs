@@ -20,10 +20,6 @@ namespace GuerillaTrader.Entities
 
         public MarketLogEntryTypes MarketLogEntryType { get; set; }
 
-        [ForeignKey("TradingDayId")]
-        public virtual TradingDay TradingDay { get; set; }
-        public virtual int TradingDayId { get; set; }
-
         [ForeignKey("TradingAccountId")]
         public virtual TradingAccount TradingAccount { get; set; }
         public virtual int TradingAccountId { get; set; }

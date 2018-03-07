@@ -23,8 +23,10 @@
             @Html.Partial("_DetailsField", new List<String>() { "P/L", Model.TradingAccount.ProfitLoss.ToString("C2"), Model.TradingAccount.ProfitLoss > 0m ? "text-success" : "text-danger" })
             @Html.Partial("_DetailsField", new List<String>() { "Commissions", Model.TradingAccount.Commissions.ToString("C2") })
             @Html.Partial("_DetailsField", new List<String>() { "Adj P/L", Model.TradingAccount.AdjProfitLoss.ToString("C2"), Model.TradingAccount.AdjProfitLoss > 0m ? "text-success" : "text-danger" })
-            @Html.Partial("_DetailsField", new List<String>() { "Total Return", Model.TradingAccount.TotalReturn.ToString("C2"), Model.TradingAccount.TotalReturn > 0m ? "text-success" : "text-danger" })
-            @Html.Partial("_DetailsField", new List<String>() { "CAGR", Model.TradingAccount.CAGR.ToString("C2"), Model.TradingAccount.CAGR > 0m ? "text-success" : "text-danger" })
+            @Html.Partial("_DetailsField", new List<String>() { "Total Return", Model.TradingAccount.TotalReturn.ToString("P2"), Model.TradingAccount.TotalReturn > 0m ? "text-success" : "text-danger" })
+            @Html.Partial("_DetailsField", new List<String>() { "CAGR", Model.TradingAccount.CAGR.ToString("P2"), Model.TradingAccount.CAGR > 0m ? "text-success" : "text-danger" })
+            @Html.Partial("_DetailsField", new List<String>() { "R", Model.R.ToString("N2"), Model.TradingAccount.AdjProfitLoss > 1m ? "text-success" : "text-danger" })
+            @Html.Partial("_DetailsField", new List<String>() { "Max DD", Model.MaxDrawdown.ToString("P2") })
         </form>
     </div>
 </div>

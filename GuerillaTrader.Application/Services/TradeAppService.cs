@@ -26,19 +26,17 @@ namespace GuerillaTrader.Services
         public readonly IRepository<Market> _marketRepository;
         public readonly IRepository<Stock> _stockRepository;
         public readonly ITradingAccountAppService _tradingAccountAppService;
-        public readonly ITradingDayAppService _tradingDayAppService;
         readonly IRepository<MarketLogEntry> _marketLogEntryRepository;
 
         public TradeAppService(ISqlExecuter sqlExecuter, IConsoleHubProxy consoleHubProxy, IBackgroundJobManager backgroundJobManager, IObjectMapper objectMapper, IRepository<Trade> repository,
             IRepository<Market> marketRepository, IRepository<Stock> stockRepository, ITradingAccountAppService tradingAccountAppService,
-            ITradingDayAppService tradingDayAppService, IRepository<MarketLogEntry> marketLogEntryRepository)
+            IRepository<MarketLogEntry> marketLogEntryRepository)
             : base(sqlExecuter, consoleHubProxy, backgroundJobManager, objectMapper)
         {
             this._repository = repository;
             this._marketRepository = marketRepository;
             this._stockRepository = stockRepository;
             this._tradingAccountAppService = tradingAccountAppService;
-            this._tradingDayAppService = tradingDayAppService;
             this._marketLogEntryRepository = marketLogEntryRepository;
         }
 
@@ -171,7 +169,6 @@ namespace GuerillaTrader.Services
             if (dto.IsNew)
             {
                 trade = dto.MapTo<Trade>();
-                trade.TradingDayId = this._tradingDayAppService.Get(trade.EntryDate).Id;
             }
             else
             {
@@ -201,18 +198,17 @@ namespace GuerillaTrader.Services
             if (dto.IsNew)
             {
                 trade = dto.MapTo<Trade>();
-                trade.TradingDayId = this._tradingDayAppService.Get(trade.EntryDate).Id;
 
-                MarketLogEntry tradeEnterLogEntry = new MarketLogEntry();
-                tradeEnterLogEntry.MarketId = trade.MarketId;
-                tradeEnterLogEntry.MarketLogEntryType = MarketLogEntryTypes.TradeEnter;
-                if (trade.EntryScreenshotDbId.HasValue) tradeEnterLogEntry.ScreenshotDbId = trade.EntryScreenshotDbId;
-                tradeEnterLogEntry.Text = String.Format("{0} {1} @ {2:C5}<br/>{3}", trade.TradeType == TradeTypes.LongFuture ? "Buy" : "Sell", trade.Size, trade.EntryPrice, trade.EntryRemarks);
-                tradeEnterLogEntry.TimeStamp = trade.EntryDate;
-                tradeEnterLogEntry.TradingAccountId = trade.TradingAccountId;
-                tradeEnterLogEntry.TradingDayId = trade.TradingDayId;
+                //MarketLogEntry tradeEnterLogEntry = new MarketLogEntry();
+                //tradeEnterLogEntry.MarketId = trade.MarketId;
+                //tradeEnterLogEntry.MarketLogEntryType = MarketLogEntryTypes.TradeEnter;
+                //if (trade.EntryScreenshotDbId.HasValue) tradeEnterLogEntry.ScreenshotDbId = trade.EntryScreenshotDbId;
+                //tradeEnterLogEntry.Text = String.Format("{0} {1} @ {2:C5}<br/>{3}", trade.TradeType == TradeTypes.LongFuture ? "Buy" : "Sell", trade.Size, trade.EntryPrice, trade.EntryRemarks);
+                //tradeEnterLogEntry.TimeStamp = trade.EntryDate;
+                //tradeEnterLogEntry.TradingAccountId = trade.TradingAccountId;
+                //tradeEnterLogEntry.TradingDayId = trade.TradingDayId;
 
-                this._marketLogEntryRepository.Insert(tradeEnterLogEntry);
+                //this._marketLogEntryRepository.Insert(tradeEnterLogEntry);
 
                 if (trade.ExitReason != TradeExitReasons.None)
                 {
@@ -237,15 +233,15 @@ namespace GuerillaTrader.Services
 
             if (reconcileTradingAccount)
             {
-                MarketLogEntry tradeExitLogEntry = new MarketLogEntry();
-                tradeExitLogEntry.MarketId = trade.MarketId;
-                tradeExitLogEntry.MarketLogEntryType = MarketLogEntryTypes.TradeExit;
-                if (trade.ExitScreenshotDbId.HasValue) tradeExitLogEntry.ScreenshotDbId = trade.ExitScreenshotDbId;
-                tradeExitLogEntry.Text = String.Format("{0}: {1} {2} @ {3:C5}, P/L: {4:C5}<br/>{5}", trade.ExitReason.GetDisplay(), trade.TradeType == TradeTypes.LongFuture ? "Sell" : "Buy", trade.Size, trade.ExitPrice, trade.ProfitLoss, trade.ExitRemarks);
-                tradeExitLogEntry.TimeStamp = trade.ExitDate.Value;
-                tradeExitLogEntry.TradingAccountId = trade.TradingAccountId;
-                tradeExitLogEntry.TradingDayId = trade.TradingDayId;
-                this._marketLogEntryRepository.Insert(tradeExitLogEntry);
+                //MarketLogEntry tradeExitLogEntry = new MarketLogEntry();
+                //tradeExitLogEntry.MarketId = trade.MarketId;
+                //tradeExitLogEntry.MarketLogEntryType = MarketLogEntryTypes.TradeExit;
+                //if (trade.ExitScreenshotDbId.HasValue) tradeExitLogEntry.ScreenshotDbId = trade.ExitScreenshotDbId;
+                //tradeExitLogEntry.Text = String.Format("{0}: {1} {2} @ {3:C5}, P/L: {4:C5}<br/>{5}", trade.ExitReason.GetDisplay(), trade.TradeType == TradeTypes.LongFuture ? "Sell" : "Buy", trade.Size, trade.ExitPrice, trade.ProfitLoss, trade.ExitRemarks);
+                //tradeExitLogEntry.TimeStamp = trade.ExitDate.Value;
+                //tradeExitLogEntry.TradingAccountId = trade.TradingAccountId;
+                //tradeExitLogEntry.TradingDayId = trade.TradingDayId;
+                //this._marketLogEntryRepository.Insert(tradeExitLogEntry);
             }
 
             if (dto.IsNew)

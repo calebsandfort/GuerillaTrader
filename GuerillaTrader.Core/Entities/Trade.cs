@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GuerillaTrader.Entities.Interfaces;
 using GuerillaTrader.Framework;
+using System.ComponentModel;
 
 namespace GuerillaTrader.Entities
 {
@@ -82,19 +83,27 @@ namespace GuerillaTrader.Entities
         [Display(Name = "Profit/Loss")]
         public Decimal ProfitLoss { get; set; }
 
+        [DataType(DataType.Currency)]
+        [Display(Name = "Adj Profit/Loss")]
+        public Decimal AdjProfitLoss { get; set; }
+
         public int Size { get; set; }
 
         [DataType(DataType.Currency)]
         [Display(Name = "Profit/Loss Per Contract")]
         public Decimal ProfitLossPerContract { get; set; }
 
+        #region ML Fields
+        public TradeTriggers Trigger { get; set; }
+        public TrendTypes Trend { get; set; }
+        public bool BracketGood { get; set; }
+        public Decimal SmaDiff { get; set; }
+        public Decimal ATR { get; set; }
+        #endregion
+
         [ForeignKey("TradingAccountId")]
         public virtual TradingAccount TradingAccount { get; set; }
         public virtual int TradingAccountId { get; set; }
-
-        [ForeignKey("TradingDayId")]
-        public virtual TradingDay TradingDay { get; set; }
-        public virtual int TradingDayId { get; set; }
 
         [ForeignKey("EntryScreenshotDbId")]
         [InverseProperty("EntryTrades")]
@@ -193,6 +202,8 @@ namespace GuerillaTrader.Entities
                     this.ProfitLossPerContract = this.ProfitLoss / this.Size;
                     break;
             }
+
+            this.AdjProfitLoss = this.ProfitLoss - this.Commissions;
             
         }
     }

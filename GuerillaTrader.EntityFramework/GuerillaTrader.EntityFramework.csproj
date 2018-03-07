@@ -291,6 +291,74 @@
     <Compile Include="Migrations\201711271717297_AddTradingAccountSnapshotEntity2.Designer.cs">
       <DependentUpon>201711271717297_AddTradingAccountSnapshotEntity2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801122350477_AddPerfFields1.cs" />
+    <Compile Include="Migrations\201801122350477_AddPerfFields1.Designer.cs">
+      <DependentUpon>201801122350477_AddPerfFields1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801130009020_AddPerfFields2.cs" />
+    <Compile Include="Migrations\201801130009020_AddPerfFields2.Designer.cs">
+      <DependentUpon>201801130009020_AddPerfFields2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801152108446_AddPerformanceCycleEntity.cs" />
+    <Compile Include="Migrations\201801152108446_AddPerformanceCycleEntity.Designer.cs">
+      <DependentUpon>201801152108446_AddPerformanceCycleEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801152126016_AddPerformanceCycleEntity2.cs" />
+    <Compile Include="Migrations\201801152126016_AddPerformanceCycleEntity2.Designer.cs">
+      <DependentUpon>201801152126016_AddPerformanceCycleEntity2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801152130348_AddPerformanceCycleEntity3.cs" />
+    <Compile Include="Migrations\201801152130348_AddPerformanceCycleEntity3.Designer.cs">
+      <DependentUpon>201801152130348_AddPerformanceCycleEntity3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801182104291_AddBlockToTrade.cs" />
+    <Compile Include="Migrations\201801182104291_AddBlockToTrade.Designer.cs">
+      <DependentUpon>201801182104291_AddBlockToTrade.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801192331372_ConvertSomeFieldsToPerformanceCycle.cs" />
+    <Compile Include="Migrations\201801192331372_ConvertSomeFieldsToPerformanceCycle.Designer.cs">
+      <DependentUpon>201801192331372_ConvertSomeFieldsToPerformanceCycle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801221815347_RemoveSnapshots.cs" />
+    <Compile Include="Migrations\201801221815347_RemoveSnapshots.Designer.cs">
+      <DependentUpon>201801221815347_RemoveSnapshots.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801221820497_AddMoreFieldsToPerformanceCycle.cs" />
+    <Compile Include="Migrations\201801221820497_AddMoreFieldsToPerformanceCycle.Designer.cs">
+      <DependentUpon>201801221820497_AddMoreFieldsToPerformanceCycle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802122340474_AddPpcToPerformanceCycle.cs" />
+    <Compile Include="Migrations\201802122340474_AddPpcToPerformanceCycle.Designer.cs">
+      <DependentUpon>201802122340474_AddPpcToPerformanceCycle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802130006028_AddCnbcSymbol.cs" />
+    <Compile Include="Migrations\201802130006028_AddCnbcSymbol.Designer.cs">
+      <DependentUpon>201802130006028_AddCnbcSymbol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802141943459_AddTradeSettings.cs" />
+    <Compile Include="Migrations\201802141943459_AddTradeSettings.Designer.cs">
+      <DependentUpon>201802141943459_AddTradeSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803011900029_AddTradeMlFields.cs" />
+    <Compile Include="Migrations\201803011900029_AddTradeMlFields.Designer.cs">
+      <DependentUpon>201803011900029_AddTradeMlFields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803012000256_RemoveTradingDayAndBlock.cs" />
+    <Compile Include="Migrations\201803012000256_RemoveTradingDayAndBlock.Designer.cs">
+      <DependentUpon>201803012000256_RemoveTradingDayAndBlock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803020022386_fix.cs" />
+    <Compile Include="Migrations\201803020022386_fix.Designer.cs">
+      <DependentUpon>201803020022386_fix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803052246125_RemoveMfe.cs" />
+    <Compile Include="Migrations\201803052246125_RemoveMfe.Designer.cs">
+      <DependentUpon>201803052246125_RemoveMfe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803070018117_ChangeUpMlFields.cs" />
+    <Compile Include="Migrations\201803070018117_ChangeUpMlFields.Designer.cs">
+      <DependentUpon>201803070018117_ChangeUpMlFields.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="GuerillaTraderDataModule.cs" />
@@ -300,6 +368,7 @@
     <Compile Include="Migrations\SeedData\DefaultTenantCreator.cs" />
     <Compile Include="Migrations\SeedData\HostRoleAndUserCreator.cs" />
     <Compile Include="Migrations\SeedData\InitialHostDbBuilder.cs" />
+    <Compile Include="Migrations\SeedData\TradeSettingsCreator.cs" />
     <Compile Include="Migrations\SeedData\SectorsCreator.cs" />
     <Compile Include="Migrations\SeedData\MarketsCreator.cs" />
     <Compile Include="Migrations\SeedData\TenantRoleAndUserBuilder.cs" />
@@ -416,6 +485,57 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711271717297_AddTradingAccountSnapshotEntity2.resx">
       <DependentUpon>201711271717297_AddTradingAccountSnapshotEntity2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801122350477_AddPerfFields1.resx">
+      <DependentUpon>201801122350477_AddPerfFields1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801130009020_AddPerfFields2.resx">
+      <DependentUpon>201801130009020_AddPerfFields2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801152108446_AddPerformanceCycleEntity.resx">
+      <DependentUpon>201801152108446_AddPerformanceCycleEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801152126016_AddPerformanceCycleEntity2.resx">
+      <DependentUpon>201801152126016_AddPerformanceCycleEntity2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801152130348_AddPerformanceCycleEntity3.resx">
+      <DependentUpon>201801152130348_AddPerformanceCycleEntity3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801182104291_AddBlockToTrade.resx">
+      <DependentUpon>201801182104291_AddBlockToTrade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801192331372_ConvertSomeFieldsToPerformanceCycle.resx">
+      <DependentUpon>201801192331372_ConvertSomeFieldsToPerformanceCycle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801221815347_RemoveSnapshots.resx">
+      <DependentUpon>201801221815347_RemoveSnapshots.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801221820497_AddMoreFieldsToPerformanceCycle.resx">
+      <DependentUpon>201801221820497_AddMoreFieldsToPerformanceCycle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802122340474_AddPpcToPerformanceCycle.resx">
+      <DependentUpon>201802122340474_AddPpcToPerformanceCycle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802130006028_AddCnbcSymbol.resx">
+      <DependentUpon>201802130006028_AddCnbcSymbol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802141943459_AddTradeSettings.resx">
+      <DependentUpon>201802141943459_AddTradeSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803011900029_AddTradeMlFields.resx">
+      <DependentUpon>201803011900029_AddTradeMlFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803012000256_RemoveTradingDayAndBlock.resx">
+      <DependentUpon>201803012000256_RemoveTradingDayAndBlock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803020022386_fix.resx">
+      <DependentUpon>201803020022386_fix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803052246125_RemoveMfe.resx">
+      <DependentUpon>201803052246125_RemoveMfe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803070018117_ChangeUpMlFields.resx">
+      <DependentUpon>201803070018117_ChangeUpMlFields.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

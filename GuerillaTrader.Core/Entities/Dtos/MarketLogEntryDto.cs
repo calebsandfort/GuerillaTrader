@@ -27,7 +27,6 @@ namespace GuerillaTrader.Entities.Dtos
 
         public MarketLogEntryTypes MarketLogEntryType { get; set; }
         public String MarketLogEntryTypeDisplay { get { return this.MarketLogEntryType.GetDisplay(); } }
-        public virtual int TradingDayId { get; set; }
 
         public virtual int TradingAccountId { get; set; }
 

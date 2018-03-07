@@ -4,10 +4,8 @@
 /ZN[Z7],"10-Year U.S. Treasury Note Futures,ETH",126'195,+0.16%,1164344.17,0.015625,25.933333
 /TN[Z7],Ultra 10-Year U.S. Treasury Note Futures,135'315,+0.24%,96618.933,0.015625,37.166667
 /ZB[Z7],"30-Year U.S. Treasury Bond Futures,ETH",155'12,+0.34%,235817.03,0.03125,33.9
-/GLB[Z7],"LIBOR one-month Futures,ETH",98.6600,-0.01%,377.1667,0.0025,0.5667
 /UB[Z7],"Ultra T-Bond Futures, ETH",168'06,+0.37%,104111.4,0.03125,46.63333
 /SI[U7],"Silver Futures, ETH",17.060,+0.57%,81451.7,0.005,64.167
-/HG[U7],"Copper Futures, ETH",3.0390,+0.16%,88337.1,5.0E-4,98.0667
 /6A[U7],"Australian Dollar Futures,ETH",.7932,+0.37%,94611.5,1.0E-4,71.6
 /6B[U7],"British Pound Futures,ETH",1.2888,+0.60%,95031.167,1.0E-4,85.4
 /6C[U7],"Canadian Dollar Futures,ETH",.80170,+0.39%,69076.133,5.0E-5,112.46667
@@ -16,21 +14,9 @@
 /6M[U7],"Mexican Peso Futures,ETH",.05653,+0.44%,32924.367,1.0E-5,50.63333
 /6N[U7],"New Zealand Dollar Futures,ETH",.7241,+0.39%,21379.967,1.0E-4,66.1
 /6S[U7],"Swiss Franc Futures,ETH",1.0459,+0.88%,31288.733,1.0E-4,89.0667
-/DX[U7],US Dollar Index Futures,<empty>,<empty>,23862.3,0.005,117.367
-/ZS[X7],"Soybean Futures,ETH",945.00,-0.16%,115186.23,0.25,63.57
-/ZW[Z7],"Wheat Futures,ETH",435.25,+0.17%,60922.37,0.25,45.37
-/ZM[Z7],"Soybean Meal Futures,ETH",300.5,-0.13%,45274.2,0.1,55.2
-/ZL[Z7],"Soybean Oil Futures,ETH",34.91,-0.63%,58557.4,0.01,64.53
 /NQ[U7],"E-mini Nasdaq 100 Index Futures,ETH",5825.25,-0.26%,308007.9,0.25,261.7
 /ES[U7],"E-mini S&P 500 Index Futures,ETH",2442.25,+0.06%,1276559.6,0.25,63.43
 /YM[U7],"Mini Dow Jones Industrial Average Futures,ETH",21798,+0.06%,115100.0,1.0,127.0
 /NG[U7],"Natural Gas Futures,ETH",2.896,-1.80%,122669.633,0.001,71.467
-/CC[Z7],Cocoa Futures,<empty>,<empty>,22902.0,1.0,55.0
-/KC[Z7],Coffee 'C' Futures,<empty>,<empty>,20599.9,0.05,63.63
-/CT[Z7],Cotton No. 2 Futures,<empty>,<empty>,13992.0,0.01,114.27
-/OJ[U7],FCOJ-A Futures,<empty>,<empty>,885.23,0.05,88.97
-/SB[V7],Sugar No. 11 Futures,<empty>,<empty>,51265.07,0.01,42.13
-/HE[V7],"Lean Hog Futures,ETH",62.925,-1.33%,12592.833,0.025,52.467
-/LE[V7],"Live Cattle Futures,ETH",106.800,-0.02%,20401.2,0.025,82.067
 /GC[Z7],"Gold Futures, ETH",1296.5,+0.35%,238978.6,0.1,122.5
 /CL[V7],"Light Sweet Crude Oil Futures,ETH",47.86,+0.91%,781324.67,0.01,122.57

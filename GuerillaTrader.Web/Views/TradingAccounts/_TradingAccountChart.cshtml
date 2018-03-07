@@ -1,0 +1,30 @@
+﻿@model TradingAccountChartModel
+
+@(Html.Kendo().Chart<TradingAccountChartItem>(Model.Items)
+        .Name(String.Format("tradingAccountChart_{0}", Guid.NewGuid()))
+        .Title(Model.Title)
+        .Legend(legend => legend
+            .Visible(false)
+        )
+        .HtmlAttributes(new { style = "height: 300px;" })
+        .Series(series =>
+        {
+            series.Line("Value").CategoryField("Display").Color(Model.Color);
+
+            //series.Line(Model.ValueField)
+            //    .ColorHandler(Model.ValueComp == -1000000m ? "function(e){ return '#007fff'; }" : "function(e){ return e.value >= " + Model.ValueComp + " ? '#3fb618' : '#ff0039' }")
+            //.Markers(markers => markers.Visible(false));
+        })
+        .CategoryAxis(axis => axis
+            .Labels(labels => labels.Rotation(-45))
+        )
+        .ValueAxis(axis => axis.Numeric()
+            .Labels(labels => labels.Format("{0:" + Model.Format + "}"))
+            .Line(line => line.Visible(false))
+        )
+        .Tooltip(tooltip => tooltip
+            .Visible(true)
+            .Template("#= kendo.format('{0:" + Model.Format + "}', dataItem.Value) #")
+        )
+)
+ 

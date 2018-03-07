@@ -63,15 +63,22 @@ namespace GuerillaTrader.Services
 
         public void Save(TosMarketDto dto)
         {
-            if (dto.IsNew)
+            try
             {
-                Market market = dto.MapTo<Market>();
-                this._repository.Insert(market);
+                if (dto.IsNew)
+                {
+                    Market market = dto.MapTo<Market>();
+                    this._repository.Insert(market);
+                }
+                else
+                {
+                    Market market = this._repository.Get(dto.Id);
+                    dto.MapTo(market);
+                }
             }
-            else
+            catch(Exception ex)
             {
-                Market market = this._repository.Get(dto.Id);
-                dto.MapTo(market);
+
             }
         }
 

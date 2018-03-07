@@ -2,15 +2,14 @@
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using Abp.Hangfire;
-using Abp.Hangfire.Configuration;
 using Abp.Zero.Configuration;
 using Abp.Modules;
 using Abp.Web.Mvc;
 using Abp.Web.SignalR;
 using GuerillaTrader.Api;
-using Hangfire;
 using GuerillaTrader.Shared;
+using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace GuerillaTrader.Web
 {
@@ -45,9 +44,19 @@ namespace GuerillaTrader.Web
         {
             IocManager.RegisterAssemblyByConvention(Assembly.GetExecutingAssembly());
 
+            EnableCors();
+
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+        }
+
+        private static void EnableCors()
+        {
+            //This method enables cross origin request
+
+            var cors = new EnableCorsAttribute("*", "*", "*");
+            GlobalConfiguration.Configuration.EnableCors(cors);
         }
     }
 }

@@ -18,14 +18,15 @@ namespace GuerillaTrader.Web.Controllers
     public class TradingAccountsController : GuerillaTraderControllerBase
     {
         readonly IRepository<TradingAccount> _tradingAccountRepository;
+        readonly IRepository<Trade> _tradeRepository;
         readonly ITradingAccountAppService _tradingAccountAppService;
-        readonly IRepository<TradingAccountSnapshot> _tradingAccountSnapshotRepository;
         readonly IObjectMapper _objectMapper;
 
-        public TradingAccountsController(IRepository<TradingAccount> tradingAccountRepository, IRepository<TradingAccountSnapshot> tradingAccountSnapshotRepository, ITradingAccountAppService tradingAccountAppService, IObjectMapper objectMapper)
+        public TradingAccountsController(IRepository<TradingAccount> tradingAccountRepository, IRepository<Trade> tradeRepository,
+            ITradingAccountAppService tradingAccountAppService, IObjectMapper objectMapper)
         {
             _tradingAccountRepository = tradingAccountRepository;
-            _tradingAccountSnapshotRepository = tradingAccountSnapshotRepository;
+            _tradeRepository = tradeRepository;
             _tradingAccountAppService = tradingAccountAppService;
             _objectMapper = objectMapper;
         }
@@ -40,9 +41,12 @@ namespace GuerillaTrader.Web.Controllers
         {
             TradingAccountDetailsModel model = new TradingAccountDetailsModel
             {
-                TradingAccount = _objectMapper.Map<TradingAccountDto>(_tradingAccountRepository.GetAllIncluding(x => x.Snapshots).Single(x => x.Id == id)),
-                Snapshots = _objectMapper.Map<List<TradingAccountSnapshotDto>>(_tradingAccountSnapshotRepository.GetAll().Where(x => x.TradingAccountId == id).OrderBy(x => x.Date).ToList())
+                TradingAccount = _objectMapper.Map<TradingAccountDto>(_tradingAccountRepository.GetAll().Single(x => x.Id == id)),
+                Trades = _objectMapper.Map<List<TradeDto>>(_tradeRepository.GetAll().Where(x => x.TradingAccountId == id).OrderBy(x => x.ExitDate).ToList())
             };
+
+            model.SetPerfFields();
+            model.FillChartItems();
 
             return View(model);
         }
@@ -72,7 +76,9 @@ namespace GuerillaTrader.Web.Controllers
             listItems.Add(new ListItem() { Display = "Commissions", Value = activeAccount.Commissions.ToString("C") });
             listItems.Add(new ListItem() { Display = "Adj P/L", Value = activeAccount.AdjProfitLoss.ToString("C") });
             listItems.Add(new ListItem() { Display = "Total Return", Value = activeAccount.TotalReturn.ToString("P2") });
-            listItems.Add(new ListItem() { Display = "CAGR", Value = activeAccount.CAGR.ToString("P2") });
+            //listItems.Add(new ListItem() { Display = "CAGR", Value = activeAccount.CAGR.ToString("P2") });
+            //listItems.Add(new ListItem() { Display = "R", Value = activeAccount.R.ToString("N2") });
+            //listItems.Add(new ListItem() { Display = "Max DD", Value = activeAccount.MaxDrawdown.ToString("P2") });
 
             result.Data = listItems;
 
@@ -85,7 +91,7 @@ namespace GuerillaTrader.Web.Controllers
         {
             DataSourceResult result = new DataSourceResult();
 
-            result.Data = _objectMapper.Map<List<TradingAccountDto>>(_tradingAccountRepository.GetAllIncluding(x => x.Snapshots).Where(request.Filters).OrderBy(request.Sorts[0]).ToList());
+            result.Data = _objectMapper.Map<List<TradingAccountDto>>(_tradingAccountRepository.GetAll().Where(request.Filters).OrderBy(request.Sorts[0]).ToList());
             result.Total = _tradingAccountRepository.GetAll().Where(request.Filters).Count();
 
             return new GuerillaLogisticsApiJsonResult(result);

@@ -29,13 +29,7 @@ namespace GuerillaTrader.Entities.Dtos
         public Decimal ProfitLoss { get; set; }
 
         [DataType(DataType.Currency)]
-        public Decimal AdjProfitLoss
-        {
-            get
-            {
-                return this.ProfitLoss - this.Commissions;
-            }
-        }
+        public Decimal AdjProfitLoss { get; set; }
 
         public Decimal TotalReturn { get; set; }
 

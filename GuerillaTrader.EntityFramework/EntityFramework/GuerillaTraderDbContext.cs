@@ -13,8 +13,6 @@ namespace GuerillaTrader.EntityFramework
         //TODO: Define an IDbSet for your Entities...
 		public virtual IDbSet<Trade> Trades { get; set; }
         public virtual IDbSet<TradingAccount> TradingAccounts { get; set; }
-        public virtual IDbSet<TradingAccountSnapshot> TradingAccountSnapshots { get; set; }
-        public virtual IDbSet<TradingDay> TradingDays { get; set; }
         public virtual IDbSet<MarketLogEntry> MarketLogEntries { get; set; }
         public virtual IDbSet<TradingDirective> TradingDirectives { get; set; }
         public virtual IDbSet<Market> Markets { get; set; }
@@ -26,6 +24,8 @@ namespace GuerillaTrader.EntityFramework
         public virtual IDbSet<StockBar> StockBars { get; set; }
         public virtual IDbSet<Sector> Sectors { get; set; }
         public virtual IDbSet<Option> Options { get; set; }
+
+        public virtual IDbSet<TradeSettings> TradeSettings { get; set; }
 
         /* NOTE: 
          *   Setting "Default" to base class helps us when working migration commands on Package Manager Console.

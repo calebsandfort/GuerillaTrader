@@ -11,6 +11,7 @@ namespace GuerillaTrader.Entities.Dtos
     {
         public String Name { get; set; }
         public String Symbol { get; set; }
+        public String CnbcSymbol { get; set; }
 
         [DataType(DataType.Currency)]
         public Decimal TickValue { get; set; }

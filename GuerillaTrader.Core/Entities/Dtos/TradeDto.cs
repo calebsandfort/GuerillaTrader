@@ -212,6 +212,11 @@ namespace GuerillaTrader.Entities.Dtos
         [Display(Name = "Profit/Loss")]
         public Decimal ProfitLoss { get; set; }
 
+
+        [DataType(DataType.Currency)]
+        [Display(Name = "Adj Profit/Loss")]
+        public Decimal AdjProfitLoss { get; set; }
+
         [UIHint("MyInt")]
         public int Size { get; set; }
 

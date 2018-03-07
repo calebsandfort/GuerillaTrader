@@ -31,6 +31,11 @@ namespace GuerillaTrader.Entities.Dtos
         [Display(Name = "Exit Reason")]
         public TradeExitReasons ExitReason { get; set; }
 
+        [DataType(DataType.Currency)]
+        [UIHint("MyCurrency")]
+        [Display(Name = "Commissions")]
+        public Decimal ExitCommissions { get; set; }
+
         public List<TradeDto> ToOpenBullPutSpreads(List<Stock> stocks)
         {
             List<TradeDto> trades = new List<TradeDto>();
@@ -119,6 +124,10 @@ namespace GuerillaTrader.Entities.Dtos
                 dto.Stock.Price = Decimal.Parse(statementLines[i + 1]);
                 dto.CoveredCallOption.Price = Decimal.Parse(statementLines[i + 2]);
                 dto.Mark = dto.Stock.Price - dto.CoveredCallOption.Price;
+                if(this.ExitCommissions > 0m)
+                {
+                    dto.Commissions += this.ExitCommissions;
+                }
             }
         }
 
@@ -141,7 +150,8 @@ namespace GuerillaTrader.Entities.Dtos
         {
             List<TradeDto> trades = new List<TradeDto>();
 
-            List<String> tradeLines = this.Trades.Split(new String[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).Select(x => x.Replace("tAndroid", String.Empty).Replace("\t", " ")).ToList();
+            List<String> tradeLines = this.Trades.Split(new String[] { Environment.NewLine, "\n" }, StringSplitOptions.RemoveEmptyEntries)
+                .Select(x => x.Replace("tAndroid", String.Empty).Replace("KEY: Shift 4 ", String.Empty).Replace("KEY: Shift 5 ", String.Empty).Replace("\t", " ")).ToList();
 
             if (tradeLines == null || tradeLines.Count == 0) return trades;
 

@@ -356,7 +356,7 @@ GuerillaTrader.Log.purge = function () {
 }
 
 GuerillaTrader.Log.refresh = function (input) {
-    $("#logListView").data("kendoListView").dataSource.read();
+    if ($("#logListView").size() > 0) $("#logListView").data("kendoListView").dataSource.read();
 }
 
 GuerillaTrader.Util.handlePaste = function (fieldName, e) {
@@ -622,6 +622,12 @@ GuerillaTrader.TradingAccount.purge = function () {
         GuerillaTrader.TradingAccount.refreshDetails();
         GuerillaTrader.Trade.refresh();
         abp.ui.clearBusy('#tradesGrid');
+    });
+}
+
+GuerillaTrader.TradingAccount.reconcile = function () {
+    abp.services.app.tradingAccount.reconcile(0, "1/12/2018").done(function () {
+        GuerillaTrader.TradingAccount.refreshDetails();
     });
 }
 

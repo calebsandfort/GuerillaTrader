@@ -30,7 +30,7 @@ namespace GuerillaTrader.Migrations
                 new TenantRoleAndUserBuilder(context, 1).Create();
                 new MarketsCreator(context).Create();
                 new SectorsCreator(context).Create();
-                //new TradingDirectivesCreator(context).Create();
+                new TradeSettingsCreator(context).Create();
             }
             else
             {

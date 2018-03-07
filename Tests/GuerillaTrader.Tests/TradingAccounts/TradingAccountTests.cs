@@ -33,14 +33,13 @@ namespace GuerillaTrader.Tests.TradingAccounts
         [Fact(DisplayName = "TradingAccounts.BootstrapSnapshotsParent")]
         public void BootstrapSnapshotsParent_Test()
         {
-            this._TradingAccountAppService.BootstrapSnapshotsParent(1);
+            this._TradingAccountAppService.BootstrapSnapshotsParent(4);
         }
 
         [Fact(DisplayName = "TradingAccounts.BootstrapSnapshotsChild")]
         public void BootstrapSnapshotsChild_Test()
         {
-            TradingAccount ta = _TradingAccountAppService.Get(3, x => x.Snapshots, x => x.Trades);
-            this._TradingAccountAppService.BootstrapSnapshotsChild(ta);
+            
         }
     }
 }

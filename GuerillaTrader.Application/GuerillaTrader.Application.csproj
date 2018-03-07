@@ -174,7 +174,6 @@
     <Compile Include="Services\IStockAppService.cs" />
     <Compile Include="Services\ITradeAppService.cs" />
     <Compile Include="Services\ITradingAccountAppService.cs" />
-    <Compile Include="Services\ITradingDayAppService.cs" />
     <Compile Include="Services\StockAppService.cs" />
     <Compile Include="Services\MarketAppService.cs" />
     <Compile Include="Services\MarketLogEntryAppService.cs" />
@@ -184,7 +183,6 @@
     <Compile Include="Services\Token.cs" />
     <Compile Include="Services\TradeAppService.cs" />
     <Compile Include="Services\TradingAccountAppService.cs" />
-    <Compile Include="Services\TradingDayAppService.cs" />
     <Compile Include="Users\Dto\CreateUserInput.cs" />
     <Compile Include="Users\IUserAppService.cs" />
     <Compile Include="Roles\RoleAppService.cs" />
@@ -196,6 +194,7 @@
     <Compile Include="Users\Dto\ProhibitPermissionInput.cs" />
     <Compile Include="Users\UserAppService.cs" />
     <Compile Include="Users\Dto\UserListDto.cs" />
+    <Compile Include="Utilities\Extensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -269,6 +268,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
